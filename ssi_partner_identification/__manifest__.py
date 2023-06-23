@@ -3,7 +3,7 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
     "name": "Partner Identification",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.1.0",
     "website": "https://simetri-sinergi.id",
     "author": "PT. Simetri Sinergi Indonesia, OpenSynergy Indonesia",
     "license": "LGPL-3",
@@ -16,6 +16,7 @@
     "data": [
         "security/res_group_data.xml",
         "security/ir.model.access.csv",
+        "menu.xml",
         "views/res_partner_id_category_view.xml",
         "views/res_partner_id_number_view.xml",
     ],
