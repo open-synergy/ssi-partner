@@ -6,7 +6,7 @@
     <menuitem
         id="partner_identification.menu_partner_id_numbers"
         action="partner_identification.action_partner_id_numbers_form"
-        parent="ssi_partner.res_partner_menu_config"
+        parent="menu_config_partner_identification"
         groups="partner_id_number_configurator_group"
     />
 </odoo>
