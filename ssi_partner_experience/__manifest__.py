@@ -11,6 +11,7 @@
     "application": True,
     "depends": [
         "ssi_employee_document_mixin",
+        "ssi_duration_mixin",
         "ssi_partner_education_level",
     ],
     "data": [
