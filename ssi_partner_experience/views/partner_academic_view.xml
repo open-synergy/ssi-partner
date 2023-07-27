@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 OpenSynergy Indonesia
+     Copyright 2023 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record id="partner_academic_view_search" model="ir.ui.view">
+        <field name="name">partner.academic.search</field>
+        <field name="model">partner.academic</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="partner_academic_view_tree" model="ir.ui.view">
+        <field name="name">partner.academic.tree</field>
+        <field name="model">partner.academic</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="partner_id" />
+                    <field name="partner_address_id" string="Institution" />
+                    <field name="diploma" />
+                    <field name="field_of_study_id" />
+                    <field name="date_start" />
+                    <field name="date_end" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="partner_academic_view_form" model="ir.ui.view">
+        <field name="name">partner.academic.form</field>
+        <field name="model">partner.academic</field>
+        <field name="priority">100</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//group[@name='group_1']" position="replace">
+                    <group name="header" colspan="4" col="2">
+                        <group name="header_left" colspan="1" col="2">
+                            <field name="name" />
+                            <field name="code" />
+                            <field name="partner_id" />
+                            <field name="partner_address_id" string="Institution" />
+                            <field name="location" />
+                            <field name="active" widget="boolean_toggle" />
+                        </group>
+                        <group name="header_right" colspan="1" col="2">
+                            <field name="date_start" />
+                            <field name="expire" />
+                            <field
+                                name="date_end"
+                                attrs="{'invisible':[('expire', '=', False)], 'required': [('expire', '=', True)]}"
+                            />
+                            <separator string="Academic Information" colspan="1" />
+                            <field name="diploma" />
+                            <field name="field_of_study_id" />
+                            <field name="activities" />
+                        </group>
+                    </group>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="partner_academic_action" model="ir.actions.act_window">
+        <field name="name">Academic Experiences</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">partner.academic</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="partner_academic_menu"
+        name="Academic Experiences"
+        parent="menu_config_partner_experience"
+        groups="partner_academic_configurator_group"
+        action="partner_academic_action"
+        sequence="1"
+    />
+</odoo>
