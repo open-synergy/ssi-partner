@@ -11,7 +11,7 @@ class PartnerAcademic(models.Model):
     _description = "Contact's Academic Experience"
 
     diploma = fields.Char(
-        string="Diploma",
+        string="Diploma Number",
     )
     education_level_id = fields.Many2one(
         string="Education Level",

@@ -8,13 +8,16 @@ from odoo import fields, models
 class PartnerExperienceMixin(models.AbstractModel):
     _name = "partner.experience.mixin"
     _inherit = [
-        "mixin.master_data",
-        "mixin.employee_document",
+        "mail.activity.mixin",
+        "mail.thread",
         "mixin.date_duration",
     ]
     _description = "Abstract Class for Partner Experience"
     _date_end_required = False
 
+    name = fields.Char(
+        string="Name",
+    )
     partner_id = fields.Many2one(
         string="Partner",
         comodel_name="res.partner",
@@ -25,6 +28,7 @@ class PartnerExperienceMixin(models.AbstractModel):
         comodel_name="res.partner",
         string="Address",
         help="Employer, School, University, " "Certification Authority",
+        domain="[('is_company', '!=', False)]",
     )
     location = fields.Char(
         string="Location",
@@ -34,4 +38,11 @@ class PartnerExperienceMixin(models.AbstractModel):
         string="Expire",
         help="Expire",
         default=True,
+    )
+    active = fields.Boolean(
+        string="Active",
+        default=True,
+    )
+    note = fields.Text(
+        string="Note",
     )

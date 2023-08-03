@@ -6,54 +6,62 @@
     <record id="partner_academic_view_search" model="ir.ui.view">
         <field name="name">partner.academic.search</field>
         <field name="model">partner.academic</field>
-        <field
-            name="inherit_id"
-            ref="ssi_master_data_mixin.mixin_master_data_view_search"
-        />
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <data />
+            <search>
+                <field name="partner_id" />
+                <field name="partner_address_id" />
+                <field name="diploma" />
+                <field name="field_of_study_id" />
+                <group name="group_by">
+                    <filter
+                        name="grp_partner"
+                        string="Partner"
+                        context="{'group_by':'partner_id'}"
+                    />
+                    <filter
+                        name="grp_partner_address_id"
+                        string="Institution"
+                        context="{'group_by':'partner_address_id'}"
+                    />
+                    <filter
+                        name="grp_field_of_study_id"
+                        string="Field Of Study"
+                        context="{'group_by': 'field_of_study_id'}"
+                    />
+                </group>
+            </search>
         </field>
     </record>
 
     <record id="partner_academic_view_tree" model="ir.ui.view">
         <field name="name">partner.academic.tree</field>
         <field name="model">partner.academic</field>
-        <field
-            name="inherit_id"
-            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
-        />
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <data>
-                <xpath expr="//field[@name='name']" position="after">
-                    <field name="partner_id" />
-                    <field name="partner_address_id" string="Institution" />
-                    <field name="diploma" />
-                    <field name="field_of_study_id" />
-                    <field name="date_start" />
-                    <field name="date_end" />
-                </xpath>
-            </data>
+            <tree>
+                <field name="partner_id" />
+                <field name="partner_address_id" string="Institution" />
+                <field name="diploma" />
+                <field name="field_of_study_id" />
+                <field name="gpa" />
+                <field name="date_start" />
+                <field name="date_end" />
+            </tree>
         </field>
     </record>
 
     <record id="partner_academic_view_form" model="ir.ui.view">
         <field name="name">partner.academic.form</field>
         <field name="model">partner.academic</field>
-        <field name="priority">100</field>
-        <field
-            name="inherit_id"
-            ref="ssi_master_data_mixin.mixin_master_data_view_form"
-        />
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <data>
-                <xpath expr="//group[@name='group_1']" position="replace">
+            <form>
+                <header />
+                <sheet>
+                    <div name="div_smart_buttons" class="oe_right oe_button_box" />
                     <group name="header" colspan="4" col="2">
                         <group name="header_left" colspan="1" col="2">
-                            <field name="name" />
-                            <field name="code" />
                             <field name="partner_id" />
                             <field name="partner_address_id" string="Institution" />
                             <field name="location" />
@@ -69,11 +77,22 @@
                             <separator string="Academic Information" colspan="1" />
                             <field name="diploma" />
                             <field name="field_of_study_id" />
+                            <field name="gpa" />
                             <field name="activities" />
                         </group>
                     </group>
-                </xpath>
-            </data>
+                    <notebook>
+                        <page name="note" string="Note">
+                            <field name="note" colspan="4" nolabel="1" />
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
         </field>
     </record>
 

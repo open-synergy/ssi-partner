@@ -10,22 +10,9 @@ class PartnerExperience(models.Model):
     _inherit = "partner.experience.mixin"
     _description = "Contact's Professional Experience"
 
-    category = fields.Selection(
-        selection=[
-            ("professional", "Professional"),
-            ("academic", "Academic"),
-            ("certification", "Certification"),
-        ],
-        string="Category",
-        required=True,
-        default="professional",
-        help="Category",
+    job_position = fields.Char(
+        string="Job Position",
     )
-    # job_id = fields.Many2one(
-    #     string="Position",
-    #     comodel_name="res.partner.job_position",
-    # )
-    # job_level_id = fields.Many2one(
-    #     string="Job Level",
-    #     comodel_name="partner.job_level",
-    # )
+    job_level = fields.Char(
+        string="Job Level",
+    )
