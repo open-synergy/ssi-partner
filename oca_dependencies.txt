@@ -2,3 +2,4 @@
 
 ssi-mixin https://github.com/open-synergy/ssi-mixin 14.0
 oca-partner https://github.com/OCA/partner-contact.git 14.0
+opnsynid-hr-employee-directory https://github.com/open-synergy/opnsynid-hr-employee-directory.git 14.0

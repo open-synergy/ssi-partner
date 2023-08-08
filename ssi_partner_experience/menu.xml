@@ -4,9 +4,9 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <menuitem
-        id="menu_config_partner_identification"
-        name="Identities"
+        id="menu_config_partner_experience"
+        name="Experiences"
         parent="ssi_partner.res_partner_menu_config"
-        sequence="7"
+        sequence="9"
     />
 </odoo>
