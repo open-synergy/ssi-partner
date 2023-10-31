@@ -11,6 +11,7 @@
     "application": True,
     "depends": [
         "contacts",
+        "ssi_master_data_mixin",
     ],
     "data": [
         "security/ir_module_category_data.xml",
@@ -26,6 +27,7 @@
         "views/res_country_group_views.xml",
         "views/res_bank_views.xml",
         "views/res_partner_bank_views.xml",
+        "views/contact_group_views.xml",
     ],
     "demo": [],
 }

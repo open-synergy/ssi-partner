@@ -17,3 +17,4 @@ access_res_bank_configurator,res.bank - configurator,base.model_res_bank,banks_c
 access_res_bank_all,res.bank - all,base.model_res_bank,,1,0,0,0
 access_res_partner_bank_configurator,res.partner.bank - configurator,base.model_res_partner_bank,banks_account_configurator_group,1,1,1,1
 access_res_partner_bank_all,res.partner.bank - all,base.model_res_partner_bank,,1,0,0,0
+access_contact_group_all,contact_group - all,ssi_partner.model_contact_group,,1,1,1,1
