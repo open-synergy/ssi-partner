@@ -1,12 +1,12 @@
 # Copyright 2022 OpenSynergy Indonesia
 # Copyright 2022 PT. Simetri Sinergi Indonesia
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Partner App",
     "version": "14.0.1.0.1",
     "website": "https://simetri-sinergi.id",
     "author": "PT. Simetri Sinergi Indonesia, OpenSynergy Indonesia",
-    "license": "LGPL-3",
+    "license": "AGPL-3",
     "installable": True,
     "application": True,
     "depends": [
@@ -26,6 +26,7 @@
         "views/res_country_group_views.xml",
         "views/res_bank_views.xml",
         "views/res_partner_bank_views.xml",
+        "views/company_ownership_type_views.xml",
     ],
     "demo": [],
 }

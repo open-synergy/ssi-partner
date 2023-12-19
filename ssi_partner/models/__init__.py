@@ -3,5 +3,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import (
-    models,
+    company_ownership_type,
+    res_partner,
 )

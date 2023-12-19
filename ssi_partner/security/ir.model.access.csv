@@ -17,3 +17,5 @@ access_res_bank_configurator,res.bank - configurator,base.model_res_bank,banks_c
 access_res_bank_all,res.bank - all,base.model_res_bank,,1,0,0,0
 access_res_partner_bank_configurator,res.partner.bank - configurator,base.model_res_partner_bank,banks_account_configurator_group,1,1,1,1
 access_res_partner_bank_all,res.partner.bank - all,base.model_res_partner_bank,,1,0,0,0
+access_company_ownership_type_configurator,company_ownership_type - configurator,model_company_ownership_type,ownership_type_configurator_group,1,1,1,1
+access_company_ownership_type_all,company_ownership_type - all,model_company_ownership_type,,1,0,0,0
