@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2024 OpenSynergy Indonesia
+     Copyright 2024 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="portal_layout" inherit_id="portal.portal_layout">
+        <xpath expr="//div[hasclass('o_portal_my_security')]" position="after">
+            <div class="o_portal_my_security mt-3">
+                <h4>Identification </h4>
+                <hr class="mt-1 mb-1"/>
+                <a href="/my/identifications"><i class="fa fa-pencil mx-1"/>Edit Identification</a>
+            </div>
+        </xpath>
+    </template>
+    <template id="portal_my_identifications">
+        <t t-call="portal.portal_layout">
+            <div class="o_portal_identification_body">
+                <t t-set="additional_title">Identification</t>
+                <t t-set="no_breadcrumbs" t-value="1"/>
+                <div class="alert alert-danger" role="alert" t-if="get_error(errors)">
+                    <t t-esc="errors"/>
+                </div>
+                <section>
+                    <h3>ID Numbers</h3>
+                </section>
+            </div>
+            <t t-if="not id_numbers">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no ID numbers.
+                </div>
+            </t>
+            <t t-if="id_numbers" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Category</th>
+                        <th># ID Number</th>
+                        <th>Issued by</th>
+                        <th>Issued on</th>
+                        <th>Valid From</th>
+                        <th>Valid Until</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="id_numbers" t-as="id_number">
+                        <td><span t-field="id_number.category_id" /></td>
+                        <td>
+                            <a
+                                t-attf-href="/my/identification/#{id_number.id}?{{ keep_query() }}"
+                            ><span t-field="id_number.name" /></a>
+                        </td>
+                        <td><span t-field="id_number.partner_issued_id" /></td>
+                        <td><span t-field="id_number.date_issued" /></td>
+                        <td><span t-field="id_number.valid_from" /></td>
+                        <td><span t-field="id_number.valid_until" /></td>
+                        <td class="tx_status">
+                            <t t-if="id_number.status == 'draft'">
+                                <span class="badge badge-pill badge-info"><i
+                                        class="fa fa-fw fa-clock-o"
+                                        aria-label="New"
+                                        title="New"
+                                        role="img"
+                                    /><span
+                                        class="d-none d-md-inline"
+                                    >New</span></span>
+                            </t>
+                            <t t-if="id_number.status == 'open'">
+                                <span class="badge badge-pill badge-info"><i
+                                        class="fa fa-fw fa-clock-o"
+                                        aria-label="Running"
+                                        title="Running"
+                                        role="img"
+                                    /><span
+                                        class="d-none d-md-inline"
+                                    >Running</span></span>
+                            </t>
+                            <t t-if="id_number.status == 'pending'">
+                                <span class="badge badge-pill badge-info"><i
+                                        class="fa fa-fw fa-clock-o"
+                                        aria-label="To Renew"
+                                        title="To Renew"
+                                        role="img"
+                                    /><span
+                                        class="d-none d-md-inline"
+                                    >To Renew</span></span>
+                            </t>
+                            <t t-if="id_number.status == 'close'">
+                                <span class="badge badge-pill badge-info"><i
+                                        class="fa fa-fw fa-clock-o"
+                                        aria-label="Expired"
+                                        title="Expired"
+                                        role="img"
+                                    /><span
+                                        class="d-none d-md-inline"
+                                    >Expired</span></span>
+                            </t>
+                        </td>
+                    </tr>
+                </tbody>
+            </t>
+        </t>
+    </template>
+</odoo>
