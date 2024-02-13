@@ -13,4 +13,4 @@ class PortalIdentificationNumber(models.Model):
     ]
     _description = "Portal Identification Number"
     _table = "res_partner_id_number"
-
+    _order = "category_id"

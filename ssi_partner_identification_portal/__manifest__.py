@@ -17,6 +17,8 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "security/ir_rule_data.xml",
+        "views/assets.xml",
         "views/portal_templates.xml",
     ],
     "demo": [],
