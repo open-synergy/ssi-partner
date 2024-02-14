@@ -7,7 +7,9 @@
     <field name="arch" type="xml">
         <xpath expr="//page[@name='sales_purchases']" position="after">
             <page name="creditor_debtor" string="Creditor &amp; Debtor">
-                <separator string="Creditor" name="creditor" />
+                <group string="Creditor" name="creditor" colspan="4" col="2">
+                    <field name="primary_creditor_id" />
+                </group>
                 <field name="creditor_ids">
                     <tree editable="bottom">
                         <field name="sequence" widget="handle" />
@@ -17,7 +19,7 @@
                             />
                     </tree>
                 </field>
-                <separator name="debtor" string="Debtors" />
+                <group name="debtor" string="Debtors" colspan="4" col="2" />
                 <field name="debtor_ids">
                     <tree editable="bottom">
                         <field name="debtor_id" />
