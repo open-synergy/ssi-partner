@@ -5,7 +5,7 @@
 <odoo>
     <template id="portal_layout" inherit_id="portal.portal_layout">
         <xpath expr="//div[hasclass('o_portal_my_security')]" position="after">
-            <div class="o_portal_my_security mt-3">
+            <div class="o_portal_my_identification mt-3">
                 <h4>Identification </h4>
                 <hr class="mt-1 mb-1" />
                 <a href="/my/identifications"><i class="fa fa-pencil mx-1" />Edit Identification</a>
