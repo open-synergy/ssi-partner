@@ -18,12 +18,12 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ssi_partner](ssi_partner/) | 14.0.1.2.0 |  | Partner App
+[ssi_partner](ssi_partner/) | 14.0.1.3.0 |  | Partner App
 [ssi_partner_creditor_debitor](ssi_partner_creditor_debitor/) | 14.0.1.0.0 |  | Partner Creditor and Debitor Information
 [ssi_partner_education_level](ssi_partner_education_level/) | 14.0.1.2.0 |  | Partner Education Level
 [ssi_partner_experience](ssi_partner_experience/) | 14.0.1.0.0 |  | Partner Experience
 [ssi_partner_identification](ssi_partner_identification/) | 14.0.1.1.1 |  | Partner Identification
-[ssi_partner_portal](ssi_partner_portal/) | 14.0.1.0.0 |  | Partner Portal
+[ssi_partner_portal](ssi_partner_portal/) | 14.0.1.1.0 |  | Partner Portal
 
 [//]: # (end addons)
 
