@@ -5,9 +5,16 @@
 <odoo>
     <template id="portal_my_details" inherit_id="portal.portal_my_details">
         <xpath expr="//div[hasclass('col-lg-8')]/div/div[7]" position="after">
-            <div t-attf-class="form-group #{error.get('mobile') and 'o_has_error' or ''} col-xl-6">
+            <div
+                t-attf-class="form-group #{error.get('mobile') and 'o_has_error' or ''} col-xl-6"
+            >
                 <label class="col-form-label" for="mobile">Mobile</label>
-                <input type="tel" name="mobile" t-attf-class="form-control #{error.get('mobile') and 'is-invalid' or ''}" t-att-value="mobile or partner.mobile" />
+                <input
+                    type="tel"
+                    name="mobile"
+                    t-attf-class="form-control #{error.get('mobile') and 'is-invalid' or ''}"
+                    t-att-value="mobile or partner.mobile"
+                />
             </div>
         </xpath>
     </template>
@@ -16,7 +23,9 @@
             <div class="o_portal_my_bank_account mt-3">
                 <h4>Bank Accounts </h4>
                 <hr class="mt-1 mb-1" />
-                <a href="/my/bank_accounts"><i class="fa fa-pencil mx-1" />Edit Bank Account</a>
+                <a href="/my/bank_accounts"><i
+                        class="fa fa-pencil mx-1"
+                    />Edit Bank Account</a>
             </div>
         </xpath>
     </template>
@@ -37,14 +46,18 @@
                     </div>
                 </t>
                 <div class="form-group">
-                    <a class="btn btn-secondary" href="/my/bank_account" title="Create"> Create</a>
+                    <a
+                        class="btn btn-secondary"
+                        href="/my/bank_account"
+                        title="Create"
+                    > Create</a>
                 </div>
                 <t t-if="bank_account_ids" t-call="portal.portal_table">
                     <thead>
                         <tr class="active">
                             <th>Bank</th>
                             <th># Account Number</th>
-                            <th></th>
+                            <th />
                         </tr>
                     </thead>
                     <tbody>
@@ -56,7 +69,11 @@
                                 ><span t-field="bank_account_id.acc_number" /></a>
                             </td>
                             <td>
-                                <a class="btn" t-attf-href="/my/bank_account/remove/#{bank_account_id.id}?{{ keep_query() }}" title="Delete"><i class="fa fa-remove" /> Delete</a>
+                                <a
+                                    class="btn"
+                                    t-attf-href="/my/bank_account/remove/#{bank_account_id.id}?{{ keep_query() }}"
+                                    title="Delete"
+                                ><i class="fa fa-remove" /> Delete</a>
                             </td>
                         </tr>
                     </tbody>
@@ -71,20 +88,41 @@
                 <t t-set="no_breadcrumbs" t-value="1" />
                 <section>
                     <h3>Bank Accounts</h3>
-                    <form action="/my/bank_account" method="post" class="oe_partner_bank_account_form">
-                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                        <input type="hidden" name="id" t-att-value="current_bank_account_id.id" />
+                    <form
+                        action="/my/bank_account"
+                        method="post"
+                        class="oe_partner_bank_account_form"
+                    >
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            t-att-value="request.csrf_token()"
+                        />
+                        <input
+                            type="hidden"
+                            name="id"
+                            t-att-value="current_bank_account_id.id"
+                        />
                         <div class="form-group">
                             <label for="name">Account Number:</label>
-                            <input type="text" t-attf-class="form-control form-control-sm"
-                                   name="acc_number" required="required" t-att-value="current_bank_account_id.acc_number" />
+                            <input
+                                type="text"
+                                t-attf-class="form-control form-control-sm"
+                                name="acc_number"
+                                required="required"
+                                t-att-value="current_bank_account_id.acc_number"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="category">Bank:</label>
                             <select class="form-control" name="bank">
                                 <option value="" />
                                 <t t-foreach="bank_ids" t-as="bank_id">
-                                    <option t-att-value="bank_id.id" t-esc="bank_id.name" t-att-selected="bank_id.id == current_bank_account_id.bank_id.id" />
+                                    <option
+                                        t-att-value="bank_id.id"
+                                        t-esc="bank_id.name"
+                                        t-att-selected="bank_id.id == current_bank_account_id.bank_id.id"
+                                    />
                                 </t>
                             </select>
                         </div>
@@ -93,16 +131,28 @@
                             <select class="form-control" name="currency">
                                 <option value="" />
                                 <t t-foreach="currency_ids" t-as="currency_id">
-                                    <option t-att-value="currency_id.id" t-esc="currency_id.name" t-att-selected="currency_id.id == current_bank_account_id.currency_id.id" />
+                                    <option
+                                        t-att-value="currency_id.id"
+                                        t-esc="currency_id.name"
+                                        t-att-selected="currency_id.id == current_bank_account_id.currency_id.id"
+                                    />
                                 </t>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="name">Account Holder Name:</label>
-                            <input type="text" t-attf-class="form-control form-control-sm"
-                                   name="acc_holder_name" t-att-value="current_bank_account_id.acc_holder_name" />
+                            <input
+                                type="text"
+                                t-attf-class="form-control form-control-sm"
+                                name="acc_holder_name"
+                                t-att-value="current_bank_account_id.acc_holder_name"
+                            />
                         </div>
-                        <div class="alert alert-danger" role="alert" t-if="error_message">
+                        <div
+                            class="alert alert-danger"
+                            role="alert"
+                            t-if="error_message"
+                        >
                             <t t-esc="error_message" />
                         </div>
                         <button type="submit" class="btn btn-secondary">Save</button>
