@@ -41,7 +41,8 @@
                             <th>Valid From</th>
                             <th>Valid Until</th>
                             <th>Status</th>
-                            <th></th>
+                            <th/>
+                            <th/>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,6 +98,9 @@
                                             class="d-none d-md-inline"
                                         >Expired</span></span>
                                 </t>
+                            </td>
+                            <td>
+                                <a class="btn" t-attf-href="/my/identification/#{id_number.id}?{{ keep_query() }}" title="Edit"><i class="fa fa-edit" /> Edit</a>
                             </td>
                             <td>
                                 <a class="btn" t-attf-href="/my/identification/remove/#{id_number.id}?{{ keep_query() }}" title="Delete"><i class="fa fa-remove" /> Delete</a>
