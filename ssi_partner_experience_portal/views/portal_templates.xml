@@ -45,7 +45,8 @@
                             <th>Field of Study</th>
                             <th>Date Start</th>
                             <th>Date End</th>
-                            <th></th>
+                            <th/>
+                            <th/>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,6 +61,9 @@
                             <td><span t-field="academic_id.field_of_study_id" /></td>
                             <td><span t-field="academic_id.date_start" /></td>
                             <td><span t-field="academic_id.date_end" /></td>
+                            <td>
+                                <a class="btn" t-attf-href="/my/academic/#{academic_id.id}?{{ keep_query() }}" title="Edit"><i class="fa fa-edit" /> Edit</a>
+                            </td>
                             <td>
                                 <a class="btn" t-attf-href="/my/academic/remove/#{academic_id.id}?{{ keep_query() }}" title="Delete"><i class="fa fa-remove" /> Delete</a>
                             </td>
@@ -101,12 +105,18 @@
                         <div class="form-group">
                             <label for="name">Expire:</label>
                             <input type="checkbox" t-attf-class="form-check"
-                                   name="expire" t-att-checked="current_academic_id.expire" />
+                                   name="expire" t-att-checked="current_academic_id.expire" onchange="onchangeExpire()" />
                         </div>
+                        <script type="text/javascript">
+                            function onchangeExpire(){
+                                var expire = document.getElementsByName("expire")[0].checked;
+                                document.getElementsByName("date_end")[0].required = expire;
+                            };
+                        </script>
                         <div class="form-group">
                             <label for="name">Date End:</label>
                             <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="date_end" required="required" t-att-value="current_academic_id.date_end" />
+                                   name="date_end" t-att-required="'required' if current_academic_id.expire else None" t-att-value="current_academic_id.date_end" />
                         </div>
                         <div class="form-group">
                             <label for="name">Diploma Number:</label>
@@ -181,7 +191,8 @@
                             <th>Employer</th>
                             <th>Date Start</th>
                             <th>Date End</th>
-                            <th></th>
+                            <th/>
+                            <th/>
                         </tr>
                     </thead>
                     <tbody>
@@ -195,6 +206,9 @@
                             <td><span t-field="experience_id.partner_address_id" /></td>
                             <td><span t-field="experience_id.date_start" /></td>
                             <td><span t-field="experience_id.date_end" /></td>
+                            <td>
+                                <a class="btn" t-attf-href="/my/experience/#{experience_id.id}?{{ keep_query() }}" title="Edit"><i class="fa fa-edit" /> Edit</a>
+                            </td>
                             <td>
                                 <a class="btn" t-attf-href="/my/experience/remove/#{experience_id.id}?{{ keep_query() }}" title="Delete"><i class="fa fa-remove" /> Delete</a>
                             </td>
@@ -246,12 +260,18 @@
                         <div class="form-group">
                             <label for="name">Expire:</label>
                             <input type="checkbox" t-attf-class="form-check"
-                                   name="expire" t-att-checked="current_experience_id.expire" />
+                                   name="expire" t-att-checked="current_experience_id.expire" onchange="onchangeExpire()" />
                         </div>
+                        <script type="text/javascript">
+                            function onchangeExpire(){
+                                var expire = document.getElementsByName("expire")[0].checked;
+                                document.getElementsByName("date_end")[0].required = expire;
+                            };
+                        </script>
                         <div class="form-group">
                             <label for="name">Date End:</label>
                             <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="date_end" required="required" t-att-value="current_experience_id.date_end" />
+                                   name="date_end" t-att-required="'required' if current_academic_id.expire else None" t-att-value="current_experience_id.date_end" />
                         </div>
                         <div class="form-group">
                             <label for="note">Notes:</label>
