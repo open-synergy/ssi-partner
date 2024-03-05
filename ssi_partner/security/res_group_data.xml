@@ -93,4 +93,22 @@
             eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
         />
 </record>
+
+<record id="res_partner_religion_configurator_group" model="res.groups">
+    <field name="name">Religion</field>
+    <field name="category_id" ref="partner_configurator_module_category" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<record id="res_partner_ethnicity_configurator_group" model="res.groups">
+    <field name="name">Ethnicity</field>
+    <field name="category_id" ref="partner_configurator_module_category" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
 </odoo>

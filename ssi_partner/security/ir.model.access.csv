@@ -21,3 +21,7 @@ access_company_ownership_type_configurator,company_ownership_type - configurator
 access_company_ownership_type_all,company_ownership_type - all,model_company_ownership_type,,1,0,0,0
 access_partner_contact_group_configurator,partner_contact_group - configurator,model_partner_contact_group,partner_contact_group_configurator_group,1,1,1,1
 access_partner_contact_group_all,partner_contact_group - all,model_partner_contact_group,,1,0,0,0
+access_res_partner_religion_configurator,res_partner_religion - configurator,model_res_partner_religion,res_partner_religion_configurator_group,1,1,1,1
+access_res_partner_religion_all,res_partner_religion - all,model_res_partner_religion,,1,0,0,0
+access_res_partner_ethnicity_configurator,res_partner_ethnicity - configurator,model_res_partner_ethnicity,res_partner_ethnicity_configurator_group,1,1,1,1
+access_res_partner_ethnicity_all,res_partner_ethnicity - all,model_res_partner_ethnicity,,1,0,0,0
