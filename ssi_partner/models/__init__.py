@@ -6,4 +6,6 @@ from . import (
     company_ownership_type,
     res_partner,
     partner_contact_group,
+    res_partner_religion,
+    res_partner_ethnicity,
 )

@@ -12,3 +12,29 @@ class ResPartner(models.Model):
         string="Ownership Type",
         comodel_name="company_ownership_type",
     )
+    blood_type = fields.Selection(
+        string="Blood Type (ABO)",
+        selection=[
+            ("A", "A"),
+            ("B", "B"),
+            ("0", "O"),
+            ("AB", "AB"),
+        ],
+        required=False,
+    )
+    blood_type_rhesus = fields.Selection(
+        string="Blood Type (Rh)",
+        selection=[
+            ("positive", "+"),
+            ("negative", "-"),
+        ],
+        required=False,
+    )
+    religion_id = fields.Many2one(
+        string="Religion",
+        comodel_name="res_partner_religion",
+    )
+    ethnicity_id = fields.Many2one(
+        string="Ethnicity",
+        comodel_name="res_partner_ethnicity",
+    )
