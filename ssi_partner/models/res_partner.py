@@ -25,8 +25,8 @@ class ResPartner(models.Model):
     blood_type_rhesus = fields.Selection(
         string="Blood Type (Rh)",
         selection=[
-            ("positif", "+"),
-            ("negatif", "-"),
+            ("positive", "+"),
+            ("negative", "-"),
         ],
         required=False,
     )
