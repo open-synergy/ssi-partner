@@ -20,7 +20,10 @@
 <record id="view_personal_information_page_nationality" model="ir.ui.view">
     <field name="name">res.partner - form</field>
     <field name="model">res.partner</field>
-    <field name="inherit_id" ref="partner_contact_nationality.view_personal_information_page_nationality" />
+    <field
+            name="inherit_id"
+            ref="partner_contact_nationality.view_personal_information_page_nationality"
+        />
     <field name="priority" eval="10" />
     <field name="arch" type="xml">
         <xpath expr="//field[@name='nationality_id']" position="attributes">
@@ -31,7 +34,10 @@
 <record id="view_personal_information_gender" model="ir.ui.view">
     <field name="name">res.partner - form</field>
     <field name="model">res.partner</field>
-    <field name="inherit_id" ref="partner_contact_gender.view_personal_information_gender" />
+    <field
+            name="inherit_id"
+            ref="partner_contact_gender.view_personal_information_gender"
+        />
     <field name="priority" eval="10" />
     <field name="arch" type="xml">
         <xpath expr="//field[@name='gender']" position="attributes">
@@ -56,7 +62,10 @@
 <record id="view_personal_information_birthplace" model="ir.ui.view">
     <field name="name">res.partner - form</field>
     <field name="model">res.partner</field>
-    <field name="inherit_id" ref="partner_contact_birthplace.view_personal_information_birthplace" />
+    <field
+            name="inherit_id"
+            ref="partner_contact_birthplace.view_personal_information_birthplace"
+        />
     <field name="priority" eval="10" />
     <field name="arch" type="xml">
         <xpath expr="//field[@name='birth_city']" position="attributes">
@@ -73,7 +82,10 @@
 <record id="personal_information" model="ir.ui.view">
     <field name="name">res.partner - form</field>
     <field name="model">res.partner</field>
-    <field name="inherit_id" ref="partner_contact_personal_information_page.personal_information" />
+    <field
+            name="inherit_id"
+            ref="partner_contact_personal_information_page.personal_information"
+        />
     <field name="priority" eval="20" />
     <field name="arch" type="xml">
         <xpath expr="//group[@name='personal_information_group']" position="inside">
@@ -82,10 +94,10 @@
             <field name="birthdate_date" string="Date of Birth" />
             <field name="birth_city" string="Place of Birth" />
             <field name="birth_country_id" string="Country of Birth" />
-            <field name="religion_id"/>
-            <field name="ethnicity_id"/>
-            <field name="blood_type"/>
-            <field name="blood_type_rhesus"/>
+            <field name="religion_id" />
+            <field name="ethnicity_id" />
+            <field name="blood_type" />
+            <field name="blood_type_rhesus" />
         </xpath>
     </field>
 </record>
