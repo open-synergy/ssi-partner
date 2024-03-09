@@ -12,6 +12,11 @@
                 type="text/scss"
                 href="/ssi_partner_portal/static/src/scss/portal.scss"
             />
+            <link
+                href="/ssi_partner_portal/static/src/css/bootstrap.css"
+                rel="stylesheet"
+                type="text/css"
+            />
         </xpath>
     </template>
 </odoo>

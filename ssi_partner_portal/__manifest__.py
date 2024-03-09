@@ -11,6 +11,7 @@
     "application": True,
     "depends": [
         "portal",
+        "web",
         "ssi_partner",
     ],
     "data": [
