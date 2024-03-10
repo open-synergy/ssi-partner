@@ -271,7 +271,7 @@
                         <div class="form-group">
                             <label for="name">Date End:</label>
                             <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="date_end" t-att-required="'required' if current_academic_id.expire else None" t-att-value="current_experience_id.date_end" />
+                                   name="date_end" t-att-required="'required' if current_experience_id.expire else None" t-att-value="current_experience_id.date_end" />
                         </div>
                         <div class="form-group">
                             <label for="note">Notes:</label>
