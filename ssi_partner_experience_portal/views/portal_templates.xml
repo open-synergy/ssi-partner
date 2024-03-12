@@ -8,12 +8,16 @@
             <div class="o_portal_my_academic mt-3">
                 <h4>Academic Experiences </h4>
                 <hr class="mt-1 mb-1" />
-                <a href="/my/academics"><i class="fa fa-pencil mx-1" />Edit Academic Experience</a>
+                <a href="/my/academics"><i
+                        class="fa fa-pencil mx-1"
+                    />Edit Academic Experience</a>
             </div>
             <div class="o_portal_my_experience mt-3">
                 <h4>Professional Experiences </h4>
                 <hr class="mt-1 mb-1" />
-                <a href="/my/experiences"><i class="fa fa-pencil mx-1" />Edit Professional Experience</a>
+                <a href="/my/experiences"><i
+                        class="fa fa-pencil mx-1"
+                    />Edit Professional Experience</a>
             </div>
         </xpath>
     </template>
@@ -34,7 +38,11 @@
                     </div>
                 </t>
                 <div class="form-group">
-                    <a class="btn btn-secondary" href="/my/academic" title="Create"> Create</a>
+                    <a
+                        class="btn btn-secondary"
+                        href="/my/academic"
+                        title="Create"
+                    > Create</a>
                 </div>
                 <t t-if="academic_ids" t-call="portal.portal_table">
                     <thead>
@@ -45,8 +53,8 @@
                             <th>Field of Study</th>
                             <th>Date Start</th>
                             <th>Date End</th>
-                            <th/>
-                            <th/>
+                            <th />
+                            <th />
                         </tr>
                     </thead>
                     <tbody>
@@ -62,10 +70,18 @@
                             <td><span t-field="academic_id.date_start" /></td>
                             <td><span t-field="academic_id.date_end" /></td>
                             <td>
-                                <a class="btn" t-attf-href="/my/academic/#{academic_id.id}?{{ keep_query() }}" title="Edit"><i class="fa fa-edit" /> Edit</a>
+                                <a
+                                    class="btn"
+                                    t-attf-href="/my/academic/#{academic_id.id}?{{ keep_query() }}"
+                                    title="Edit"
+                                ><i class="fa fa-edit" /> Edit</a>
                             </td>
                             <td>
-                                <a class="btn" t-attf-href="/my/academic/remove/#{academic_id.id}?{{ keep_query() }}" title="Delete"><i class="fa fa-remove" /> Delete</a>
+                                <a
+                                    class="btn"
+                                    t-attf-href="/my/academic/remove/#{academic_id.id}?{{ keep_query() }}"
+                                    title="Delete"
+                                ><i class="fa fa-remove" /> Delete</a>
                             </td>
                         </tr>
                     </tbody>
@@ -80,32 +96,65 @@
                 <t t-set="no_breadcrumbs" t-value="1" />
                 <section>
                     <h3>Academic Experience</h3>
-                    <form action="/my/academic" method="post" class="oe_partner_academic_form">
-                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                        <input type="hidden" name="id" t-att-value="current_academic_id.id" />
+                    <form
+                        action="/my/academic"
+                        method="post"
+                        class="oe_partner_academic_form"
+                    >
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            t-att-value="request.csrf_token()"
+                        />
+                        <input
+                            type="hidden"
+                            name="id"
+                            t-att-value="current_academic_id.id"
+                        />
                         <div class="form-group">
                             <label for="category">Institution:</label>
                             <select class="form-control" name="partner_address">
                                 <option value="" />
-                                <t t-foreach="partner_address_ids" t-as="partner_address_id">
-                                    <option t-att-value="partner_address_id.id" t-esc="partner_address_id.name" t-att-selected="partner_address_id.id == current_academic_id.partner_address_id.id" />
+                                <t
+                                    t-foreach="partner_address_ids"
+                                    t-as="partner_address_id"
+                                >
+                                    <option
+                                        t-att-value="partner_address_id.id"
+                                        t-esc="partner_address_id.name"
+                                        t-att-selected="partner_address_id.id == current_academic_id.partner_address_id.id"
+                                    />
                                 </t>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="name">Location:</label>
-                            <input type="text" t-attf-class="form-control form-control-sm"
-                                   name="location" t-att-value="current_academic_id.location" />
+                            <input
+                                type="text"
+                                t-attf-class="form-control form-control-sm"
+                                name="location"
+                                t-att-value="current_academic_id.location"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="name">Date Start:</label>
-                            <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="date_start" required="required" t-att-value="current_academic_id.date_start" />
+                            <input
+                                type="date"
+                                t-attf-class="form-control form-control-sm"
+                                name="date_start"
+                                required="required"
+                                t-att-value="current_academic_id.date_start"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="name">Expire:</label>
-                            <input type="checkbox" t-attf-class="form-check"
-                                   name="expire" t-att-checked="current_academic_id.expire" onchange="onchangeExpire()" />
+                            <input
+                                type="checkbox"
+                                t-attf-class="form-check"
+                                name="expire"
+                                t-att-checked="current_academic_id.expire"
+                                onchange="onchangeExpire()"
+                            />
                         </div>
                         <script type="text/javascript">
                             function onchangeExpire(){
@@ -115,20 +164,36 @@
                         </script>
                         <div class="form-group">
                             <label for="name">Date End:</label>
-                            <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="date_end" t-att-required="'required' if current_academic_id.expire else None" t-att-value="current_academic_id.date_end" />
+                            <input
+                                type="date"
+                                t-attf-class="form-control form-control-sm"
+                                name="date_end"
+                                t-att-required="'required' if current_academic_id.expire else None"
+                                t-att-value="current_academic_id.date_end"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="name">Diploma Number:</label>
-                            <input type="text" t-attf-class="form-control form-control-sm"
-                                   name="diploma" t-att-value="current_academic_id.diploma" />
+                            <input
+                                type="text"
+                                t-attf-class="form-control form-control-sm"
+                                name="diploma"
+                                t-att-value="current_academic_id.diploma"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="education_level">Education Level:</label>
                             <select class="form-control" name="education_level">
                                 <option value="" />
-                                <t t-foreach="education_level_ids" t-as="education_level_id">
-                                    <option t-att-value="education_level_id.id" t-esc="education_level_id.name" t-att-selected="education_level_id.id == current_academic_id.education_level_id.id" />
+                                <t
+                                    t-foreach="education_level_ids"
+                                    t-as="education_level_id"
+                                >
+                                    <option
+                                        t-att-value="education_level_id.id"
+                                        t-esc="education_level_id.name"
+                                        t-att-selected="education_level_id.id == current_academic_id.education_level_id.id"
+                                    />
                                 </t>
                             </select>
                         </div>
@@ -136,25 +201,48 @@
                             <label for="field_of_study">Field of Study:</label>
                             <select class="form-control" name="field_of_study">
                                 <option value="" />
-                                <t t-foreach="field_of_study_ids" t-as="field_of_study_id">
-                                    <option t-att-value="field_of_study_id.id" t-esc="field_of_study_id.name" t-att-selected="field_of_study_id.id == current_academic_id.field_of_study_id.id" />
+                                <t
+                                    t-foreach="field_of_study_ids"
+                                    t-as="field_of_study_id"
+                                >
+                                    <option
+                                        t-att-value="field_of_study_id.id"
+                                        t-esc="field_of_study_id.name"
+                                        t-att-selected="field_of_study_id.id == current_academic_id.field_of_study_id.id"
+                                    />
                                 </t>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="gpa">Latest GPA:</label>
-                            <input type="number" t-attf-class="form-control form-control-sm"
-                                   name="gpa" step=".01" t-att-value="current_academic_id.gpa" />
+                            <input
+                                type="number"
+                                t-attf-class="form-control form-control-sm"
+                                name="gpa"
+                                step=".01"
+                                t-att-value="current_academic_id.gpa"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="activities">Activities and Associations:</label>
-                            <textarea class="form-control" name="activities" rows="5"><t t-esc="current_academic_id.activities"/></textarea>
+                            <textarea class="form-control" name="activities" rows="5"><t
+                                    t-esc="current_academic_id.activities"
+                                /></textarea>
                         </div>
                         <div class="form-group">
                             <label for="note">Notes:</label>
-                            <textarea type="text" class="form-control" name="note" rows="5"><t t-esc="current_academic_id.note"/></textarea>
+                            <textarea
+                                type="text"
+                                class="form-control"
+                                name="note"
+                                rows="5"
+                            ><t t-esc="current_academic_id.note" /></textarea>
                         </div>
-                        <div class="alert alert-danger" role="alert" t-if="error_message">
+                        <div
+                            class="alert alert-danger"
+                            role="alert"
+                            t-if="error_message"
+                        >
                             <t t-esc="error_message" />
                         </div>
                         <button type="submit" class="btn btn-secondary">Save</button>
@@ -181,7 +269,11 @@
                     </div>
                 </t>
                 <div class="form-group">
-                    <a class="btn btn-secondary" href="/my/experience" title="Create"> Create</a>
+                    <a
+                        class="btn btn-secondary"
+                        href="/my/experience"
+                        title="Create"
+                    > Create</a>
                 </div>
                 <t t-if="experience_ids" t-call="portal.portal_table">
                     <thead>
@@ -191,8 +283,8 @@
                             <th>Employer</th>
                             <th>Date Start</th>
                             <th>Date End</th>
-                            <th/>
-                            <th/>
+                            <th />
+                            <th />
                         </tr>
                     </thead>
                     <tbody>
@@ -207,10 +299,18 @@
                             <td><span t-field="experience_id.date_start" /></td>
                             <td><span t-field="experience_id.date_end" /></td>
                             <td>
-                                <a class="btn" t-attf-href="/my/experience/#{experience_id.id}?{{ keep_query() }}" title="Edit"><i class="fa fa-edit" /> Edit</a>
+                                <a
+                                    class="btn"
+                                    t-attf-href="/my/experience/#{experience_id.id}?{{ keep_query() }}"
+                                    title="Edit"
+                                ><i class="fa fa-edit" /> Edit</a>
                             </td>
                             <td>
-                                <a class="btn" t-attf-href="/my/experience/remove/#{experience_id.id}?{{ keep_query() }}" title="Delete"><i class="fa fa-remove" /> Delete</a>
+                                <a
+                                    class="btn"
+                                    t-attf-href="/my/experience/remove/#{experience_id.id}?{{ keep_query() }}"
+                                    title="Delete"
+                                ><i class="fa fa-remove" /> Delete</a>
                             </td>
                         </tr>
                     </tbody>
@@ -225,42 +325,83 @@
                 <t t-set="no_breadcrumbs" t-value="1" />
                 <section>
                     <h3>Professional Experiences</h3>
-                    <form action="/my/experience" method="post" class="oe_partner_experience_form">
-                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                        <input type="hidden" name="id" t-att-value="current_experience_id.id" />
+                    <form
+                        action="/my/experience"
+                        method="post"
+                        class="oe_partner_experience_form"
+                    >
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            t-att-value="request.csrf_token()"
+                        />
+                        <input
+                            type="hidden"
+                            name="id"
+                            t-att-value="current_experience_id.id"
+                        />
                         <div class="form-group">
                             <label for="name">Job Position:</label>
-                            <input type="text" t-attf-class="form-control form-control-sm"
-                                   name="job_position" t-att-value="current_experience_id.job_position" />
+                            <input
+                                type="text"
+                                t-attf-class="form-control form-control-sm"
+                                name="job_position"
+                                t-att-value="current_experience_id.job_position"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="name">Job Level:</label>
-                            <input type="text" t-attf-class="form-control form-control-sm"
-                                   name="job_level" t-att-value="current_experience_id.job_level" />
+                            <input
+                                type="text"
+                                t-attf-class="form-control form-control-sm"
+                                name="job_level"
+                                t-att-value="current_experience_id.job_level"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="category">Employer:</label>
                             <select class="form-control" name="partner_address">
                                 <option value="" />
-                                <t t-foreach="partner_address_ids" t-as="partner_address_id">
-                                    <option t-att-value="partner_address_id.id" t-esc="partner_address_id.name" t-att-selected="partner_address_id.id == current_experience_id.partner_address_id.id" />
+                                <t
+                                    t-foreach="partner_address_ids"
+                                    t-as="partner_address_id"
+                                >
+                                    <option
+                                        t-att-value="partner_address_id.id"
+                                        t-esc="partner_address_id.name"
+                                        t-att-selected="partner_address_id.id == current_experience_id.partner_address_id.id"
+                                    />
                                 </t>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="name">Location:</label>
-                            <input type="text" t-attf-class="form-control form-control-sm"
-                                   name="location" t-att-value="current_experience_id.location" />
+                            <input
+                                type="text"
+                                t-attf-class="form-control form-control-sm"
+                                name="location"
+                                t-att-value="current_experience_id.location"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="name">Date Start:</label>
-                            <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="date_start" required="required" t-att-value="current_experience_id.date_start" />
+                            <input
+                                type="date"
+                                t-attf-class="form-control form-control-sm"
+                                name="date_start"
+                                required="required"
+                                t-att-value="current_experience_id.date_start"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="name">Expire:</label>
-                            <input type="checkbox" t-attf-class="form-check"
-                                   name="expire" t-att-checked="current_experience_id.expire" onchange="onchangeExpire()" />
+                            <input
+                                type="checkbox"
+                                t-attf-class="form-check"
+                                name="expire"
+                                t-att-checked="current_experience_id.expire"
+                                onchange="onchangeExpire()"
+                            />
                         </div>
                         <script type="text/javascript">
                             function onchangeExpire(){
@@ -270,14 +411,28 @@
                         </script>
                         <div class="form-group">
                             <label for="name">Date End:</label>
-                            <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="date_end" t-att-required="'required' if current_experience_id.expire else None" t-att-value="current_experience_id.date_end" />
+                            <input
+                                type="date"
+                                t-attf-class="form-control form-control-sm"
+                                name="date_end"
+                                t-att-required="'required' if current_experience_id.expire else None"
+                                t-att-value="current_experience_id.date_end"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="note">Notes:</label>
-                            <textarea type="text" class="form-control" name="note" rows="5"><t t-esc="current_experience_id.note"/></textarea>
+                            <textarea
+                                type="text"
+                                class="form-control"
+                                name="note"
+                                rows="5"
+                            ><t t-esc="current_experience_id.note" /></textarea>
                         </div>
-                        <div class="alert alert-danger" role="alert" t-if="error_message">
+                        <div
+                            class="alert alert-danger"
+                            role="alert"
+                            t-if="error_message"
+                        >
                             <t t-esc="error_message" />
                         </div>
                         <button type="submit" class="btn btn-secondary">Save</button>
