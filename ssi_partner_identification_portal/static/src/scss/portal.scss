@@ -7,7 +7,8 @@
             // for the absolutely positioned meter on new password
             position: relative;
         }
-        label, button {
+        label,
+        button {
             @extend .text-nowrap;
         }
     }
@@ -26,7 +27,8 @@
             // for the absolutely positioned meter on new password
             position: relative;
         }
-        label, button {
+        label,
+        button {
             @extend .text-nowrap;
         }
     }

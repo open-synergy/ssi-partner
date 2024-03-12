@@ -8,7 +8,9 @@
             <div class="o_portal_my_identification mt-3">
                 <h4>Identification </h4>
                 <hr class="mt-1 mb-1" />
-                <a href="/my/identifications"><i class="fa fa-pencil mx-1" />Edit Identification</a>
+                <a href="/my/identifications"><i
+                        class="fa fa-pencil mx-1"
+                    />Edit Identification</a>
             </div>
         </xpath>
     </template>
@@ -29,7 +31,11 @@
                     </div>
                 </t>
                 <div class="form-group">
-                    <a class="btn btn-secondary" href="/my/identification" title="Create"> Create</a>
+                    <a
+                        class="btn btn-secondary"
+                        href="/my/identification"
+                        title="Create"
+                    > Create</a>
                 </div>
                 <t t-if="id_numbers" t-call="portal.portal_table">
                     <thead>
@@ -41,8 +47,8 @@
                             <th>Valid From</th>
                             <th>Valid Until</th>
                             <th>Status</th>
-                            <th/>
-                            <th/>
+                            <th />
+                            <th />
                         </tr>
                     </thead>
                     <tbody>
@@ -100,10 +106,18 @@
                                 </t>
                             </td>
                             <td>
-                                <a class="btn" t-attf-href="/my/identification/#{id_number.id}?{{ keep_query() }}" title="Edit"><i class="fa fa-edit" /> Edit</a>
+                                <a
+                                    class="btn"
+                                    t-attf-href="/my/identification/#{id_number.id}?{{ keep_query() }}"
+                                    title="Edit"
+                                ><i class="fa fa-edit" /> Edit</a>
                             </td>
                             <td>
-                                <a class="btn" t-attf-href="/my/identification/remove/#{id_number.id}?{{ keep_query() }}" title="Delete"><i class="fa fa-remove" /> Delete</a>
+                                <a
+                                    class="btn"
+                                    t-attf-href="/my/identification/remove/#{id_number.id}?{{ keep_query() }}"
+                                    title="Delete"
+                                ><i class="fa fa-remove" /> Delete</a>
                             </td>
                         </tr>
                     </tbody>
@@ -118,66 +132,124 @@
                 <t t-set="no_breadcrumbs" t-value="1" />
                 <section>
                     <h3>Identification</h3>
-                    <form action="/my/identification" method="post" class="oe_identification_form">
-                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                        <input type="hidden" name="id" t-att-value="current_id_number_id.id" />
+                    <form
+                        action="/my/identification"
+                        method="post"
+                        class="oe_identification_form"
+                    >
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            t-att-value="request.csrf_token()"
+                        />
+                        <input
+                            type="hidden"
+                            name="id"
+                            t-att-value="current_id_number_id.id"
+                        />
                         <div class="form-group">
                             <label for="category">Category:</label>
-                            <select class="form-control" name="category" required="required">
+                            <select
+                                class="form-control"
+                                name="category"
+                                required="required"
+                            >
                                 <option value="" />
                                 <t t-foreach="category_ids" t-as="category_id">
-                                    <option t-att-value="category_id.id" t-esc="category_id.name" t-att-selected="category_id.id == current_id_number_id.category_id.id" />
+                                    <option
+                                        t-att-value="category_id.id"
+                                        t-esc="category_id.name"
+                                        t-att-selected="category_id.id == current_id_number_id.category_id.id"
+                                    />
                                 </t>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="name">ID Number:</label>
-                            <input type="text" t-attf-class="form-control form-control-sm"
-                                   name="name" required="required" t-att-value="current_id_number_id.name" />
+                            <input
+                                type="text"
+                                t-attf-class="form-control form-control-sm"
+                                name="name"
+                                required="required"
+                                t-att-value="current_id_number_id.name"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="partner_issued">Issued by:</label>
                             <select class="form-control" name="partner_issued">
                                 <option value="" />
-                                <t t-foreach="partner_issued_ids" t-as="partner_issued_id">
-                                    <option t-att-value="partner_issued_id.id" t-esc="partner_issued_id.name" t-att-selected="partner_issued_id.id == current_id_number_id.partner_issued_id.id" />
+                                <t
+                                    t-foreach="partner_issued_ids"
+                                    t-as="partner_issued_id"
+                                >
+                                    <option
+                                        t-att-value="partner_issued_id.id"
+                                        t-esc="partner_issued_id.name"
+                                        t-att-selected="partner_issued_id.id == current_id_number_id.partner_issued_id.id"
+                                    />
                                 </t>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="date_issued">Issued on:</label>
-                            <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="date_issued" t-att-value="current_id_number_id.date_issued" />
+                            <input
+                                type="date"
+                                t-attf-class="form-control form-control-sm"
+                                name="date_issued"
+                                t-att-value="current_id_number_id.date_issued"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="place_issuance">Place of Issuance:</label>
-                            <input type="text" t-attf-class="form-control form-control-sm"
-                                   name="place_issuance" t-att-value="current_id_number_id.place_issuance" />
+                            <input
+                                type="text"
+                                t-attf-class="form-control form-control-sm"
+                                name="place_issuance"
+                                t-att-value="current_id_number_id.place_issuance"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="valid_from">Valid from:</label>
-                            <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="valid_from" t-att-value="current_id_number_id.valid_from" />
+                            <input
+                                type="date"
+                                t-attf-class="form-control form-control-sm"
+                                name="valid_from"
+                                t-att-value="current_id_number_id.valid_from"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="valid_until">Valid until:</label>
-                            <input type="date" t-attf-class="form-control form-control-sm"
-                                   name="valid_until" t-att-value="current_id_number_id.valid_until" />
+                            <input
+                                type="date"
+                                t-attf-class="form-control form-control-sm"
+                                name="valid_until"
+                                t-att-value="current_id_number_id.valid_until"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="status">Status:</label>
                             <select class="form-control" name="status">
                                 <option value="" />
                                 <t t-foreach="status_list" t-as="s">
-                                    <option t-att-value="s[0]" t-esc="s[1]" t-att-selected="s[0] == current_id_number_id.status" />
+                                    <option
+                                        t-att-value="s[0]"
+                                        t-esc="s[1]"
+                                        t-att-selected="s[0] == current_id_number_id.status"
+                                    />
                                 </t>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="comment">Notes:</label>
-                            <textarea class="form-control" name="comment" rows="5"><t t-esc="current_id_number_id.comment"/></textarea>
+                            <textarea class="form-control" name="comment" rows="5"><t
+                                    t-esc="current_id_number_id.comment"
+                                /></textarea>
                         </div>
-                        <div class="alert alert-danger" role="alert" t-if="error_message">
+                        <div
+                            class="alert alert-danger"
+                            role="alert"
+                            t-if="error_message"
+                        >
                             <t t-esc="error_message" />
                         </div>
                         <button type="submit" class="btn btn-secondary">Save</button>
