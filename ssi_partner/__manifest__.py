@@ -33,6 +33,7 @@
         "views/res_bank_views.xml",
         "views/res_partner_bank_views.xml",
         "views/company_ownership_type_views.xml",
+        "views/company_entity_type_views.xml",
         "views/partner_contact_group_views.xml",
         "views/res_partner_religion_views.xml",
         "views/res_partner_ethnicity_views.xml",

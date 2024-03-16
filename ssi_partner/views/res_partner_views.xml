@@ -14,6 +14,10 @@
                     name="ownership_type_id"
                     attrs="{'invisible':[('is_company','!=',True)]}"
                 />
+            <field
+                    name="entity_type_id"
+                    attrs="{'invisible':[('is_company','!=',True)]}"
+                />
         </xpath>
     </field>
 </record>
