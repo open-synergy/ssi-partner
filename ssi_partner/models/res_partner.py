@@ -12,6 +12,10 @@ class ResPartner(models.Model):
         string="Ownership Type",
         comodel_name="company_ownership_type",
     )
+    entity_type_id = fields.Many2one(
+        string="Entity Type",
+        comodel_name="company_entity_type",
+    )
     blood_type = fields.Selection(
         string="Blood Type (ABO)",
         selection=[

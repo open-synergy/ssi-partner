@@ -85,6 +85,15 @@
         />
 </record>
 
+<record id="entity_type_configurator_group" model="res.groups">
+    <field name="name">Entity Type</field>
+    <field name="category_id" ref="partner_configurator_module_category" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
 <record id="partner_contact_group_configurator_group" model="res.groups">
     <field name="name">Partner Contact Groups</field>
     <field name="category_id" ref="partner_configurator_module_category" />

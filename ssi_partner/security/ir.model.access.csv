@@ -19,6 +19,8 @@ access_res_partner_bank_configurator,res.partner.bank - configurator,base.model_
 access_res_partner_bank_all,res.partner.bank - all,base.model_res_partner_bank,,1,0,0,0
 access_company_ownership_type_configurator,company_ownership_type - configurator,model_company_ownership_type,ownership_type_configurator_group,1,1,1,1
 access_company_ownership_type_all,company_ownership_type - all,model_company_ownership_type,,1,0,0,0
+access_company_entity_type_configurator,company_entity_type - configurator,model_company_entity_type,entity_type_configurator_group,1,1,1,1
+access_company_entity_type_all,company_entity_type - all,model_company_entity_type,,1,0,0,0
 access_partner_contact_group_configurator,partner_contact_group - configurator,model_partner_contact_group,partner_contact_group_configurator_group,1,1,1,1
 access_partner_contact_group_all,partner_contact_group - all,model_partner_contact_group,,1,0,0,0
 access_res_partner_religion_configurator,res_partner_religion - configurator,model_res_partner_religion,res_partner_religion_configurator_group,1,1,1,1

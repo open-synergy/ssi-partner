@@ -4,6 +4,7 @@
 
 from . import (
     company_ownership_type,
+    company_entity_type,
     res_partner,
     partner_contact_group,
     res_partner_religion,
