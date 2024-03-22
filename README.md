@@ -25,7 +25,7 @@ addon | version | maintainers | summary
 [ssi_partner_experience_portal](ssi_partner_experience_portal/) | 14.0.1.0.0 |  | Partner Experience Portal
 [ssi_partner_identification](ssi_partner_identification/) | 14.0.1.1.1 |  | Partner Identification
 [ssi_partner_identification_portal](ssi_partner_identification_portal/) | 14.0.1.0.0 |  | Partner Identification Portal
-[ssi_partner_portal](ssi_partner_portal/) | 14.0.1.1.0 |  | Partner Portal
+[ssi_partner_portal](ssi_partner_portal/) | 14.0.1.2.0 |  | Partner Portal
 
 [//]: # (end addons)
 
