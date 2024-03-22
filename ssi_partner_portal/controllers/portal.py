@@ -2,12 +2,22 @@
 # Copyright 2023 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import base64
+
+import requests
+
 from odoo.http import request, route
 
 from odoo.addons.portal.controllers import portal
 from odoo.addons.portal.controllers.portal import CustomerPortal
 
-CustomerPortal.OPTIONAL_BILLING_FIELDS.append("mobile")
+CustomerPortal.OPTIONAL_BILLING_FIELDS += [
+    "mobile",
+    "gender",
+    "birth_city",
+    "birthdate_date",
+    "image_1920",
+]
 
 
 class CustomerPortalExtended(CustomerPortal):
@@ -120,3 +130,21 @@ class CustomerPortalExtended(CustomerPortal):
         )
         bank_account_id.unlink()
         return request.redirect("/my/bank_accounts")
+
+    def convert_url_to_base64(self, url):
+        return base64.b64encode(requests.get(url).content)
+
+    @route(["/my/account"], type="http", auth="user", website=True)
+    def account(self, redirect=None, **post):
+        if "input_image_1920" in post:
+            post.pop("input_image_1920")
+            if post.get("image_1920"):
+                if "base64" in post["image_1920"]:
+                    image_vals = post["image_1920"].split("base64,")
+                    post["image_1920"] = image_vals[-1]
+                else:
+                    post["image_1920"] = self.convert_url_to_base64(
+                        url=post["image_1920"]
+                    )
+        res = super().account(redirect=redirect, **post)
+        return res

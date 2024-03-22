@@ -4,6 +4,79 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <template id="portal_my_details" inherit_id="portal.portal_my_details">
+        <xpath expr="//div[hasclass('col-lg-8')]/div/div[2]" position="before">
+            <div
+                t-attf-class="form-group #{error.get('input_image_1920') and 'o_has_error' or ''} col-image"
+            >
+                <input
+                    type="file"
+                    name="input_image_1920"
+                    accept="image/*"
+                    onchange="setShowImage()"
+                />
+                <input
+                    type="hidden"
+                    name="image_1920"
+                    t-att-src="avatar_source_default"
+                />
+                <br />
+                <br />
+                <t
+                    t-set="avatar_source_default"
+                    name="avatar_source_default"
+                    t-value="'/web/static/src/img/placeholder.png'"
+                />
+                <t t-if="partner.image_1920">
+                    <t
+                        t-set="avatar_source"
+                        t-value="image_data_uri(partner.image_1920)"
+                    />
+                </t>
+                <t t-else="">
+                    <t t-set="avatar_source" t-value="avatar_source_default" />
+                </t>
+                <img
+                    name="default_image_1920"
+                    t-att-src="avatar_source_default"
+                    hidden="1"
+                />
+                <img
+                    name="show_image_1920"
+                    t-att-src="avatar_source"
+                    alt="Photo"
+                    width="100px"
+                    height="100px"
+                />
+                <br />
+                <a
+                    class="btn btn-link btn-sm"
+                    href="#"
+                    onclick="removeImage()"
+                >Remove Image</a>
+            </div>
+            <script type="text/javascript">
+                const setShowImage = async (e) => {
+                    debugger;
+                    var input_image_1920 = document.getElementsByName("input_image_1920")[0].files[0];
+                    var reader = new FileReader();
+                    if (input_image_1920){
+                        await reader.readAsDataURL(input_image_1920);
+                        document.getElementsByName("show_image_1920")[0].src = URL.createObjectURL(input_image_1920);
+                        reader.onload = function () {
+                            document.getElementsByName("image_1920")[0].value = reader.result;
+                        };
+                    };
+                };
+                function removeImage(){
+                    debugger;
+                    var avatar_source_default = document.getElementsByName("default_image_1920")[0].src;
+                    document.getElementsByName("show_image_1920")[0].src = avatar_source_default;
+                    document.getElementsByName("image_1920")[0].value = avatar_source_default;
+                    document.getElementsByName("input_image_1920")[0].value = null;
+                };
+            </script>
+            <div t-attf-class="form-group col-xl-6" />
+        </xpath>
         <xpath expr="//div[hasclass('col-lg-8')]/div/div[7]" position="after">
             <div
                 t-attf-class="form-group #{error.get('mobile') and 'o_has_error' or ''} col-xl-6"
@@ -14,6 +87,52 @@
                     name="mobile"
                     t-attf-class="form-control #{error.get('mobile') and 'is-invalid' or ''}"
                     t-att-value="mobile or partner.mobile"
+                />
+            </div>
+            <div
+                t-attf-class="form-group #{error.get('gender') and 'o_has_error' or ''} col-xl-6"
+            >
+                <label for="gender">Gender:</label>
+                <select
+                    class="form-control"
+                    name="gender"
+                    t-attf-class="form-control #{error.get('gender') and 'is-invalid' or ''}"
+                >
+                    <option value="" />
+                    <option
+                        value="male"
+                        t-att-selected="partner.gender == 'male'"
+                    >Male</option>
+                    <option
+                        value="female"
+                        t-att-selected="partner.gender == 'female'"
+                    >Female</option>
+                    <option
+                        value="other"
+                        t-att-selected="partner.gender == 'other'"
+                    >Other</option>
+                </select>
+            </div>
+            <div
+                t-attf-class="form-group #{error.get('birthdate_date') and 'o_has_error' or ''} col-xl-6"
+            >
+                <label class="col-form-label" for="birthdate_date">Date of Birth</label>
+                <input
+                    type="date"
+                    name="birthdate_date"
+                    t-attf-class="form-control #{error.get('birthdate_date') and 'is-invalid' or ''}"
+                    t-att-value="birthdate_date or partner.birthdate_date"
+                />
+            </div>
+            <div
+                t-attf-class="form-group #{error.get('birth_city') and 'o_has_error' or ''} col-xl-6"
+            >
+                <label class="col-form-label" for="birth_city">Place of Birth</label>
+                <input
+                    type="text"
+                    name="birth_city"
+                    t-attf-class="form-control #{error.get('birth_city') and 'is-invalid' or ''}"
+                    t-att-value="birth_city or partner.birth_city"
                 />
             </div>
         </xpath>
