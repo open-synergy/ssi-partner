@@ -19,14 +19,21 @@
                     name="image_1920"
                     t-att-src="avatar_source_default"
                 />
-                <br/>
-                <br/>
-                <t t-set="avatar_source_default" name="avatar_source_default" t-value="'/web/static/src/img/placeholder.png'"/>
+                <br />
+                <br />
+                <t
+                    t-set="avatar_source_default"
+                    name="avatar_source_default"
+                    t-value="'/web/static/src/img/placeholder.png'"
+                />
                 <t t-if="partner.image_1920">
-                    <t t-set="avatar_source" t-value="image_data_uri(partner.image_1920)"/>
+                    <t
+                        t-set="avatar_source"
+                        t-value="image_data_uri(partner.image_1920)"
+                    />
                 </t>
                 <t t-else="">
-                    <t t-set="avatar_source" t-value="avatar_source_default"/>
+                    <t t-set="avatar_source" t-value="avatar_source_default" />
                 </t>
                 <img
                     name="default_image_1920"
@@ -40,8 +47,12 @@
                     width="100px"
                     height="100px"
                 />
-                <br/>
-                <a class="btn btn-link btn-sm" href="#" onclick="removeImage()">Remove Image</a>
+                <br />
+                <a
+                    class="btn btn-link btn-sm"
+                    href="#"
+                    onclick="removeImage()"
+                >Remove Image</a>
             </div>
             <script type="text/javascript">
                 const setShowImage = async (e) => {
@@ -64,9 +75,7 @@
                     document.getElementsByName("input_image_1920")[0].value = null;
                 };
             </script>
-            <div
-                t-attf-class="form-group col-xl-6"
-            />
+            <div t-attf-class="form-group col-xl-6" />
         </xpath>
         <xpath expr="//div[hasclass('col-lg-8')]/div/div[7]" position="after">
             <div
@@ -85,9 +94,10 @@
             >
                 <label for="gender">Gender:</label>
                 <select
-                        class="form-control"
-                        name="gender"
-                        t-attf-class="form-control #{error.get('gender') and 'is-invalid' or ''}">
+                    class="form-control"
+                    name="gender"
+                    t-attf-class="form-control #{error.get('gender') and 'is-invalid' or ''}"
+                >
                     <option value="" />
                     <option
                         value="male"
