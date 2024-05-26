@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo14-addon-ssi_partner_identification',
         'odoo14-addon-ssi_partner_identification_portal',
         'odoo14-addon-ssi_partner_portal',
+        'odoo14-addon-ssi_partner_public_offering',
     ],
     classifiers=[
         'Programming Language :: Python',
