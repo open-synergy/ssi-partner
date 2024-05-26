@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [ssi_partner_identification](ssi_partner_identification/) | 14.0.1.1.1 |  | Partner Identification
 [ssi_partner_identification_portal](ssi_partner_identification_portal/) | 14.0.1.0.0 |  | Partner Identification Portal
 [ssi_partner_portal](ssi_partner_portal/) | 14.0.1.2.0 |  | Partner Portal
+[ssi_partner_public_offering](ssi_partner_public_offering/) | 14.0.1.0.0 |  | Company Partner's Public Offering Information
 
 [//]: # (end addons)
 
