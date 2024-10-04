@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-ssi_partner',
+        'odoo14-addon-ssi_partner_company_capital',
         'odoo14-addon-ssi_partner_creditor_debitor',
         'odoo14-addon-ssi_partner_education_level',
         'odoo14-addon-ssi_partner_experience',
