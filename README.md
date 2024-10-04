@@ -19,7 +19,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [ssi_partner](ssi_partner/) | 14.0.1.6.0 |  | Partner App
-[ssi_partner_company_capital](ssi_partner_company_capital/) | 14.0.1.0.0 |  | Company Capital Information
+[ssi_partner_company_capital](ssi_partner_company_capital/) | 14.0.1.1.0 |  | Company Capital Information
 [ssi_partner_creditor_debitor](ssi_partner_creditor_debitor/) | 14.0.1.0.0 |  | Partner Creditor and Debitor Information
 [ssi_partner_education_level](ssi_partner_education_level/) | 14.0.1.2.0 |  | Partner Education Level
 [ssi_partner_experience](ssi_partner_experience/) | 14.0.1.0.0 |  | Partner Experience
