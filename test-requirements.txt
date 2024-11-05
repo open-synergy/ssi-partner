@@ -1,0 +1,6 @@
+odoo14-addon-ssi-localdict-mixin
+odoo14-addon-ssi-m2o-configurator-mixin
+odoo14-addon-ssi-transaction-cancel-mixin
+odoo14-addon-ssi-transaction-confirm-mixin
+odoo14-addon-ssi-transaction-date-duration-mixin
+odoo14-addon-ssi-transaction-done-mixin
