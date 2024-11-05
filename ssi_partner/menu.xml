@@ -9,11 +9,12 @@
         sequence="4"
         web_icon="contacts,static/description/icon.png"
     />
+
     <menuitem
         id="res_partner_menu_config"
         name="Configuration"
         parent="contacts.menu_contacts"
-        sequence="2"
+        sequence="99"
     />
     <menuitem
         id="menu_localisation"
