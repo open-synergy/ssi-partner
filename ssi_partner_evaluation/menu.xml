@@ -9,7 +9,7 @@
             id="menu_partner_evaluation_header"
             name="Partner Evaluation"
             parent="contacts.menu_contacts"
-            sequence="1"
+            sequence="10"
         />
 
 <menuitem

@@ -6,7 +6,7 @@
 <!-- Workflow -->
 <record id="partner_evaluation_workflow_module_category" model="ir.module.category">
     <field name="name">Partner Evaluation</field>
-    <field name="parent_id" ref="ssi_stock.inventory_workflow_module_category" />
+    <field name="parent_id" ref="ssi_partner.partner_workflow_module_category" />
 </record>
 
 <record
@@ -14,7 +14,7 @@
         model="ir.module.category"
     >
     <field name="name">Partner Evaluation</field>
-    <field name="parent_id" ref="ssi_stock.inventory_data_ownership_module_category" />
+    <field name="parent_id" ref="ssi_partner.partner_data_ownership_module_category" />
 </record>
 
 
