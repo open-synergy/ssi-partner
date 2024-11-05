@@ -5,3 +5,4 @@ odoo14-addon-ssi-transaction-confirm-mixin
 odoo14-addon-ssi-transaction-open-mixin
 odoo14-addon-ssi-transaction-date-duration-mixin
 odoo14-addon-ssi-transaction-done-mixin
+odoo14-addon-ssi-transaction-partner-mixin
