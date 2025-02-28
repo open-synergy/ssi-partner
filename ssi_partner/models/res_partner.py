@@ -42,3 +42,23 @@ class ResPartner(models.Model):
         string="Ethnicity",
         comodel_name="res_partner_ethnicity",
     )
+    marital = fields.Selection(
+        string="Marital Status",
+        selection=[
+            ("single", "Single"),
+            ("married", "Married"),
+            ("cohabitant", "Legal Cohabitant"),
+            ("widower", "Widower"),
+            ("divorced", "Divorced"),
+        ],
+        default="single",
+        required=False,
+    )
+    spouse_complete_name = fields.Char(
+        string="Spouse Complete Name",
+        required=False,
+    )
+    spouse_birthdate = fields.Date(
+        string="Spouse Birthdate",
+        required=False,    
+    )
