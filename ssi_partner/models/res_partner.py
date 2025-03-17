@@ -60,5 +60,5 @@ class ResPartner(models.Model):
     )
     spouse_birthdate = fields.Date(
         string="Spouse Birthdate",
-        required=False,    
+        required=False,
     )

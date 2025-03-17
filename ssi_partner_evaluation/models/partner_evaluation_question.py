@@ -27,7 +27,7 @@ class PartnerEvaluationQuestion(models.Model):
         readonly=True,
     )
     question_type_id = fields.Many2one(
-        string="Question Type",
+        string="Question",
         comodel_name="partner_evaluation_question_type",
         required=True,
     )
