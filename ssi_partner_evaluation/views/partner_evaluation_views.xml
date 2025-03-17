@@ -138,10 +138,13 @@
                 </field>
             </page>
         </xpath>
+        <xpath expr="//group[@name='footer_left']" position="attributes">
+            <attribute name="string">Result</attribute>
+        </xpath>
         <xpath expr="//group[@name='footer_left']" position="inside">
-            <field name="automatic_result_id" />
-            <field name="manual_result_id" />
-            <field name="final_result_id" />
+            <field name="automatic_result_id" string="Automatic" />
+            <field name="manual_result_id" string="Manual" />
+            <field name="final_result_id" string="Final" />
             <field
                     name="dissenting_opinion"
                     attrs="{'required':[('manual_result_id','!=',False)]}"
