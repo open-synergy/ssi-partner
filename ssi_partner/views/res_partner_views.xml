@@ -109,6 +109,7 @@
             <field name="birthdate_date" string="Date of Birth" />
             <field name="birth_city" string="Place of Birth" />
             <field name="birth_country_id" string="Country of Birth" />
+            <field name="birth_state_id" string="Birth State" />
             <field name="religion_id" />
             <field name="ethnicity_id" />
             <field name="blood_type" />
