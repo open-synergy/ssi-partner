@@ -88,7 +88,10 @@
                         </notebook>
                     </form>
                     </field>
-                    <separator name="personal_experience" string="Professional Experiences" />
+                    <separator
+                        name="personal_experience"
+                        string="Professional Experiences"
+                    />
                     <field
                         name="experience_ids"
                         context="{'default_partner_id': active_id}"
