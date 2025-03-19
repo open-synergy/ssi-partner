@@ -22,7 +22,9 @@ class PartnerExperienceMixin(models.AbstractModel):
         string="Partner",
         comodel_name="res.partner",
         required=True,
-        domain="[('is_company', '=', False)]",
+        ondelete="cascade",
+        index=True,
+        copy=False,
     )
     partner_address_id = fields.Many2one(
         comodel_name="res.partner",
