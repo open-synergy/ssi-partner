@@ -18,15 +18,17 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ssi_partner](ssi_partner/) | 14.0.1.9.0 |  | Partner App
+[ssi_partner](ssi_partner/) | 14.0.1.9.1 |  | Partner App
 [ssi_partner_company_capital](ssi_partner_company_capital/) | 14.0.1.1.0 |  | Company Capital Information
 [ssi_partner_creditor_debitor](ssi_partner_creditor_debitor/) | 14.0.1.0.0 |  | Partner Creditor and Debitor Information
 [ssi_partner_education_level](ssi_partner_education_level/) | 14.0.1.2.0 |  | Partner Education Level
 [ssi_partner_evaluation](ssi_partner_evaluation/) | 14.0.1.2.0 |  | Partner Evaluation
-[ssi_partner_experience](ssi_partner_experience/) | 14.0.1.0.0 |  | Partner Experience
+[ssi_partner_experience](ssi_partner_experience/) | 14.0.1.1.0 |  | Partner Experience
 [ssi_partner_experience_portal](ssi_partner_experience_portal/) | 14.0.1.0.0 |  | Partner Experience Portal
+[ssi_partner_hr_profile](ssi_partner_hr_profile/) | 14.0.1.0.0 |  | Partner App & HR My Profile Extension
 [ssi_partner_identification](ssi_partner_identification/) | 14.0.1.1.1 |  | Partner Identification
 [ssi_partner_identification_portal](ssi_partner_identification_portal/) | 14.0.1.0.0 |  | Partner Identification Portal
+[ssi_partner_language](ssi_partner_language/) | 14.0.1.0.0 |  | Partner Language
 [ssi_partner_portal](ssi_partner_portal/) | 14.0.1.2.0 |  | Partner Portal
 [ssi_partner_public_offering](ssi_partner_public_offering/) | 14.0.1.0.0 |  | Company Partner's Public Offering Information
 
