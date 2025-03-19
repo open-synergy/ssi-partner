@@ -1,7 +1,7 @@
 # Copyright 2024 OpenSynergy Indonesia
 # Copyright 2024 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
+# pylint: disable=C8101
 {
     "name": "Partner Experience Portal",
     "version": "14.0.1.0.0",
