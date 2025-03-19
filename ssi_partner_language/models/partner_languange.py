@@ -2,7 +2,7 @@
 # Copyright 2025 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, tools, _
+from odoo import _, api, fields, models, tools
 from odoo.exceptions import UserError
 
 LANGUAGE_RATING = [
@@ -26,7 +26,7 @@ class PartnerLanguange(models.Model):
 
     name = fields.Selection(
         string="Language",
-        selection=tools.scan_languages(), 
+        selection=tools.scan_languages(),
         required=True,
     )
     description = fields.Char(
