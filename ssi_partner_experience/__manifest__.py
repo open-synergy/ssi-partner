@@ -23,7 +23,6 @@
         "views/partner_certification_view.xml",
         "views/partner_experience_view.xml",
         "views/res_partner_views.xml",
-        "views/res_users_views.xml",
     ],
     "demo": [],
 }
