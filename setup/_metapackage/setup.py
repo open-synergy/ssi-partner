@@ -15,7 +15,6 @@ setuptools.setup(
         'odoo14-addon-ssi_partner_evaluation',
         'odoo14-addon-ssi_partner_experience',
         'odoo14-addon-ssi_partner_experience_portal',
-        'odoo14-addon-ssi_partner_hr_profile',
         'odoo14-addon-ssi_partner_identification',
         'odoo14-addon-ssi_partner_identification_portal',
         'odoo14-addon-ssi_partner_language',
