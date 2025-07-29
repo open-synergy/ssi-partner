@@ -131,7 +131,7 @@ class PartnerEvaluation(models.Model):
             localdict = record._get_default_localdict()
             try:
                 safe_eval(
-                    self.type_id.result_computation_code,
+                    record.type_id.result_computation_code,
                     localdict,
                     mode="exec",
                     nocopy=True,
@@ -176,7 +176,7 @@ class PartnerEvaluation(models.Model):
 
     @api.model
     def _get_policy_field(self):
-        res = super(PartnerEvaluation, self)._get_policy_field()
+        res = super()._get_policy_field()
         policy_field = [
             "open_ok",
             "confirm_ok",

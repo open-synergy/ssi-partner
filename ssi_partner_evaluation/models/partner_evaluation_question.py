@@ -122,7 +122,7 @@ class PartnerEvaluationQuestion(models.Model):
             localdict = record._get_default_localdict()
             try:
                 safe_eval(
-                    self.question_type_id.computation_code,
+                    record.question_type_id.computation_code,
                     localdict,
                     mode="exec",
                     nocopy=True,
