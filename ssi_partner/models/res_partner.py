@@ -8,6 +8,12 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
+    type = fields.Selection(
+        selection_add=[
+            ("branch", "Branch Address"),
+        ],
+    )
+
     ownership_type_id = fields.Many2one(
         string="Ownership Type",
         comodel_name="company_ownership_type",
