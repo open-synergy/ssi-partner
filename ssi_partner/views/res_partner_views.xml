@@ -42,6 +42,16 @@
             >
             <field name="vat" attrs="{'invisible': [('type','!=','branch')]}" />
         </xpath>
+
+        <xpath expr="//field[@name='child_ids']" position="before">
+            <button
+                    name="action_open_contact_address"
+                    string="Open"
+                    type="object"
+                    icon="fa-bars"
+                    class="oe_highlight"
+                />
+        </xpath>
     </field>
 </record>
 <record id="view_personal_information_page_nationality" model="ir.ui.view">
