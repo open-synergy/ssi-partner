@@ -68,3 +68,19 @@ class ResPartner(models.Model):
         string="Spouse Birthdate",
         required=False,
     )
+
+    def action_open_contact_address(self):
+        for record in self.sudo():
+            result = record._open_contact_address()
+        return result
+
+    def _open_contact_address(self):
+        waction = self.env.ref("contacts.action_contacts").read()[0]
+        waction.update(
+            {
+                "view_mode": "tree,form",
+                "domain": [("id", "child_of", self.id), ("id", "!=", self.id)],
+                "context": {},
+            }
+        )
+        return waction
