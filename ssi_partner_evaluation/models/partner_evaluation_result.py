@@ -2,7 +2,7 @@
 # Copyright 2024 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models
+from odoo import fields, models
 
 
 class PartnerEvaluationResult(models.Model):
@@ -11,3 +11,9 @@ class PartnerEvaluationResult(models.Model):
     _inherit = [
         "mixin.master_data",
     ]
+
+    tag_id = fields.Many2one(
+        string="Tag",
+        comodel_name="res.partner.category",
+        required=True,
+    )
