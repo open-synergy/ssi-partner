@@ -153,6 +153,17 @@ class PartnerEvaluation(models.Model):
                 result = record.manual_result_id
             record.final_result_id = result
 
+    def action_compute_result(self):
+        for record in self.sudo():
+            record._compute_result()
+
+    def _compute_result(self):
+        self.ensure_one()
+        for question in self.question_ids:
+            question._compute_result()
+        self._compute_automatic_result_id()
+        self._compute_final_result_id()
+
     @ssi_decorator.post_open_action()
     def _01_create_questions(self):
         self.ensure_one()

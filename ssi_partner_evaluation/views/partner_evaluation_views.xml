@@ -102,6 +102,14 @@
         </xpath>
         <xpath expr="//page[1]" position="before">
             <page name="question" string="Questions">
+                <button
+                        name="action_compute_result"
+                        type="object"
+                        string="Compute"
+                        icon="fa-gears"
+                        class="oe_highlight"
+                        attrs="{'invisible':[('state','!=','open')]}"
+                    />
                 <field name="question_ids">
                     <tree create="0" delete="0">
                         <field name="sequence" widget="handle" />
