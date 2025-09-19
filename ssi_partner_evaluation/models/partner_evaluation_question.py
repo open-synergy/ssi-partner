@@ -153,3 +153,10 @@ class PartnerEvaluationQuestion(models.Model):
                     or ""
                 )
             record.value = result
+
+    def _compute_result(self):
+        self.ensure_one()
+        self._compute_automatic_value()
+        self._compute_qualitative_value_id()
+        self._compute_quantitative_value()
+        self._compute_value()
