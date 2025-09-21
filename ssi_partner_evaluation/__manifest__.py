@@ -23,6 +23,7 @@
         "ssi_transaction_partner_mixin",
         "base_duration",
         "queue_job_batch",
+        "base_automation",
     ],
     "data": [
         "security/ir_module_category/partner_evaluation.xml",
