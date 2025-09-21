@@ -11,6 +11,7 @@ from . import (
     partner_evaluation_value_set_item,
     partner_evaluation_question_type,
     partner_evaluation,
+    partner_batch_evaluation,
     partner_evaluation_question,
     res_partner_evaluation_result,
     res_partner,
