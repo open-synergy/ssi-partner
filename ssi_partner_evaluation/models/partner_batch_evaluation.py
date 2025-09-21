@@ -166,141 +166,88 @@ class PartnerBatchEvaluation(models.Model):
             }
         )
 
-    def _confirm_evaluation(self):
+    def _process_evaluation_batch(
+        self,
+        action_method,
+        state_filter,
+        batch_action_name,
+        split_action_name,
+        state_condition=None,
+    ):
         self.ensure_one()
-        batch_name = "Confirm batch evaluation ID %s" % (self.id)
+        batch_name = f"{batch_action_name} batch evaluation ID {self.id}"
         self._create_job_batch(batch_name)
         data_per_split = 100
-        effected_evaluations = self.evaluation_ids.filtered(lambda r: r.state == "open")
+        if state_condition:
+            effected_evaluations = self.evaluation_ids.filtered(state_condition)
+        else:
+            effected_evaluations = self.evaluation_ids.filtered(
+                lambda r: r.state == state_filter
+            )
         num_split = ceil(len(effected_evaluations) / data_per_split)
         for split_number in range(1, num_split + 1):
             evaluations = effected_evaluations[
                 (data_per_split * split_number)
                 - data_per_split : split_number * data_per_split
             ]
-            description = "Confirm batch evaluation ID %s split number %s" % (
-                self.id,
-                split_number,
-            )
-            evaluations.with_context(job_batch=self.queue_job_batch_id).with_delay(
-                description=_(description)
-            ).action_confirm()
+            description = f"{split_action_name} batch {self.id}"
+            description += f" split {split_number}"
+            getattr(
+                evaluations.with_context(job_batch=self.queue_job_batch_id).with_delay(
+                    description=_(description)
+                ),
+                action_method,
+            )()
             self.queue_job_batch_id.enqueue()
+
+    def _confirm_evaluation(self):
+        self._process_evaluation_batch(
+            action_method="action_confirm",
+            state_filter="open",
+            batch_action_name="Confirm",
+            split_action_name="Confirm",
+        )
 
     def _start_evaluation(self):
-        self.ensure_one()
-        batch_name = "Start batch evaluation ID %s" % (self.id)
-        self._create_job_batch(batch_name)
-        data_per_split = 100
-        effected_evaluations = self.evaluation_ids.filtered(
-            lambda r: r.state == "draft"
+        self._process_evaluation_batch(
+            action_method="action_open",
+            state_filter="draft",
+            batch_action_name="Start",
+            split_action_name="Start",
         )
-        num_split = ceil(len(effected_evaluations) / data_per_split)
-        for split_number in range(1, num_split + 1):
-            evaluations = effected_evaluations[
-                (data_per_split * split_number)
-                - data_per_split : split_number * data_per_split
-            ]
-            description = "Start batch evaluation ID %s split number %s" % (
-                self.id,
-                split_number,
-            )
-            evaluations.with_context(job_batch=self.queue_job_batch_id).with_delay(
-                description=_(description)
-            ).action_open()
-            self.queue_job_batch_id.enqueue()
 
     def _approve_evaluation(self):
-        self.ensure_one()
-        batch_name = "Approve batch evaluation ID %s" % (self.id)
-        self._create_job_batch(batch_name)
-        data_per_split = 100
-        effected_evaluations = self.evaluation_ids.filtered(
-            lambda r: r.state == "confirm"
+        self._process_evaluation_batch(
+            action_method="action_approve_approval",
+            state_filter="confirm",
+            batch_action_name="Approve",
+            split_action_name="Approve",
         )
-        num_split = ceil(len(effected_evaluations) / data_per_split)
-        for split_number in range(1, num_split + 1):
-            evaluations = effected_evaluations[
-                (data_per_split * split_number)
-                - data_per_split : split_number * data_per_split
-            ]
-            description = "Approve batch evaluation ID %s split number %s" % (
-                self.id,
-                split_number,
-            )
-            evaluations.with_context(job_batch=self.queue_job_batch_id).with_delay(
-                description=_(description)
-            ).action_approve_approval()
-            self.queue_job_batch_id.enqueue()
 
     def _reject_evaluation(self):
-        self.ensure_one()
-        batch_name = "Reject batch evaluation ID %s" % (self.id)
-        self._create_job_batch(batch_name)
-        data_per_split = 100
-        effected_evaluations = self.evaluation_ids.filtered(
-            lambda r: r.state == "confirm"
+        self._process_evaluation_batch(
+            action_method="action_reject_approval",
+            state_filter="confirm",
+            batch_action_name="Reject",
+            split_action_name="Reject",
         )
-        num_split = ceil(len(effected_evaluations) / data_per_split)
-        for split_number in range(1, num_split + 1):
-            evaluations = effected_evaluations[
-                (data_per_split * split_number)
-                - data_per_split : split_number * data_per_split
-            ]
-            description = "Reject batch evaluation ID %s split number %s" % (
-                self.id,
-                split_number,
-            )
-            evaluations.with_context(job_batch=self.queue_job_batch_id).with_delay(
-                description=_(description)
-            ).action_reject_approval()
-            self.queue_job_batch_id.enqueue()
 
     def _cancel_evaluation(self):
-        self.ensure_one()
-        batch_name = "Cancel batch evaluation ID %s" % (self.id)
-        self._create_job_batch(batch_name)
-        data_per_split = 100
-        effected_evaluations = self.evaluation_ids.filtered(
-            lambda r: r.state != "cancel"
+        self._process_evaluation_batch(
+            action_method="action_cancel",
+            state_filter=None,
+            batch_action_name="Cancel",
+            split_action_name="Cancel",
+            state_condition=lambda r: r.state != "cancel",
         )
-        num_split = ceil(len(effected_evaluations) / data_per_split)
-        for split_number in range(1, num_split + 1):
-            evaluations = effected_evaluations[
-                (data_per_split * split_number)
-                - data_per_split : split_number * data_per_split
-            ]
-            description = "Cancel batch evaluation ID %s split number %s" % (
-                self.id,
-                split_number,
-            )
-            evaluations.with_context(job_batch=self.queue_job_batch_id).with_delay(
-                description=_(description)
-            ).action_cancel()
-            self.queue_job_batch_id.enqueue()
 
     def _restart_evaluation(self):
-        self.ensure_one()
-        batch_name = "Restart batch evaluation ID %s" % (self.id)
-        self._create_job_batch(batch_name)
-        data_per_split = 100
-        effected_evaluations = self.evaluation_ids.filtered(
-            lambda r: r.state == "cancel"
+        self._process_evaluation_batch(
+            action_method="action_restart",
+            state_filter="cancel",
+            batch_action_name="Restart",
+            split_action_name="Restart",
         )
-        num_split = ceil(len(effected_evaluations) / data_per_split)
-        for split_number in range(1, num_split + 1):
-            evaluations = effected_evaluations[
-                (data_per_split * split_number)
-                - data_per_split : split_number * data_per_split
-            ]
-            description = "Restart batch evaluation ID %s split number %s" % (
-                self.id,
-                split_number,
-            )
-            evaluations.with_context(job_batch=self.queue_job_batch_id).with_delay(
-                description=_(description)
-            ).action_restart()
-            self.queue_job_batch_id.enqueue()
 
     @api.depends("type_id")
     def _compute_allowed_partner_ids(self):
