@@ -43,6 +43,7 @@
         "data/approval_template/partner_evaluation.xml",
         "data/approval_template/partner_batch_evaluation.xml",
         "menu.xml",
+        "wizards/evaluate_partnet.xml",
         "views/partner_evaluation_type_views.xml",
         "views/partner_evaluation_result_views.xml",
         "views/partner_evaluation_value_item_views.xml",
