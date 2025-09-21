@@ -24,7 +24,7 @@
                         />
                     <button
                             string="Cancel"
-                            class="oe_highlight"
+                            class="oe_link"
                             special="cancel"
                             type="object"
                         />
