@@ -86,6 +86,66 @@
                     string="Evaluations"
                     groups="ssi_partner_evaluation.partner_batch_evaluation_viewer_group"
                 >
+                <group name="queue_1" colspan="4" col="2">
+                    <field name="queue_job_batch_id" string="Batch" />
+                    <field name="queue_job_batch_state" string="State" />
+                </group>
+                <button
+                        name="action_open_evaluation"
+                        string="Open"
+                        type="object"
+                        icon="fa-list"
+                        class="oe_highlight"
+                        style="margin-right:4px"
+                    />
+                <button
+                        name="action_start_evaluation"
+                        string="Start"
+                        type="object"
+                        class="oe_highlight"
+                        style="margin-right:4px"
+                        attrs="{'invisible':[('queue_job_batch_id','!=',False)]}"
+                    />
+                <button
+                        name="action_confirm_evaluation"
+                        string="Confirm"
+                        type="object"
+                        class="oe_highlight"
+                        style="margin-right:4px"
+                        attrs="{'invisible':[('queue_job_batch_id','!=',False)]}"
+                    />
+                <button
+                        name="action_approve_evaluation"
+                        string="Approve"
+                        type="object"
+                        class="oe_highlight"
+                        style="margin-right:4px"
+                        attrs="{'invisible':[('queue_job_batch_id','!=',False)]}"
+                    />
+                <button
+                        name="action_reject_evaluation"
+                        string="Reject"
+                        type="object"
+                        class="oe_highlight"
+                        style="margin-right:4px"
+                        attrs="{'invisible':[('queue_job_batch_id','!=',False)]}"
+                    />
+                <button
+                        name="action_cancel_evaluation"
+                        string="Cancel"
+                        type="object"
+                        class="oe_highlight"
+                        style="margin-right:4px"
+                        attrs="{'invisible':[('queue_job_batch_id','!=',False)]}"
+                    />
+                <button
+                        name="action_restart_evaluation"
+                        string="Restart"
+                        type="object"
+                        class="oe_highlight"
+                        style="margin-right:4px"
+                        attrs="{'invisible':[('queue_job_batch_id','!=',False)]}"
+                    />
                 <field name="evaluation_ids" />
             </page>
         </xpath>
