@@ -18,6 +18,7 @@
         "ssi_transaction_open_mixin",
         "ssi_transaction_date_duration_mixin",
         "ssi_m2o_configurator_mixin",
+        "ssi_res_partner_m2o_configurator_mixin",
         "ssi_localdict_mixin",
         "ssi_transaction_partner_mixin",
         "base_duration",
