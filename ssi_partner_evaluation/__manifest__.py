@@ -20,6 +20,7 @@
         "ssi_m2o_configurator_mixin",
         "ssi_localdict_mixin",
         "ssi_transaction_partner_mixin",
+        "base_duration",
     ],
     "data": [
         "security/ir_module_category/partner_evaluation.xml",
