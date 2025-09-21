@@ -11,6 +11,7 @@
     <field name="arch" type="xml">
         <xpath expr="//field[@name='company_id']" position="after">
             <field name="type_id" />
+            <field name="batch_id" />
             <field name="partner_id" />
             <field name="date" />
             <field name="date_start" />
@@ -33,6 +34,7 @@
         <data>
             <xpath expr="//field[@name='company_id']" position="after">
                 <field name="type_id" />
+                <field name="batch_id" />
                 <field name="partner_id" />
                 <field name="date" />
                 <field name="date_start" />
@@ -46,6 +48,11 @@
                         name="grp_type_id"
                         string="Type"
                         context="{'group_by':'type_id'}"
+                    />
+                <filter
+                        name="grp_batch_id"
+                        string="Batch"
+                        context="{'group_by':'batch_id'}"
                     />
                 <filter
                         name="grp_partner_id"
@@ -91,6 +98,7 @@
     <field name="arch" type="xml">
         <xpath expr="//field[@name='user_id']" position="after">
             <field name="type_id" />
+            <field name="batch_id" />
             <field name="partner_id" />
             <field name="allowed_contact_ids" invisible="1" />
             <field name="contact_partner_id" />

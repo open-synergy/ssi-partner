@@ -48,6 +48,30 @@
                         <field name="result_computation_code" widget="ace" />
                     </group>
                 </page>
+                <page name="partner" string="Partners">
+                </page>
+                <page name="cron" string="Cron">
+                    <button
+                            name="action_create_cron"
+                            string="Create Cron"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('cron_id', '!=', False)]}"
+                        />
+                    <button
+                            name="action_delete_cron"
+                            string="Delete Cron"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('cron_id', '=', False)]}"
+                        />
+                    <group name="cron_1" colspan="4" col="2">
+                        <field name="cron_id" />
+                        <field name="date_start_offset_id" />
+                        <field name="date_end_offset_id" />
+
+                    </group>
+                </page>
             </xpath>
         </data>
     </field>

@@ -80,6 +80,12 @@ class PartnerEvaluation(models.Model):
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
+    batch_id = fields.Many2one(
+        comodel_name="partner_batch_evaluation",
+        string="# Batch",
+        ondelete="restrict",
+        readonly=True,
+    )
     date = fields.Date(
         string="Date",
         required=True,
