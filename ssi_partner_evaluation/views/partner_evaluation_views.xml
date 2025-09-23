@@ -174,6 +174,9 @@
     <field name="res_model">partner_evaluation</field>
     <field name="view_mode">tree,form</field>
     <field name="search_view_id" ref="partner_evaluation_view_search" />
+    <field
+            name="context"
+        >{'search_default_dom_draft':1,'search_default_dom_open':1, 'search_default_dom_confirm':1}</field>
 </record>
 
 <menuitem
