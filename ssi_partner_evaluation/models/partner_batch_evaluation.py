@@ -97,6 +97,8 @@ class PartnerBatchEvaluation(models.Model):
         relation="rel_partner_batch_evaluation_2_partner",
         column1="batch_id",
         column2="partner_id",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
     )
     evaluation_ids = fields.One2many(
         string="Evaluations",
