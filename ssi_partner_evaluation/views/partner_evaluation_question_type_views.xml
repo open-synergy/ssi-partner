@@ -45,6 +45,7 @@
                         <field
                                 name="computation_code"
                                 attrs="{'invisible':[('mode','=','manual')], 'required':[('mode','=','auto')]}"
+                                widget="ace"
                             />
                     </group>
                 </page>
