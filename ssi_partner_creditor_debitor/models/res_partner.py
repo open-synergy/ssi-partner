@@ -15,6 +15,7 @@ class ResPartner(models.Model):
         comodel_name="res.partner",
         compute="_compute_primary_creditor_id",
         store=True,
+        compute_sudo=True,
     )
     creditor_ids = fields.One2many(
         string="Creditors",
