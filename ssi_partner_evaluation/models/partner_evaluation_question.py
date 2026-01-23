@@ -34,10 +34,12 @@ class PartnerEvaluationQuestion(models.Model):
     type = fields.Selection(
         related="question_type_id.type",
         store=False,
+        compute_sudo=True,
     )
     mode = fields.Selection(
         related="question_type_id.mode",
         store=False,
+        compute_sudo=True,
     )
     manual_qualitative_value_id = fields.Many2one(
         string="Manual Qualitative Value",
@@ -76,6 +78,7 @@ class PartnerEvaluationQuestion(models.Model):
         string="Value",
         compute="_compute_value",
         store=False,
+        compute_sudo=True,
     )
 
     @api.depends(
