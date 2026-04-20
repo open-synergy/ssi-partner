@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- insurance_product — all users read-only -->
+    <record id="insurance_product_all_access" model="ir.model.access">
+        <field name="name">insurance_product - all</field>
+        <field name="model_id" ref="model_insurance_product" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <!-- insurance_product — configurator full access -->
+    <record id="insurance_product_user_access" model="ir.model.access">
+        <field name="name">insurance_product - user</field>
+        <field name="model_id" ref="model_insurance_product" />
+        <field name="group_id" ref="insurance_product_group" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+
+    <!-- insurance_product.rate — all users read-only -->
+    <record id="insurance_product_rate_all_access" model="ir.model.access">
+        <field name="name">insurance_product.rate - all</field>
+        <field name="model_id" ref="model_insurance_product_rate" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <!-- insurance_product.rate — configurator full access (via parent group) -->
+    <record id="insurance_product_rate_user_access" model="ir.model.access">
+        <field name="name">insurance_product.rate - user</field>
+        <field name="model_id" ref="model_insurance_product_rate" />
+        <field name="group_id" ref="insurance_product_group" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+</odoo>

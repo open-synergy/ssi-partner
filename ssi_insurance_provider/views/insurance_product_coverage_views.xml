@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="insurance_product_coverage_view_search" model="ir.ui.view">
+        <field name="name">insurance_product_coverage - search</field>
+        <field name="model">insurance_product_coverage</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="insurance_product_coverage_view_tree" model="ir.ui.view">
+        <field name="name">insurance_product_coverage - tree</field>
+        <field name="model">insurance_product_coverage</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='name']" position="after">
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="insurance_product_coverage_view_form" model="ir.ui.view">
+        <field name="name">insurance_product_coverage - form</field>
+        <field name="model">insurance_product_coverage</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='active']" position="after">
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="insurance_product_coverage_action" model="ir.actions.act_window">
+        <field name="name">Insurance Product Coverages</field>
+        <field name="res_model">insurance_product_coverage</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="insurance_product_coverage_menu"
+        name="Coverages"
+        parent="insurance_provider_menu_configuration"
+        action="insurance_product_coverage_action"
+        sequence="1"
+        groups="insurance_product_coverage_group"
+    />
+</odoo>

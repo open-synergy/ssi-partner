@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <menuitem
+        id="insurance_provider_menu_configuration"
+        name="Insurance Provider"
+        parent="ssi_partner.res_partner_menu_config"
+        sequence="99"
+    />
+</odoo>
