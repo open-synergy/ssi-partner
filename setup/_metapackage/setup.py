@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for open-synergy-ssi-partner Odoo addons",
     version=version,
     install_requires=[
+        'odoo14-addon-ssi_insurance_provider',
         'odoo14-addon-ssi_partner',
         'odoo14-addon-ssi_partner_company_capital',
         'odoo14-addon-ssi_partner_creditor_debitor',

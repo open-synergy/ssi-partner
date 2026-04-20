@@ -18,6 +18,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[ssi_insurance_provider](ssi_insurance_provider/) | 14.0.1.0.0 |  | Insurance Provider
 [ssi_partner](ssi_partner/) | 14.0.1.11.0 |  | Partner App
 [ssi_partner_company_capital](ssi_partner_company_capital/) | 14.0.1.1.0 |  | Company Capital Information
 [ssi_partner_creditor_debitor](ssi_partner_creditor_debitor/) | 14.0.1.0.0 |  | Partner Creditor and Debitor Information
