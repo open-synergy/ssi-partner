@@ -120,11 +120,13 @@ class PartnerBatchEvaluation(models.Model):
         comodel_name="queue.job",
         related="queue_job_batch_id.job_ids",
         store=False,
+        compute_sudo=True,
     )
     queue_job_batch_state = fields.Selection(
         string="Queue Job Batch State",
         related="queue_job_batch_id.state",
         store=True,
+        compute_sudo=True,
     )
 
     @api.model

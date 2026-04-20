@@ -132,7 +132,7 @@ class CustomerPortalExtended(CustomerPortal):
         return request.redirect("/my/bank_accounts")
 
     def convert_url_to_base64(self, url):
-        return base64.b64encode(requests.get(url).content)
+        return base64.b64encode(requests.get(url, timeout=30).content)
 
     @route(["/my/account"], type="http", auth="user", website=True)
     def account(self, redirect=None, **post):

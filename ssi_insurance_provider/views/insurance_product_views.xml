@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="insurance_product_view_search" model="ir.ui.view">
+        <field name="name">insurance_product - search</field>
+        <field name="model">insurance_product</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="insurance_product_view_tree" model="ir.ui.view">
+        <field name="name">insurance_product - tree</field>
+        <field name="model">insurance_product</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="provider_id" />
+                    <field name="coverage_type_id" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="insurance_product_view_form" model="ir.ui.view">
+        <field name="name">insurance_product - form</field>
+        <field name="model">insurance_product</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="provider_id" />
+                    <field name="product_id" />
+                    <field name="coverage_type_id" />
+                    <field name="currency_id" />
+                </xpath>
+                <xpath expr="//page[1]" position="before">
+                    <page string="Rates" name="rates">
+                        <field name="rate_ids">
+                            <tree editable="bottom">
+                                <field name="effective_date" />
+                                <field name="employer_rate" />
+                                <field name="employee_rate" />
+                                <field name="total_rate" />
+                                <field name="cap_amount" />
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="insurance_product_action" model="ir.actions.act_window">
+        <field name="name">Insurance Products</field>
+        <field name="res_model">insurance_product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="insurance_product_menu"
+        name="Products"
+        parent="insurance_provider_menu_configuration"
+        action="insurance_product_action"
+        sequence="2"
+        groups="insurance_product_group"
+    />
+</odoo>

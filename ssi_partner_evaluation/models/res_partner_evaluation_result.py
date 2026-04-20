@@ -32,10 +32,12 @@ class ResPartnerEvaluationResult(models.Model):
         string="Result",
         related="latest_evaluation_id.final_result_id",
         store=True,
+        compute_sudo=True,
     )
     date = fields.Date(
         related="latest_evaluation_id.date",
         store=True,
+        compute_sudo=True,
     )
 
     previous_evaluation_id = fields.Many2one(
@@ -49,15 +51,18 @@ class ResPartnerEvaluationResult(models.Model):
         string="Previous Result",
         related="previous_evaluation_id.final_result_id",
         store=True,
+        compute_sudo=True,
     )
     previous_date = fields.Date(
         related="previous_evaluation_id.date",
         store=True,
+        compute_sudo=True,
     )
     diff_evaluation = fields.Boolean(
         string="Latest Diff Than Previous",
         compute="_compute_latest_evaluation_id",
         store=True,
+        compute_sudo=True,
     )
 
     @api.depends(
