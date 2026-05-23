@@ -1,0 +1,754 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__blood_type__ab
+msgid "AB"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__active
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__active
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__active
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__active
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__active
+msgid "Active"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__type
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__type
+msgid "Address Type"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__allowed_contact_ids
+msgid "Allowed Contacts"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.ui.menu,name:ssi_partner.menu_config_bank_accounts
+msgid "Bank Accounts"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.banks_configurator_group
+msgid "Banks"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.banks_account_configurator_group
+msgid "Banks Account"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.personal_information
+msgid "Birth State"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__blood_type
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__blood_type
+msgid "Blood Type (ABO)"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__blood_type_rhesus
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__blood_type_rhesus
+msgid "Blood Type (Rh)"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__type__branch
+msgid "Branch Address"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__code
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__code
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__code
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__code
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__code
+msgid "Code"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__commercial_contact_id
+msgid "Commercial Contact"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_company_entity_type
+msgid "Company Entity Type"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
+msgid "Company Information"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_company_ownership_type
+msgid "Company Ownership Type"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.ui.menu,name:ssi_partner.res_partner_menu_config
+msgid "Configuration"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.actions.act_window,name:ssi_partner.partner_contact_group_action
+#: model:ir.ui.menu,name:ssi_partner.partner_contact_group_menu
+msgid "Contact Groups"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.contact_tags_configurator_group
+msgid "Contact Tags"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.contact_titles_configurator_group
+msgid "Contact Titles"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__contact_ids
+#: model:ir.ui.menu,name:ssi_partner.menu_contacts
+#: model:res.groups,name:ssi_partner.contacts_configurator_group
+msgid "Contacts"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.countries_configurator_group
+msgid "Countries"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.country_group_configurator_group
+msgid "Country Group"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.personal_information
+msgid "Country of Birth"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.personal_information
+msgid "Date of Birth"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__marital__divorced
+msgid "Divorced"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.actions.act_window,name:ssi_partner.company_entity_type_action
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__entity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__entity_type_id
+#: model:res.groups,name:ssi_partner.entity_type_configurator_group
+msgid "Entity Type"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.ui.menu,name:ssi_partner.company_entity_type_menu
+msgid "Entity Types"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.actions.act_window,name:ssi_partner.res_partner_ethnicity_action
+#: model:ir.model,name:ssi_partner.model_res_partner_ethnicity
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__ethnicity_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__ethnicity_id
+#: model:ir.ui.menu,name:ssi_partner.res_partner_ethnicity_menu
+#: model:res.groups,name:ssi_partner.res_partner_ethnicity_configurator_group
+msgid "Ethnicity"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.fed_states_configurator_group
+msgid "Fed. States"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__id
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__id
+msgid "ID"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_unread
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_unread
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_unread
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_unread
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.industries_configurator_group
+msgid "Industries"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__type
+#: model:ir.model.fields,help:ssi_partner.field_res_users__type
+msgid ""
+"Invoice & Delivery addresses are used in sales orders. Private addresses are"
+" only visible by authorized users."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type____last_update
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type____last_update
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group____last_update
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner____last_update
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity____last_update
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__marital__cohabitant
+msgid "Legal Cohabitant"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.ui.menu,name:ssi_partner.menu_localisation
+msgid "Localization"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__marital
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__marital
+msgid "Marital Status"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__marital__married
+msgid "Married"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__active
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__active
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__active
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__active
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__active
+msgid ""
+"Master data status\n"
+"\n"
+"* Inactive data can not be selected when creating new transaction\n"
+"* Transaction with inactive master data can still be viewed\n"
+"* Set master data as inactive if master data no longger needed,\n"
+"but master data already used on transaction"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__code
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__code
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__code
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__code
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__code
+msgid ""
+"Master data unique identifier.\n"
+"\n"
+"* Fill with '/' if You do not need unique identifier\n"
+"* Click 'Generate Code' button to automatically assign code.\n"
+"  Sequence template mush be set to perform this action\n"
+"  Only master data with '/' code will be assign automatic code"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__name
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__name
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__name
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__name
+msgid "Name"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.personal_information
+msgid "Nationality (Country)"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__note
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__note
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__note
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__note
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__note
+msgid "Note"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_unread_counter
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_unread_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_unread_counter
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_unread_counter
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
+msgid "Open"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.actions.act_window,name:ssi_partner.company_ownership_type_action
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__ownership_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__ownership_type_id
+#: model:res.groups,name:ssi_partner.ownership_type_configurator_group
+msgid "Ownership Type"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.ui.menu,name:ssi_partner.company_ownership_type_menu
+msgid "Ownership Types"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.module.category,name:ssi_partner.partner_module_category
+msgid "Partner"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.module.category,name:ssi_partner.partner_configurator_module_category
+msgid "Partner - Configurator"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.module.category,name:ssi_partner.partner_data_ownership_module_category
+msgid "Partner - Data Ownership"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.module.category,name:ssi_partner.partner_report_module_category
+msgid "Partner - Report"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.module.category,name:ssi_partner.partner_wizard_module_category
+msgid "Partner - Wizard"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.module.category,name:ssi_partner.partner_workflow_module_category
+msgid "Partner - Workflow"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_partner_contact_group
+msgid "Partner Contact Group"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.partner_contact_group_configurator_group
+msgid "Partner Contact Groups"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.personal_information
+msgid "Place of Birth"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.actions.act_window,name:ssi_partner.res_partner_religion_action
+#: model:ir.model,name:ssi_partner.model_res_partner_religion
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__religion_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__religion_id
+#: model:ir.ui.menu,name:ssi_partner.res_partner_religion_menu
+#: model:res.groups,name:ssi_partner.res_partner_religion_configurator_group
+msgid "Religion"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__marital__single
+msgid "Single"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__spouse_birthdate
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__spouse_birthdate
+msgid "Spouse Birthdate"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__spouse_complete_name
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__spouse_complete_name
+msgid "Spouse Complete Name"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_unread
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_unread
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_unread
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_unread
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__website_message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__website_message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__website_message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__website_message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_company_entity_type__website_message_ids
+#: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__website_message_ids
+#: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__website_message_ids
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__website_message_ids
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__marital__widower
+msgid "Widower"
+msgstr ""
