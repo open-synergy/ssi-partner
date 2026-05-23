@@ -1,0 +1,35 @@
+scenarios:
+  - name: "Creditor Debitor - Create Relationship"
+    steps:
+      - step: "Create creditor partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "creditor"
+        values:
+          name: "Test Creditor"
+          is_company: true
+
+      - step: "Create debtor partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "debtor"
+        values:
+          name: "Test Debtor"
+          is_company: true
+
+      - step: "Create creditor debtor relationship"
+        action: "create"
+        model: "partner_creditor_debtor"
+        save_as: "rel"
+        values:
+          creditor_id: "EVAL: registry['creditor'].id"
+          debtor_id: "EVAL: registry['debtor'].id"
+          sequence: 1
+
+      - step: "Assert relationship created"
+        action: "assert"
+        target: "rel"
+        asserts:
+          sequence:
+            type: "value"
+            expected: 1
