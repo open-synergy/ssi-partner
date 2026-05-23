@@ -1,0 +1,55 @@
+scenarios:
+  - name: "Insurance - Create Coverage Type"
+    steps:
+      - step: "Create coverage type"
+        action: "create"
+        model: "insurance_product_coverage"
+        save_as: "coverage"
+        values:
+          name: "Test Coverage Type"
+          code: "TST-COV"
+
+      - step: "Assert coverage type created"
+        action: "assert"
+        target: "coverage"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Coverage Type"
+
+  - name: "Insurance - Create Insurance Product"
+    steps:
+      - step: "Create provider partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "provider"
+        values:
+          name: "Test Insurance Provider"
+          is_company: true
+
+      - step: "Create coverage type"
+        action: "create"
+        model: "insurance_product_coverage"
+        save_as: "coverage"
+        values:
+          name: "Test Coverage"
+          code: "TST-COVA"
+
+      - step: "Create insurance product"
+        action: "create"
+        model: "insurance_product"
+        save_as: "product"
+        values:
+          name: "Test Insurance Product"
+          code: "TST-INS"
+          provider_id: "EVAL: registry['provider'].id"
+          coverage_type_id: "EVAL: registry['coverage'].id"
+          currency_id: "EVAL: env.ref('base.IDR').id"
+
+      - step: "Assert insurance product created"
+        action: "assert"
+        target: "product"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Insurance Product"
