@@ -2,9 +2,4 @@
 # Copyright 2024 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from . import (
-    models,
-    wizards,
-)
-
-from . import tests  # noqa: F401
+from . import test_partner_evaluation  # noqa: F401
