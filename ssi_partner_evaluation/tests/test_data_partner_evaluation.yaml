@@ -1,0 +1,45 @@
+scenarios:
+  - name: "Partner Evaluation - Create Evaluation Result"
+    steps:
+      - step: "Create result tag"
+        action: "create"
+        model: "res.partner.category"
+        save_as: "tag"
+        values:
+          name: "Test Evaluation Result Tag"
+
+      - step: "Create evaluation result"
+        action: "create"
+        model: "partner_evaluation_result"
+        save_as: "result"
+        values:
+          name: "Test Result"
+          code: "TST-RES"
+          tag_id: "EVAL: registry['tag'].id"
+
+      - step: "Assert result created"
+        action: "assert"
+        target: "result"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Result"
+
+  - name: "Partner Evaluation - Create Evaluation Type"
+    steps:
+      - step: "Create evaluation type"
+        action: "create"
+        model: "partner_evaluation_type"
+        save_as: "eval_type"
+        values:
+          name: "Test Evaluation Type"
+          code: "TST-EVT"
+          result_computation_code: "result = False"
+
+      - step: "Assert evaluation type created"
+        action: "assert"
+        target: "eval_type"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Evaluation Type"

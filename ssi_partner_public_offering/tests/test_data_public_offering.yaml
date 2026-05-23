@@ -1,0 +1,18 @@
+scenarios:
+  - name: "Public Offering - Create Offering Type"
+    steps:
+      - step: "Create public offering type"
+        action: "create"
+        model: "company_public_offering_type"
+        save_as: "offering_type"
+        values:
+          name: "Test Public Offering Type"
+          code: "TST-PO"
+
+      - step: "Assert offering type created"
+        action: "assert"
+        target: "offering_type"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Public Offering Type"

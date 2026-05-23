@@ -25,4 +25,7 @@
         "views/res_partner_views.xml",
     ],
     "demo": [],
+    "contributors": [
+        "Andhitia Rama <andhitia.r@gmail.com>",
+    ],
 }

@@ -1,0 +1,56 @@
+scenarios:
+  - name: "Partner Experience - Create Work Experience"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Test Experience Partner"
+          is_company: false
+
+      - step: "Create work experience"
+        action: "create"
+        model: "partner.experience"
+        save_as: "experience"
+        values:
+          name: "Test Work Experience"
+          partner_id: "EVAL: registry['partner'].id"
+          location: "Jakarta"
+          date_start: "2020-01-01"
+
+      - step: "Assert experience created"
+        action: "assert"
+        target: "experience"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Work Experience"
+
+  - name: "Partner Experience - Create Academic"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Test Academic Partner"
+          is_company: false
+
+      - step: "Create academic"
+        action: "create"
+        model: "partner.academic"
+        save_as: "academic"
+        values:
+          name: "Test Academic"
+          partner_id: "EVAL: registry['partner'].id"
+          location: "Bandung"
+          date_start: "2015-01-01"
+
+      - step: "Assert academic created"
+        action: "assert"
+        target: "academic"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Academic"

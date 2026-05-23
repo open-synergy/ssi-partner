@@ -6,3 +6,5 @@ from . import (
     models,
     wizards,
 )
+
+from . import tests  # noqa: F401

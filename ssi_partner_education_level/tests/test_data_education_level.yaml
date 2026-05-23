@@ -1,0 +1,36 @@
+scenarios:
+  - name: "Education Level - Create Formal Education Level"
+    steps:
+      - step: "Create formal education level"
+        action: "create"
+        model: "partner.formal_education_level"
+        save_as: "edu_level"
+        values:
+          name: "Test Education Level"
+          code: "TST-EDU"
+
+      - step: "Assert education level created"
+        action: "assert"
+        target: "edu_level"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Education Level"
+
+  - name: "Education Level - Create Field Of Study"
+    steps:
+      - step: "Create field of study"
+        action: "create"
+        model: "partner.field_of_study"
+        save_as: "field_study"
+        values:
+          name: "Test Field Of Study"
+          code: "TST-FOS"
+
+      - step: "Assert field of study created"
+        action: "assert"
+        target: "field_study"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Field Of Study"

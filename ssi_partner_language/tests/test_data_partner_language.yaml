@@ -1,0 +1,30 @@
+scenarios:
+  - name: "Partner Language - Create Language"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Test Language Partner"
+          is_company: false
+
+      - step: "Create partner language"
+        action: "create"
+        model: "partner.language"
+        save_as: "language"
+        values:
+          name: "en_US"
+          partner_id: "EVAL: registry['partner'].id"
+          read_rating: "3"
+          write_rating: "3"
+          speak_rating: "3"
+          listen_rating: "3"
+
+      - step: "Assert language created"
+        action: "assert"
+        target: "language"
+        asserts:
+          name:
+            type: "value"
+            expected: "en_US"

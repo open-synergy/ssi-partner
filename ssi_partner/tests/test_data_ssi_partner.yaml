@@ -1,0 +1,72 @@
+scenarios:
+  - name: "Partner - Create Religion Master Data"
+    steps:
+      - step: "Create religion"
+        action: "create"
+        model: "res_partner_religion"
+        save_as: "religion"
+        values:
+          name: "Test Religion"
+          code: "TST-REL"
+
+      - step: "Assert religion created"
+        action: "assert"
+        target: "religion"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Religion"
+
+  - name: "Partner - Create Ethnicity Master Data"
+    steps:
+      - step: "Create ethnicity"
+        action: "create"
+        model: "res_partner_ethnicity"
+        save_as: "ethnicity"
+        values:
+          name: "Test Ethnicity"
+          code: "TST-ETH"
+
+      - step: "Assert ethnicity created"
+        action: "assert"
+        target: "ethnicity"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Ethnicity"
+
+  - name: "Partner - Create Company Entity Type"
+    steps:
+      - step: "Create entity type"
+        action: "create"
+        model: "company_entity_type"
+        save_as: "entity_type"
+        values:
+          name: "Test Entity Type"
+          code: "TST-ENT"
+
+      - step: "Assert entity type created"
+        action: "assert"
+        target: "entity_type"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Entity Type"
+
+  - name: "Partner - Create Company Ownership Type"
+    steps:
+      - step: "Create ownership type"
+        action: "create"
+        model: "company_ownership_type"
+        save_as: "ownership_type"
+        values:
+          name: "Test Ownership Type"
+          code: "TST-OWN"
+
+      - step: "Assert ownership type created"
+        action: "assert"
+        target: "ownership_type"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Ownership Type"

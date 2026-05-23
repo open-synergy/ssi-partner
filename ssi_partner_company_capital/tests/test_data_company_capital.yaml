@@ -1,0 +1,36 @@
+scenarios:
+  - name: "Company Capital - Create Shareholder"
+    steps:
+      - step: "Create company partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "company"
+        values:
+          name: "Test Company"
+          is_company: true
+
+      - step: "Create shareholder partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "shareholder"
+        values:
+          name: "Test Shareholder"
+          is_company: true
+
+      - step: "Create company shareholder"
+        action: "create"
+        model: "company.shareholder"
+        save_as: "company_shareholder"
+        values:
+          partner_id: "EVAL: registry['company'].id"
+          shareholder_id: "EVAL: registry['shareholder'].id"
+          sequence: 1
+          number_of_share: 100
+
+      - step: "Assert shareholder created"
+        action: "assert"
+        target: "company_shareholder"
+        asserts:
+          number_of_share:
+            type: "value"
+            expected: 100
