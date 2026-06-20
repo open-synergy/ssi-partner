@@ -68,6 +68,7 @@ msgstr ""
 
 #. module: ssi_insurance_provider
 #: model:ir.model.fields,field_description:ssi_insurance_provider.field_insurance_product__coverage_type_id
+#: model_terms:ir.ui.view,arch_db:ssi_insurance_provider.insurance_product_view_search
 msgid "Coverage Type"
 msgstr ""
 
@@ -379,6 +380,7 @@ msgstr ""
 
 #. module: ssi_insurance_provider
 #: model:ir.model.fields,field_description:ssi_insurance_provider.field_insurance_product__provider_id
+#: model_terms:ir.ui.view,arch_db:ssi_insurance_provider.insurance_product_view_search
 msgid "Provider"
 msgstr ""
 
