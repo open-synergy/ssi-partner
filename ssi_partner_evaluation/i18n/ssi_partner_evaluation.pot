@@ -188,6 +188,11 @@ msgid "Attachment Count"
 msgstr ""
 
 #. module: ssi_partner_evaluation
+#: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_question_type_view_search
+msgid "Auto"
+msgstr ""
+
+#. module: ssi_partner_evaluation
 #: model:ir.model.fields.selection,name:ssi_partner_evaluation.selection__partner_evaluation_question_type__mode__auto
 #: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_view_form
 msgid "Automatic"
@@ -731,6 +736,7 @@ msgstr ""
 
 #. module: ssi_partner_evaluation
 #: model:ir.model.fields.selection,name:ssi_partner_evaluation.selection__partner_evaluation_question_type__mode__manual
+#: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_question_type_view_search
 #: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_view_form
 msgid "Manual"
 msgstr ""
@@ -815,6 +821,7 @@ msgstr ""
 #. module: ssi_partner_evaluation
 #: model:ir.model.fields,field_description:ssi_partner_evaluation.field_partner_evaluation_question__mode
 #: model:ir.model.fields,field_description:ssi_partner_evaluation.field_partner_evaluation_question_type__mode
+#: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_question_type_view_search
 msgid "Mode"
 msgstr ""
 
@@ -1104,6 +1111,7 @@ msgstr ""
 
 #. module: ssi_partner_evaluation
 #: model:ir.model.fields.selection,name:ssi_partner_evaluation.selection__partner_evaluation_question_type__type__qualitative
+#: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_question_type_view_search
 msgid "Qualitative"
 msgstr ""
 
@@ -1114,6 +1122,7 @@ msgstr ""
 
 #. module: ssi_partner_evaluation
 #: model:ir.model.fields.selection,name:ssi_partner_evaluation.selection__partner_evaluation_question_type__type__quantitative
+#: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_question_type_view_search
 msgid "Quantitative"
 msgstr ""
 
@@ -1299,6 +1308,7 @@ msgstr ""
 
 #. module: ssi_partner_evaluation
 #: model:ir.model.fields,field_description:ssi_partner_evaluation.field_partner_evaluation_result__tag_id
+#: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_result_view_search
 msgid "Tag"
 msgstr ""
 
@@ -1322,6 +1332,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner_evaluation.field_partner_evaluation_question__type
 #: model:ir.model.fields,field_description:ssi_partner_evaluation.field_partner_evaluation_question_type__type
 #: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_batch_evaluation_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_question_type_view_search
 #: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_view_search
 msgid "Type"
 msgstr ""
