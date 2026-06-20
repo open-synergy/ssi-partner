@@ -12,7 +12,18 @@
         />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
-        <data />
+        <data>
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="commercial_contact_id" widget="many2one_avatar" />
+                <group name="group_by">
+                    <filter
+                            name="grp_commercial_contact_id"
+                            string="Commercial Contact"
+                            context="{'group_by':'commercial_contact_id'}"
+                        />
+                </group>
+            </xpath>
+        </data>
     </field>
 </record>
 
