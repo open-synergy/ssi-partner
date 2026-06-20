@@ -140,6 +140,7 @@ msgstr ""
 
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__commercial_contact_id
+#: model_terms:ir.ui.view,arch_db:ssi_partner.partner_contact_group_view_search
 msgid "Commercial Contact"
 msgstr ""
 
