@@ -22,7 +22,18 @@
             ref="ssi_master_data_mixin.mixin_master_data_view_search"
         />
     <field name="arch" type="xml">
-        <data />
+        <data>
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="tag_id" />
+                <group name="group_by">
+                    <filter
+                            name="grp_tag_id"
+                            string="Tag"
+                            context="{'group_by':'tag_id'}"
+                        />
+                </group>
+            </xpath>
+        </data>
     </field>
 </record>
 
