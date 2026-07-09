@@ -70,3 +70,76 @@ scenarios:
           name:
             type: "value"
             expected: "Test Ownership Type"
+
+  - name: "Partner - Create Bank Account Usage Master Data"
+    steps:
+      - step: "Create bank account usage"
+        action: "create"
+        model: "res_partner_bank_usage"
+        save_as: "usage"
+        values:
+          name: "Operational"
+          code: "TST-USG"
+
+      - step: "Assert bank account usage created"
+        action: "assert"
+        target: "usage"
+        asserts:
+          name:
+            type: "value"
+            expected: "Operational"
+
+  - name: "Partner - Bank Account Usage is Optional and Linkable"
+    steps:
+      - step: "Create bank account usage"
+        action: "create"
+        model: "res_partner_bank_usage"
+        save_as: "usage"
+        values:
+          name: "Payroll"
+          code: "TST-USG2"
+
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Test Bank Partner"
+
+      - step: "Create bank account without usage"
+        action: "create"
+        model: "res.partner.bank"
+        save_as: "bank"
+        values:
+          acc_number: "1234567890"
+          partner_id: "EVAL: registry['partner'].id"
+
+      - step: "Assert bank account created without usage"
+        action: "assert"
+        target: "bank"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          usage_id:
+            type: "value"
+            operator: "is_falsy"
+
+      - step: "Set usage on bank account"
+        action: "write"
+        target: "bank"
+        values:
+          usage_id: "EVAL: registry['usage'].id"
+
+      - step: "Verify bank account linked to usage"
+        action: "search"
+        model: "res.partner.bank"
+        domain:
+          - - "id"
+            - "="
+            - "EVAL: registry['bank'].id"
+          - - "usage_id"
+            - "="
+            - "EVAL: registry['usage'].id"
+        save_as: "result"
+        expect_count: 1

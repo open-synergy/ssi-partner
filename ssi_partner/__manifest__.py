@@ -38,6 +38,7 @@
         "views/partner_contact_group_views.xml",
         "views/res_partner_religion_views.xml",
         "views/res_partner_ethnicity_views.xml",
+        "views/res_partner_bank_usage_views.xml",
     ],
     "demo": [],
     "contributors": [
