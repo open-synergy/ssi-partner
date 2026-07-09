@@ -243,3 +243,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner_portal.field_portal_partner_bank_account__acc_type
 msgid "Type"
 msgstr ""
+
+#. module: ssi_partner_portal
+#: model:ir.model.fields,field_description:ssi_partner_portal.field_portal_partner_bank_account__usage_id
+msgid "Usage"
+msgstr ""
+
+#. module: ssi_partner_portal
+#: model:ir.model.fields,help:ssi_partner_portal.field_portal_partner_bank_account__usage_id
+msgid ""
+"Usage/purpose of this bank account, e.g. Operational, Payroll, Tax, Escrow. "
+"Optional, used to classify how the account is intended to be used."
+msgstr ""
