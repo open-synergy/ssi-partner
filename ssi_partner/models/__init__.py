@@ -9,4 +9,6 @@ from . import (
     partner_contact_group,
     res_partner_religion,
     res_partner_ethnicity,
+    res_partner_bank_usage,
+    res_partner_bank,
 )

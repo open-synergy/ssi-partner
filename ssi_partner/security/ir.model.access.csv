@@ -27,3 +27,5 @@ access_res_partner_religion_configurator,res_partner_religion - configurator,mod
 access_res_partner_religion_all,res_partner_religion - all,model_res_partner_religion,,1,0,0,0
 access_res_partner_ethnicity_configurator,res_partner_ethnicity - configurator,model_res_partner_ethnicity,res_partner_ethnicity_configurator_group,1,1,1,1
 access_res_partner_ethnicity_all,res_partner_ethnicity - all,model_res_partner_ethnicity,,1,0,0,0
+access_res_partner_bank_usage_configurator,res_partner_bank_usage - configurator,model_res_partner_bank_usage,res_partner_bank_usage_configurator_group,1,1,1,1
+access_res_partner_bank_usage_all,res_partner_bank_usage - all,model_res_partner_bank_usage,,1,0,0,0
