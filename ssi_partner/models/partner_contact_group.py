@@ -17,7 +17,6 @@ class PartnerContactGroup(models.Model):
     _description = "Partner Contact Group"
 
     commercial_contact_id = fields.Many2one(
-        string="Commercial Contact",
         comodel_name="res.partner",
         domain=[("parent_id", "=", False)],
         required=True,

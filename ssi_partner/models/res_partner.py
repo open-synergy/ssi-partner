@@ -4,6 +4,7 @@
 from datetime import date
 
 from odoo import api, fields, models
+from odoo.fields import Domain
 
 
 class ResPartner(models.Model):
@@ -53,7 +54,6 @@ class ResPartner(models.Model):
         help="Country where the individual contact was born.",
     )
     nationality_id = fields.Many2one(
-        string="Nationality",
         comodel_name="res.country",
         help="Country of nationality/citizenship of the individual contact.",
     )
@@ -75,12 +75,10 @@ class ResPartner(models.Model):
         help="Rhesus factor of the individual contact's blood type.",
     )
     religion_id = fields.Many2one(
-        string="Religion",
         comodel_name="res_partner_religion",
         help="Religion of the individual contact, used for demographic reporting.",
     )
     ethnicity_id = fields.Many2one(
-        string="Ethnicity",
         comodel_name="res_partner_ethnicity",
         help="Ethnicity of the individual contact, used for demographic reporting.",
     )
@@ -107,7 +105,6 @@ class ResPartner(models.Model):
         "contact is married or a legal cohabitant.",
     )
     title_id = fields.Many2one(
-        string="Title",
         comodel_name="res.partner.title",
         ondelete="restrict",
         compute="_compute_title_id",
@@ -121,13 +118,11 @@ class ResPartner(models.Model):
 
     # Company attributes
     ownership_type_id = fields.Many2one(
-        string="Ownership Type",
         comodel_name="company_ownership_type",
         help="How the ownership of the company contact is structured "
         "(e.g. Private, State-Owned, Publicly Listed).",
     )
     entity_type_id = fields.Many2one(
-        string="Entity Type",
         comodel_name="company_entity_type",
         help="Legal entity form of the company contact (e.g. Limited "
         "Liability Company, Partnership, Cooperative).",
@@ -138,6 +133,36 @@ class ResPartner(models.Model):
         relation="rel_res_partner_2_secondary_industry",
         help="Additional industries the company contact operates in, "
         "besides its main industry.",
+    )
+
+    # Contact in several companies
+    contact_type = fields.Selection(
+        selection=[
+            ("standalone", "Standalone Contact"),
+            ("attached", "Attached to existing Contact"),
+        ],
+        compute="_compute_contact_type",
+        store=True,
+        index=True,
+        default="standalone",
+        help="A standalone contact represents a person on its own. An "
+        "attached contact represents one of the several positions held "
+        "by the same person, and keeps its name and title synchronized "
+        "with its main contact.",
+    )
+    contact_id = fields.Many2one(
+        string="Main Contact",
+        comodel_name="res.partner",
+        domain=[("is_company", "=", False), ("contact_type", "=", "standalone")],
+        help="Standalone contact this position belongs to. Name and "
+        "title are kept synchronized with it.",
+    )
+    other_contact_ids = fields.One2many(
+        string="Others Positions",
+        comodel_name="res.partner",
+        inverse_name="contact_id",
+        help="Other positions, in other companies, held by the same "
+        "person as this standalone contact.",
     )
 
     @api.depends("birthdate_date")
@@ -158,6 +183,93 @@ class ResPartner(models.Model):
         for partner in self:
             if partner.is_company:
                 partner.title_id = False
+
+    @api.depends("contact_id")
+    def _compute_contact_type(self):
+        for partner in self:
+            partner.contact_type = "attached" if partner.contact_id else "standalone"
+
+    @api.depends("contact_type", "contact_id")
+    def _compute_commercial_partner(self):
+        result = super()._compute_commercial_partner()
+        for partner in self:
+            if partner.contact_type == "attached" and not partner.parent_id:
+                partner.commercial_partner_id = partner.contact_id
+        return result
+
+    @api.model
+    def _contact_fields(self):
+        """Fields kept synchronized between a standalone contact and the
+        positions attached to it via ``contact_id``."""
+        return ["name", "title_id"]
+
+    def _contact_sync_from_parent(self):
+        """Pull the synchronized fields from the main contact onto self,
+        as if they were related fields."""
+        self.ensure_one()
+        if self.contact_id:
+            contact_fields = self._contact_fields()
+            sync_vals = self.contact_id._convert_fields_to_values(contact_fields)
+            self.write(sync_vals)
+
+    def update_contact(self, vals):
+        """Push a downstream update of the synchronized fields onto self,
+        guarded against recursive sync loops."""
+        if self.env.context.get("__update_contact_lock"):
+            return
+        contact_fields = self._contact_fields()
+        contact_vals = {
+            field_name: vals[field_name]
+            for field_name in contact_fields
+            if field_name in vals
+        }
+        if contact_vals:
+            self.with_context(__update_contact_lock=True).write(contact_vals)
+
+    def _fields_sync(self, values):
+        result = super()._fields_sync(values)
+        contact_fields = self._contact_fields()
+        if values.get("contact_id"):
+            # From UPSTREAM: sync from the newly set main contact.
+            self._contact_sync_from_parent()
+        elif any(field_name in contact_fields for field_name in values):
+            # To DOWNSTREAM: propagate to the main contact and siblings.
+            update_ids = self.other_contact_ids.filtered(lambda p: not p.is_company)
+            if self.contact_id:
+                update_ids |= self.contact_id
+            update_ids.update_contact(values)
+        return result
+
+    def _search(self, domain, offset=0, limit=None, order=None, **kw):
+        show_all_positions = self.env.context.get("search_show_all_positions") or {}
+        if not show_all_positions.get("is_set") or show_all_positions.get("set_value"):
+            return super()._search(
+                domain, offset=offset, limit=limit, order=order, **kw
+            )
+
+        # Display only standalone contacts matching `domain`, or standalone
+        # contacts having an attached contact matching `domain`.
+        no_filter_self = self.with_context(search_show_all_positions={"is_set": False})
+        base_domain = Domain(domain)
+        attached_query = no_filter_self._search(
+            base_domain & Domain("contact_type", "=", "attached")
+        )
+        filtered_domain = (
+            Domain("contact_type", "=", "standalone") & base_domain
+        ) | Domain("other_contact_ids", "in", attached_query)
+        return no_filter_self._search(
+            filtered_domain, offset=offset, limit=limit, order=order, **kw
+        )
+
+    @api.onchange("contact_id")
+    def onchange_name(self):
+        if self.contact_id:
+            self.name = self.contact_id.name
+
+    @api.onchange("contact_type")
+    def onchange_contact_id(self):
+        if self.contact_type == "standalone":
+            self.contact_id = False
 
     @api.model_create_multi
     def create(self, vals_list):

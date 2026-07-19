@@ -1,0 +1,150 @@
+setup:
+  steps:
+    - step: "Create standalone main contact"
+      action: "create"
+      model: "res.partner"
+      save_as: "person_a"
+      values:
+        name: "Jane Doe"
+    - step: "Create contact attached to the main contact"
+      action: "create"
+      model: "res.partner"
+      save_as: "person_b"
+      values:
+        contact_id: "REC: person_a.id"
+
+scenarios:
+  - name: "Standalone contact has contact_type standalone"
+    steps:
+      - step: "Assert contact type and empty main contact"
+        action: "assert"
+        target: "person_a"
+        asserts:
+          contact_type:
+            type: "value"
+            expected: "standalone"
+          contact_id:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Attached contact points to its main contact and inherits its name"
+    steps:
+      - step: "Assert contact type, main contact and inherited name"
+        action: "assert"
+        target: "person_b"
+        asserts:
+          contact_type:
+            type: "value"
+            expected: "attached"
+          contact_id:
+            type: "m2o"
+            expected: "REC: person_a"
+          name:
+            type: "value"
+            expected: "Jane Doe"
+
+  - name: "Main contact lists its attached position"
+    steps:
+      - step: "Assert other_contact_ids contains the attached contact"
+        action: "assert"
+        target: "person_a"
+        asserts:
+          other_contact_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: person_b"
+
+  - name: "Attached contact without a parent follows the main contact's commercial partner"
+    steps:
+      - step: "Assert commercial_partner_id follows contact_id"
+        action: "assert"
+        target: "person_b"
+        asserts:
+          commercial_partner_id:
+            type: "m2o"
+            expected: "REC: person_a"
+
+  - name: "Renaming the main contact propagates to the attached contact"
+    steps:
+      - step: "Rename the main contact"
+        action: "write"
+        target: "person_a"
+        values:
+          name: "Jane Doe Updated"
+      - step: "Assert the attached contact's name follows"
+        action: "assert"
+        target: "person_b"
+        asserts:
+          name:
+            type: "value"
+            expected: "Jane Doe Updated"
+
+  - name: "Renaming the attached contact propagates back to the main contact"
+    steps:
+      - step: "Rename the attached contact"
+        action: "write"
+        target: "person_b"
+        values:
+          name: "Jane Doe Renamed"
+      - step: "Assert the main contact's name follows"
+        action: "assert"
+        target: "person_a"
+        asserts:
+          name:
+            type: "value"
+            expected: "Jane Doe Renamed"
+
+  - name: "Onchange fills the name from the main contact and clears it back to standalone"
+    steps:
+      - step: "Set contact_id then switch back to standalone"
+        action: "form"
+        model: "res.partner"
+        save: false
+        ops:
+          - set:
+              contact_id: "REC: person_a"
+          - assert:
+              name:
+                type: "value"
+                expected: "Jane Doe"
+          - set:
+              contact_type: "standalone"
+          - assert:
+              contact_id:
+                type: "value"
+                operator: "is_falsy"
+
+  - name: "Invalid contact_type value is rejected"
+    steps:
+      - step: "Create with an invalid contact_type must fail"
+        action: "create"
+        model: "res.partner"
+        expect_error:
+          type: "ValueError"
+        values:
+          name: "Invalid Contact Type"
+          contact_type: "external"
+
+  - name: "Default contact list only returns standalone contacts"
+    steps:
+      - step: "Standalone contact is found with the default filter"
+        action: "search"
+        model: "res.partner"
+        domain: [["id", "=", "REC: person_a.id"]]
+        context:
+          search_show_all_positions:
+            is_set: true
+            set_value: false
+        save_as: "found_standalone"
+        expect_count: 1
+      - step: "Attached contact is filtered out by the default filter"
+        action: "search"
+        model: "res.partner"
+        domain: [["id", "=", "REC: person_b.id"]]
+        context:
+          search_show_all_positions:
+            is_set: true
+            set_value: false
+        save_as: "found_attached"
+        expect_count: 0

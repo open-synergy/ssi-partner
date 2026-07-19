@@ -11,3 +11,4 @@ from . import res_partner_title  # noqa: F401
 from . import res_partner_bank  # noqa: F401
 from . import res_partner  # noqa: F401
 from . import partner_contact_group  # noqa: F401
+from . import ir_actions_act_window  # noqa: F401
