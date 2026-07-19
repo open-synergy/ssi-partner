@@ -10,5 +10,6 @@ from . import test_res_partner_bank_usage
 from . import test_res_partner_title
 from . import test_sql_constraint_res_partner_title
 from . import test_res_partner
+from . import test_res_partner_contact
 from . import test_res_partner_bank
 from . import test_partner_contact_group

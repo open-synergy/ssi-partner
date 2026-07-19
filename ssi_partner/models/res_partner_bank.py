@@ -11,7 +11,6 @@ class ResPartnerBank(models.Model):
     ]
 
     usage_id = fields.Many2one(
-        string="Usage",
         comodel_name="res_partner_bank_usage",
         help="Classifies the intended usage of this bank account, e.g. "
         "Operational, Payroll, Tax, or Escrow. Optional.",

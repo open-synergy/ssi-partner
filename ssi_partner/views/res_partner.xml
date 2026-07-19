@@ -54,6 +54,28 @@
                             invisible="marital not in ['married', 'cohabitant']"
                         />
                     </group>
+                    <group string="Contact in Several Companies">
+                        <field name="contact_type" readonly="0" />
+                        <field
+                            name="contact_id"
+                            required="contact_type == 'attached'"
+                        />
+                    </group>
+                </page>
+                <page
+                    name="ssi_partner_other_positions"
+                    string="Other Positions"
+                    invisible="is_company or contact_type != 'standalone'"
+                >
+                    <field name="other_contact_ids">
+                        <list>
+                            <field name="name" />
+                            <field name="parent_id" />
+                            <field name="function" />
+                            <field name="email" />
+                            <field name="phone" />
+                        </list>
+                    </field>
                 </page>
                 <page
                     name="ssi_partner_company_information"
@@ -67,6 +89,23 @@
                     </group>
                 </page>
             </notebook>
+        </field>
+    </record>
+
+    <record id="res_partner_view_search" model="ir.ui.view">
+        <field name="name">res.partner - search - all positions filter</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <filter name="type_company" position="after">
+                <separator />
+                <filter
+                    name="type_otherpositions"
+                    string="All Positions"
+                    context="{'search_show_all_positions': {'is_set': True, 'set_value': True}}"
+                    help="Also show contacts attached to another contact as one of their positions"
+                />
+            </filter>
         </field>
     </record>
 </odoo>

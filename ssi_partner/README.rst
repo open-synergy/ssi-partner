@@ -24,6 +24,14 @@ mutually exclusive notebook pages depending on ``is_company``. Also adds
 the ``partner_contact_group`` master data model, used to group a subset of
 a commercial contact's children for handling as a single unit.
 
+Adds a mechanism for a single person to hold several positions across
+different companies without being duplicated as unrelated contacts: a
+``standalone`` contact can have several ``attached`` positions
+(``contact_id``/``other_contact_ids``) whose name and title are kept in
+sync with it. Contact lists only show standalone contacts by default; the
+"All Positions" filter on the partner search view reveals attached
+contacts as well.
+
 
 Installation
 ============
