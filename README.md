@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ssi_partner](ssi_partner/) | 19.0.1.4.0 |  | Partner
+[ssi_partner](ssi_partner/) | 19.0.1.5.0 |  | Partner
 
 [//]: # (end addons)
 
