@@ -159,6 +159,19 @@ class ResPartner(models.Model):
             if partner.is_company:
                 partner.title_id = False
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        records = super().create(vals_list)
+        # `title_id` is a precomputed, user-editable field: when
+        # `is_company` and `title_id` are both given explicitly in the
+        # same `create()` call, the ORM stores the given `title_id`
+        # as-is and never re-runs `_compute_title_id` for it. Enforce
+        # the "no title on a company" invariant explicitly here so it
+        # also holds right after creation, not only after a later
+        # `write()` of `is_company`.
+        records.filtered("is_company").title_id = False
+        return records
+
     def action_open_contact_address(self):
         for record in self.sudo():
             result = record._open_contact_address()
