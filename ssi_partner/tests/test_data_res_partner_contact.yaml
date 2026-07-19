@@ -140,7 +140,7 @@ scenarios:
             set_value: false
         save_as: "found_standalone"
         expect_count: 1
-      - step: "Attached contact is filtered out by the default filter"
+      - step: "Searching by the attached contact's id surfaces its main contact instead"
         action: "search"
         model: "res.partner"
         domain: [["id", "=", "REC: person_b.id"]]
@@ -148,5 +148,12 @@ scenarios:
           search_show_all_positions:
             is_set: true
             set_value: false
-        save_as: "found_attached"
-        expect_count: 0
+        save_as: "found_via_attached_id"
+        expect_count: 1
+      - step: "Assert the surfaced record is the main contact, not the attached one"
+        action: "assert"
+        target: "found_via_attached_id"
+        asserts:
+          id:
+            type: "value"
+            expected: "REC: person_a.id"

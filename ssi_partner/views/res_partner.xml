@@ -58,7 +58,6 @@
                         <field name="contact_type" />
                         <field
                             name="contact_id"
-                            invisible="contact_type != 'attached'"
                             required="contact_type == 'attached'"
                         />
                     </group>
