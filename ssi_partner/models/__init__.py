@@ -10,3 +10,4 @@ from . import res_partner_bank_usage  # noqa: F401
 from . import res_partner_title  # noqa: F401
 from . import res_partner_bank  # noqa: F401
 from . import res_partner  # noqa: F401
+from . import partner_contact_group  # noqa: F401

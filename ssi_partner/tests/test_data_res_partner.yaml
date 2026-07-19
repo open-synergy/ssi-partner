@@ -29,3 +29,175 @@ scenarios:
           parent_id:
             type: "m2o"
             expected: "REC: company_partner"
+
+  - name: "Age is computed from date of birth"
+    steps:
+      - step: "Create individual with a date of birth"
+        action: "create"
+        model: "res.partner"
+        save_as: "person"
+        values:
+          name: "Jane Doe"
+          birthdate_date: 2000-05-15
+      - step: "Assert age matches today's calendar age"
+        action: "assert"
+        target: "person"
+        asserts:
+          age:
+            type: "value"
+            expected: "EVAL: relativedelta(date.today(), date(2000, 5, 15)).years"
+
+  - name: "Age is zero when date of birth is empty"
+    steps:
+      - step: "Create individual without a date of birth"
+        action: "create"
+        model: "res.partner"
+        save_as: "person"
+        values:
+          name: "John Doe"
+      - step: "Assert age is zero"
+        action: "assert"
+        target: "person"
+        asserts:
+          age:
+            type: "value"
+            expected: 0
+
+  - name: "Marital status defaults to single"
+    steps:
+      - step: "Create individual without setting marital status"
+        action: "create"
+        model: "res.partner"
+        save_as: "person"
+        values:
+          name: "Jane Doe"
+      - step: "Assert marital status is single"
+        action: "assert"
+        target: "person"
+        asserts:
+          marital:
+            type: "value"
+            expected: "single"
+
+  - name: "Title is kept for an individual contact"
+    steps:
+      - step: "Create title"
+        action: "create"
+        model: "res.partner.title"
+        save_as: "title"
+        values:
+          name: "Doctor Kept"
+      - step: "Create individual with the title"
+        action: "create"
+        model: "res.partner"
+        save_as: "person"
+        values:
+          name: "Jane Doe"
+          title_id: "REC: title.id"
+      - step: "Assert title is kept"
+        action: "assert"
+        target: "person"
+        asserts:
+          title_id:
+            type: "m2o"
+            expected: "REC: title"
+
+  - name: "Title is cleared when the contact is created as a company"
+    steps:
+      - step: "Create title"
+        action: "create"
+        model: "res.partner.title"
+        save_as: "title"
+        values:
+          name: "Doctor Cleared On Create"
+      - step: "Create company with a title set"
+        action: "create"
+        model: "res.partner"
+        save_as: "company_partner"
+        values:
+          name: "Acme Corp"
+          is_company: true
+          title_id: "REC: title.id"
+      - step: "Assert title is falsy"
+        action: "assert"
+        target: "company_partner"
+        asserts:
+          title_id:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Title is cleared when an individual is turned into a company"
+    steps:
+      - step: "Create title"
+        action: "create"
+        model: "res.partner.title"
+        save_as: "title"
+        values:
+          name: "Doctor Cleared On Write"
+      - step: "Create individual with the title"
+        action: "create"
+        model: "res.partner"
+        save_as: "person"
+        values:
+          name: "Jane Doe"
+          title_id: "REC: title.id"
+      - step: "Turn the contact into a company"
+        action: "write"
+        target: "person"
+        values:
+          is_company: true
+      - step: "Assert title is falsy"
+        action: "assert"
+        target: "person"
+        asserts:
+          title_id:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Secondary industries can be assigned to a company"
+    steps:
+      - step: "Create first industry"
+        action: "create"
+        model: "res.partner.industry"
+        save_as: "industry_a"
+        values:
+          name: "Software"
+      - step: "Create second industry"
+        action: "create"
+        model: "res.partner.industry"
+        save_as: "industry_b"
+        values:
+          name: "Consulting"
+      - step: "Create company with secondary industries"
+        action: "create"
+        model: "res.partner"
+        save_as: "company_partner"
+        values:
+          name: "Acme Corp"
+          is_company: true
+          secondary_industry_ids:
+            - - 6
+              - 0
+              - - "REC: industry_a.id"
+                - "REC: industry_b.id"
+      - step: "Assert both industries are set"
+        action: "assert"
+        target: "company_partner"
+        asserts:
+          secondary_industry_ids:
+            type: "m2m"
+            check: "exact"
+            expected_records:
+              - "REC: industry_a"
+              - "REC: industry_b"
+
+  - name: "Invalid gender value is rejected"
+    steps:
+      - step: "Create individual with an invalid gender must fail"
+        action: "create"
+        model: "res.partner"
+        expect_error:
+          type: "ValueError"
+        values:
+          name: "Jane Doe"
+          gender: "unknown"

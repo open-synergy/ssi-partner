@@ -3,14 +3,70 @@
      Copyright 2026 PT. Simetri Sinergi Indonesia
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <!-- No new view/action for res.partner in this module: field and view
-         changes on res.partner itself are out of scope (separate backlog
-         issue). Re-use the existing Contacts action so it is reachable
-         from the new Partner root menu. -->
+    <!-- Re-use the existing Contacts action so it is reachable from the
+         new Partner root menu. -->
     <menuitem
         id="menu_partner_contacts"
         parent="menu_partner_root"
         action="contacts.action_contacts"
         sequence="10"
     />
+
+    <record id="res_partner_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.partner - form - personal &amp; company information</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page
+                    name="ssi_partner_personal_information"
+                    string="Personal Information"
+                    invisible="is_company"
+                >
+                    <group>
+                        <group>
+                            <field name="gender" />
+                            <field name="birthdate_date" />
+                            <field name="age" />
+                            <field name="nationality_id" />
+                            <field name="title_id" />
+                        </group>
+                        <group>
+                            <field name="birth_city" />
+                            <field name="birth_state_id" />
+                            <field name="birth_country_id" />
+                            <field name="blood_type" />
+                            <field name="blood_type_rhesus" />
+                            <field name="religion_id" />
+                            <field name="ethnicity_id" />
+                        </group>
+                    </group>
+                    <group string="Marital Status">
+                        <field name="marital" />
+                        <field
+                            name="spouse_complete_name"
+                            invisible="marital not in ['married', 'cohabitant']"
+                        />
+                        <field
+                            name="spouse_birthdate"
+                            invisible="marital not in ['married', 'cohabitant']"
+                        />
+                    </group>
+                </page>
+                <page
+                    name="ssi_partner_company_information"
+                    string="Company Information"
+                    invisible="not is_company"
+                >
+                    <group>
+                        <field name="ownership_type_id" />
+                        <field name="entity_type_id" />
+                        <field name="secondary_industry_ids" widget="many2many_tags" />
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
 </odoo>
