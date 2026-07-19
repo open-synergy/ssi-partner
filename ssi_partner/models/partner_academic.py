@@ -31,6 +31,7 @@ class PartnerAcademic(models.Model):
         help="Grade point average obtained, if applicable.",
     )
     activities = fields.Text(
+        string="Extracurricular Activities",
         help="Extracurricular activities and organizations the partner "
         "was involved in during this academic history entry.",
     )
