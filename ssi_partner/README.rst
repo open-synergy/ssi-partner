@@ -16,8 +16,13 @@ implementations (``company_ownership_type``, ``company_entity_type``,
 ``action_open_contact_address`` method used to browse a company's child
 contacts.
 
-Field-level additions on ``res.partner`` itself (individual/company fields)
-are covered by separate modules/issues built on top of this foundation.
+Adds native individual attributes (gender, date/place of birth, computed
+age, nationality, blood type, religion, ethnicity, marital status, spouse
+information, title) and company attributes (ownership type, entity type,
+secondary industries) directly on ``res.partner``, presented on two
+mutually exclusive notebook pages depending on ``is_company``. Also adds
+the ``partner_contact_group`` master data model, used to group a subset of
+a commercial contact's children for handling as a single unit.
 
 
 Installation

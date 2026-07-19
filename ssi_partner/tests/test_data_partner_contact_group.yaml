@@ -1,0 +1,170 @@
+scenarios:
+  - name: "Create partner contact group"
+    steps:
+      - step: "Create commercial contact"
+        action: "create"
+        model: "res.partner"
+        save_as: "commercial_contact"
+        values:
+          name: "Acme Corp"
+          is_company: true
+      - step: "Create contact under the commercial contact"
+        action: "create"
+        model: "res.partner"
+        save_as: "contact_a"
+        values:
+          name: "Contact A"
+          parent_id: "REC: commercial_contact.id"
+      - step: "Create group"
+        action: "create"
+        model: "partner_contact_group"
+        save_as: "group"
+        values:
+          name: "Deal Team"
+          commercial_contact_id: "REC: commercial_contact.id"
+          contact_ids:
+            - - 6
+              - 0
+              - - "REC: contact_a.id"
+      - step: "Assert group created"
+        action: "assert"
+        target: "group"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Deal Team"
+          commercial_contact_id:
+            type: "m2o"
+            expected: "REC: commercial_contact"
+          contact_ids:
+            type: "m2m"
+            check: "exact"
+            expected_records:
+              - "REC: contact_a"
+
+  - name: "Edit partner contact group name"
+    steps:
+      - step: "Create commercial contact"
+        action: "create"
+        model: "res.partner"
+        save_as: "commercial_contact"
+        values:
+          name: "Acme Corp"
+          is_company: true
+      - step: "Create contact under the commercial contact"
+        action: "create"
+        model: "res.partner"
+        save_as: "contact_a"
+        values:
+          name: "Contact A"
+          parent_id: "REC: commercial_contact.id"
+      - step: "Create group"
+        action: "create"
+        model: "partner_contact_group"
+        save_as: "group"
+        values:
+          name: "Deal Team"
+          commercial_contact_id: "REC: commercial_contact.id"
+          contact_ids:
+            - - 6
+              - 0
+              - - "REC: contact_a.id"
+      - step: "Write new name"
+        action: "write"
+        target: "group"
+        values:
+          name: "Renewal Team"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "group"
+        asserts:
+          name:
+            type: "value"
+            expected: "Renewal Team"
+
+  - name: "Delete partner contact group"
+    steps:
+      - step: "Create commercial contact"
+        action: "create"
+        model: "res.partner"
+        save_as: "commercial_contact"
+        values:
+          name: "Acme Corp"
+          is_company: true
+      - step: "Create contact under the commercial contact"
+        action: "create"
+        model: "res.partner"
+        save_as: "contact_a"
+        values:
+          name: "Contact A"
+          parent_id: "REC: commercial_contact.id"
+      - step: "Create group"
+        action: "create"
+        model: "partner_contact_group"
+        save_as: "group"
+        values:
+          name: "Temporary Team"
+          commercial_contact_id: "REC: commercial_contact.id"
+          contact_ids:
+            - - 6
+              - 0
+              - - "REC: contact_a.id"
+      - step: "Delete group"
+        action: "unlink"
+        target: "group"
+      - step: "Verify group deleted"
+        action: "search"
+        model: "partner_contact_group"
+        domain: [["name", "=", "Temporary Team"]]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Changing commercial contact clears the selected contacts"
+    steps:
+      - step: "Create commercial contact A"
+        action: "create"
+        model: "res.partner"
+        save_as: "commercial_a"
+        values:
+          name: "Acme Corp"
+          is_company: true
+      - step: "Create commercial contact B"
+        action: "create"
+        model: "res.partner"
+        save_as: "commercial_b"
+        values:
+          name: "Globex Corp"
+          is_company: true
+      - step: "Create contact under commercial contact A"
+        action: "create"
+        model: "res.partner"
+        save_as: "contact_a"
+        values:
+          name: "Contact A"
+          parent_id: "REC: commercial_a.id"
+      - step:
+          "Fill form, set commercial contact and contacts, then switch commercial
+          contact"
+        action: "form"
+        model: "partner_contact_group"
+        save: false
+        ops:
+          - set: {name: "Deal Team"}
+          - set: {commercial_contact_id: "REC: commercial_a"}
+          - set: {contact_ids: "REC: contact_a"}
+          - set: {commercial_contact_id: "REC: commercial_b"}
+          - assert:
+              contact_ids:
+                type: "value"
+                operator: "is_falsy"
+# Note: "create partner_contact_group without commercial_contact_id must
+# fail" is NOT expressible here. commercial_contact_id is a plain
+# required=True field (NOT NULL at the database level), not an
+# @api.constrains, so the violation surfaces as
+# psycopg2.errors.NotNullViolation on flush — not one of the 12 types
+# odoo-yaml-test's expect_error supports (L-22). It is covered instead by
+# test_commercial_contact_id_is_required in test_partner_contact_group.py
+# (pattern P5).
