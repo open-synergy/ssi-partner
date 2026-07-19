@@ -1,0 +1,221 @@
+setup:
+  steps:
+    - step: "Create partner A"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner_a"
+      values:
+        name: "Jane Doe"
+    - step: "Create an institution/company partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "company_a"
+      values:
+        name: "Acme Corp"
+        is_company: true
+    - step: "Create a formal education level"
+      action: "create"
+      model: "partner_formal_education_level"
+      save_as: "education_level"
+      values:
+        name: "Bachelor's Degree"
+        code: "/"
+    - step: "Create a field of study"
+      action: "create"
+      model: "partner_field_of_study"
+      save_as: "field_of_study"
+      values:
+        name: "Computer Science"
+        code: "/"
+
+scenarios:
+  - name: "Create academic history with a valid date range"
+    steps:
+      - step: "Create academic history for partner A"
+        action: "create"
+        model: "partner_academic"
+        save_as: "academic"
+        values:
+          name: "Bachelor of Computer Science"
+          partner_id: "REC: partner_a.id"
+          education_level_id: "REC: education_level.id"
+          field_of_study_id: "REC: field_of_study.id"
+          date_start: 2015-08-01
+          date_end: 2019-06-30
+      - step: "Assert saved and linked to the education level and field of study"
+        action: "assert"
+        target: "academic"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          education_level_id:
+            type: "m2o"
+            expected: "REC: education_level"
+          field_of_study_id:
+            type: "m2o"
+            expected: "REC: field_of_study"
+
+  - name: "Certification without an end date is accepted"
+    steps:
+      - step: "Create certification without date_end"
+        action: "create"
+        model: "partner_certification"
+        save_as: "certification"
+        values:
+          name: "CPA License"
+          partner_id: "REC: partner_a.id"
+          certification: "Certified Public Accountant"
+          date_start: 2020-01-01
+      - step: "Assert expire and active default to true"
+        action: "assert"
+        target: "certification"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          expire:
+            type: "value"
+            expected: true
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Work experience linked to an institution/company is accepted"
+    steps:
+      - step: "Create work experience with partner_address_id pointing to a company"
+        action: "create"
+        model: "partner_experience"
+        save_as: "experience"
+        values:
+          name: "Software Engineer at Acme"
+          partner_id: "REC: partner_a.id"
+          partner_address_id: "REC: company_a.id"
+          job_position: "Software Engineer"
+          date_start: 2019-07-01
+      - step: "Assert saved and linked to the company"
+        action: "assert"
+        target: "experience"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          partner_address_id:
+            type: "m2o"
+            expected: "REC: company_a"
+
+  - name: "Partner o2m fields contain the created history records"
+    steps:
+      - step: "Create academic history for partner A"
+        action: "create"
+        model: "partner_academic"
+        save_as: "academic"
+        values:
+          name: "Bachelor of Computer Science"
+          partner_id: "REC: partner_a.id"
+          date_start: 2015-08-01
+      - step: "Create certification for partner A"
+        action: "create"
+        model: "partner_certification"
+        save_as: "certification"
+        values:
+          name: "CPA License"
+          partner_id: "REC: partner_a.id"
+          date_start: 2020-01-01
+      - step: "Create work experience for partner A"
+        action: "create"
+        model: "partner_experience"
+        save_as: "experience"
+        values:
+          name: "Software Engineer at Acme"
+          partner_id: "REC: partner_a.id"
+          date_start: 2019-07-01
+      - step:
+          "Assert academic_ids, certification_ids and experience_ids each contain their
+          record"
+        action: "assert"
+        target: "partner_a"
+        asserts:
+          academic_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: academic"
+          certification_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: certification"
+          experience_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: experience"
+
+  - name: "Deleting a partner cascades to all its history records"
+    steps:
+      - step: "Create a temporary partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner_temp"
+        values:
+          name: "Temporary Contact"
+      - step: "Create academic history for the temporary partner"
+        action: "create"
+        model: "partner_academic"
+        save_as: "academic"
+        values:
+          name: "Bachelor of Computer Science"
+          partner_id: "REC: partner_temp.id"
+          date_start: 2015-08-01
+      - step: "Create certification for the temporary partner"
+        action: "create"
+        model: "partner_certification"
+        save_as: "certification"
+        values:
+          name: "CPA License"
+          partner_id: "REC: partner_temp.id"
+          date_start: 2020-01-01
+      - step: "Create work experience for the temporary partner"
+        action: "create"
+        model: "partner_experience"
+        save_as: "experience"
+        values:
+          name: "Software Engineer at Acme"
+          partner_id: "REC: partner_temp.id"
+          date_start: 2019-07-01
+      - step: "Delete the temporary partner"
+        action: "unlink"
+        target: "partner_temp"
+      - step: "Verify the academic history was cascaded"
+        action: "search"
+        model: "partner_academic"
+        domain: [["id", "=", "REC: academic.id"]]
+        save_as: "result_academic"
+        expect_count: 0
+      - step: "Verify the certification was cascaded"
+        action: "search"
+        model: "partner_certification"
+        domain: [["id", "=", "REC: certification.id"]]
+        save_as: "result_certification"
+        expect_count: 0
+      - step: "Verify the work experience was cascaded"
+        action: "search"
+        model: "partner_experience"
+        domain: [["id", "=", "REC: experience.id"]]
+        save_as: "result_experience"
+        expect_count: 0
+
+  - name: "Academic history rejects an end date earlier than its start date"
+    steps:
+      - step: "Create academic history with date_end before date_start must fail"
+        action: "create"
+        model: "partner_academic"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "earlier than start date"
+        values:
+          name: "Invalid Academic Entry"
+          partner_id: "REC: partner_a.id"
+          date_start: 2020-01-01
+          date_end: 2019-01-01

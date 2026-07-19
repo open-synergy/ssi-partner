@@ -48,6 +48,17 @@ listening proficiency on the 11-level ILR (Interagency Language
 Roundtable) scale. A given language can only be recorded once per
 partner.
 
+Adds partner history tracking: two master data models,
+``partner_field_of_study`` (hierarchical, via ``parent_id``/``child_ids``)
+and ``partner_formal_education_level`` (ordered by ``sequence``), and an
+abstract ``mixin.partner_experience`` providing a native date range
+(``date_start``/``date_end``, rejecting an end date earlier than the
+start date) shared by three concrete history models shown as tabs on
+``res.partner``: ``partner_academic`` ("Academic History"),
+``partner_certification`` ("Certifications"), and ``partner_experience``
+("Work Experience"). Deleting a partner cascades to all of its history
+records.
+
 
 Installation
 ============
