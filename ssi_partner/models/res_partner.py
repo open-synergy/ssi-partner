@@ -175,6 +175,16 @@ class ResPartner(models.Model):
         "Registration Number.",
     )
 
+    # Languages
+    language_ids = fields.One2many(
+        string="Languages",
+        comodel_name="partner_language",
+        inverse_name="partner_id",
+        help="Languages spoken by this contact, each rated on the "
+        "11-level ILR scale for reading, writing, speaking, and "
+        "listening proficiency.",
+    )
+
     @api.depends("birthdate_date")
     def _compute_age(self):
         today = date.today()

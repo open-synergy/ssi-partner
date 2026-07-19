@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- partner_language is transactional data owned by the partner
+         (edited directly from the res.partner form's Personal
+         Information page), not master data, so it has no
+         configurator group of its own — it re-uses the core
+         "Contact Creation" group instead, mirroring res.partner's
+         own ACL (base.group_user read-only + base.group_partner_manager
+         full access). -->
+    <record id="partner_language_all_access" model="ir.model.access">
+        <field name="name">partner_language - all</field>
+        <field name="model_id" ref="model_partner_language" />
+        <field name="group_id" ref="base.group_user" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <record id="partner_language_manager_access" model="ir.model.access">
+        <field name="name">partner_language - manager</field>
+        <field name="model_id" ref="model_partner_language" />
+        <field name="group_id" ref="base.group_partner_manager" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+</odoo>

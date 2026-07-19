@@ -35,6 +35,7 @@
         "security/ir_model_access/partner_contact_group.xml",
         "security/ir_model_access/res_partner_id_category.xml",
         "security/ir_model_access/res_partner_id_number.xml",
+        "security/ir_model_access/partner_language.xml",
         "menu.xml",
         "views/res_partner.xml",
         "views/company_ownership_type.xml",
