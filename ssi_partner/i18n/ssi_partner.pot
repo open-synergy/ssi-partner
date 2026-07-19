@@ -19,6 +19,15 @@ msgid "A"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__contact_type
+#: model:ir.model.fields,help:ssi_partner.field_res_users__contact_type
+msgid ""
+"A standalone contact represents a person on its own. An attached contact "
+"represents one of the several positions held by the same person, and keeps "
+"its name and title synchronized with its main contact."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__blood_type__ab
 msgid "AB"
 msgstr ""
@@ -36,6 +45,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_needaction
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_needaction
 msgid "Action Needed"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_ir_actions_act_window
+msgid "Action Window"
 msgstr ""
 
 #. module: ssi_partner
@@ -118,8 +132,19 @@ msgid ""
 msgstr ""
 
 #. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_search
+msgid "All Positions"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__allowed_contact_ids
 msgid "Allowed Contacts"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_search
+msgid ""
+"Also show contacts attached to another contact as one of their positions"
 msgstr ""
 
 #. module: ssi_partner
@@ -131,6 +156,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_title_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_title_view_search
 msgid "Archived"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__contact_type__attached
+msgid "Attached to existing Contact"
 msgstr ""
 
 #. module: ssi_partner
@@ -269,6 +299,17 @@ msgid "Contact Titles"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__contact_type
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__contact_type
+msgid "Contact Type"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
+msgid "Contact in Several Companies"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__contact_ids
 #: model:ir.ui.menu,name:ssi_partner.menu_partner_contacts
 #: model_terms:ir.ui.view,arch_db:ssi_partner.partner_contact_group_view_form
@@ -349,6 +390,7 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_ir_actions_act_window__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__display_name
@@ -476,6 +518,7 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__id
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__id
+#: model:ir.model.fields,field_description:ssi_partner.field_ir_actions_act_window__id
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__id
@@ -574,6 +617,12 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.ui.menu,name:ssi_partner.menu_partner_localization
 msgid "Localization"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__contact_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__contact_id
+msgid "Main Contact"
 msgstr ""
 
 #. module: ssi_partner
@@ -773,6 +822,25 @@ msgid "Other"
 msgstr ""
 
 #. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
+msgid "Other Positions"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__other_contact_ids
+#: model:ir.model.fields,help:ssi_partner.field_res_users__other_contact_ids
+msgid ""
+"Other positions, in other companies, held by the same person as this "
+"standalone contact."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__other_contact_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__other_contact_ids
+msgid "Others Positions"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__ownership_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_users__ownership_type_id
 #: model:res.groups,name:ssi_partner.company_ownership_type_group
@@ -880,6 +948,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__spouse_complete_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_users__spouse_complete_name
 msgid "Spouse's Name"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__contact_type__standalone
+msgid "Standalone Contact"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__contact_id
+#: model:ir.model.fields,help:ssi_partner.field_res_users__contact_id
+msgid ""
+"Standalone contact this position belongs to. Name and title are kept "
+"synchronized with it."
 msgstr ""
 
 #. module: ssi_partner
