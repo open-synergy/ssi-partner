@@ -55,7 +55,7 @@
                         />
                     </group>
                     <group string="Contact in Several Companies">
-                        <field name="contact_type" />
+                        <field name="contact_type" readonly="0" />
                         <field
                             name="contact_id"
                             required="contact_type == 'attached'"
