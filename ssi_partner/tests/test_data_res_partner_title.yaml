@@ -35,8 +35,8 @@ scenarios:
         model: "res.partner.title"
         save_as: "record"
         values:
-          name: "Doctor"
-          shortcut: "Dr."
+          name: "Madam"
+          shortcut: "Mme."
       - step: "Write new name"
         action: "write"
         target: "record"
