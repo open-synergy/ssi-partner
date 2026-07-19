@@ -13,3 +13,5 @@ from . import test_res_partner
 from . import test_res_partner_contact
 from . import test_res_partner_bank
 from . import test_partner_contact_group
+from . import test_res_partner_id_category
+from . import test_res_partner_id_number

@@ -25,6 +25,7 @@
         "security/res_groups/res_partner_bank_usage.xml",
         "security/res_groups/res_partner_title.xml",
         "security/res_groups/partner_contact_group.xml",
+        "security/res_groups/res_partner_id_category.xml",
         "security/ir_model_access/company_ownership_type.xml",
         "security/ir_model_access/company_entity_type.xml",
         "security/ir_model_access/res_partner_religion.xml",
@@ -32,6 +33,8 @@
         "security/ir_model_access/res_partner_bank_usage.xml",
         "security/ir_model_access/res_partner_title.xml",
         "security/ir_model_access/partner_contact_group.xml",
+        "security/ir_model_access/res_partner_id_category.xml",
+        "security/ir_model_access/res_partner_id_number.xml",
         "menu.xml",
         "views/res_partner.xml",
         "views/company_ownership_type.xml",
@@ -42,5 +45,6 @@
         "views/res_partner_title.xml",
         "views/res_partner_bank.xml",
         "views/partner_contact_group.xml",
+        "views/res_partner_id_category.xml",
     ],
 }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_partner_id_category_view_search" model="ir.ui.view">
+        <field name="name">res_partner_id_category - search</field>
+        <field name="model">res_partner_id_category</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="res_partner_id_category_view_list" model="ir.ui.view">
+        <field name="name">res_partner_id_category - list</field>
+        <field name="model">res_partner_id_category</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="res_partner_id_category_view_form" model="ir.ui.view">
+        <field name="name">res_partner_id_category - form</field>
+        <field name="model">res_partner_id_category</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//notebook/page[@name='note']" position="before">
+                    <page name="id_category_validation" string="Validation">
+                        <group name="id_category_validation_group">
+                            <field name="color" />
+                            <field name="validation_code" />
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="res_partner_id_category_action" model="ir.actions.act_window">
+        <field name="name">ID Categories</field>
+        <field name="res_model">res_partner_id_category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+        id="res_partner_id_category_menu"
+        parent="menu_partner_configuration"
+        action="res_partner_id_category_action"
+        sequence="70"
+    />
+</odoo>

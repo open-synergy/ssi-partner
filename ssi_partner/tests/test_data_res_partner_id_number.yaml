@@ -1,0 +1,228 @@
+scenarios:
+  - name: "Create ID number on a category without validation code"
+    steps:
+      - step: "Create category without validation code"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "Membership Card"
+          code: "/"
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Jane Doe"
+      - step: "Create ID number"
+        action: "create"
+        model: "res_partner_id_number"
+        save_as: "id_number"
+        values:
+          name: "12345"
+          category_id: "REC: category.id"
+          partner_id: "REC: partner.id"
+      - step: "Assert saved and linked"
+        action: "assert"
+        target: "id_number"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          category_id:
+            type: "m2o"
+            expected: "REC: category"
+          partner_id:
+            type: "m2o"
+            expected: "REC: partner"
+
+  - name: "Number matching the category validation code is accepted"
+    steps:
+      - step: "Create category requiring an 8-character number"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "Passport"
+          code: "/"
+          validation_code: "result = len(id_number) == 8"
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Jane Doe"
+      - step: "Create ID number with a matching length"
+        action: "create"
+        model: "res_partner_id_number"
+        save_as: "id_number"
+        values:
+          name: "AB123456"
+          category_id: "REC: category.id"
+          partner_id: "REC: partner.id"
+      - step: "Assert saved"
+        action: "assert"
+        target: "id_number"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "AB123456"
+
+  - name: "Status is expired when valid_until is in the past"
+    steps:
+      - step: "Create category"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "National ID"
+          code: "/"
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Jane Doe"
+      - step: "Create ID number already expired"
+        action: "create"
+        model: "res_partner_id_number"
+        save_as: "id_number"
+        values:
+          name: "12345"
+          category_id: "REC: category.id"
+          partner_id: "REC: partner.id"
+          valid_until: "EVAL: date.today() - timedelta(days=1)"
+      - step: "Assert status is expired"
+        action: "assert"
+        target: "id_number"
+        asserts:
+          status:
+            type: "value"
+            expected: "expired"
+
+  - name: "Status is draft when no validity dates are set"
+    steps:
+      - step: "Create category"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "National ID"
+          code: "/"
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Jane Doe"
+      - step: "Create ID number without validity dates"
+        action: "create"
+        model: "res_partner_id_number"
+        save_as: "id_number"
+        values:
+          name: "12345"
+          category_id: "REC: category.id"
+          partner_id: "REC: partner.id"
+      - step: "Assert status is draft"
+        action: "assert"
+        target: "id_number"
+        asserts:
+          status:
+            type: "value"
+            expected: "draft"
+
+  - name: "Partner id_numbers contains the created number"
+    steps:
+      - step: "Create category"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "National ID"
+          code: "/"
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Jane Doe"
+      - step: "Create ID number for the partner"
+        action: "create"
+        model: "res_partner_id_number"
+        save_as: "id_number"
+        values:
+          name: "12345"
+          category_id: "REC: category.id"
+          partner_id: "REC: partner.id"
+      - step: "Assert id_numbers contains the created number"
+        action: "assert"
+        target: "partner"
+        asserts:
+          id_numbers:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: id_number"
+
+  - name: "Deleting a partner cascades to its identification numbers"
+    steps:
+      - step: "Create category"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "National ID"
+          code: "/"
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Temporary Contact"
+      - step: "Create ID number for the partner"
+        action: "create"
+        model: "res_partner_id_number"
+        save_as: "id_number"
+        values:
+          name: "99999"
+          category_id: "REC: category.id"
+          partner_id: "REC: partner.id"
+      - step: "Delete the partner"
+        action: "unlink"
+        target: "partner"
+      - step: "Verify the ID number was cascaded"
+        action: "search"
+        model: "res_partner_id_number"
+        domain: [["name", "=", "99999"]]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Number violating the category validation code is rejected"
+    steps:
+      - step: "Create category requiring an 8-character number"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "Passport"
+          code: "/"
+          validation_code: "result = len(id_number) == 8"
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Jane Doe"
+      - step: "Create ID number with a wrong length must fail"
+        action: "create"
+        model: "res_partner_id_number"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Passport"
+        values:
+          name: "AB12"
+          category_id: "REC: category.id"
+          partner_id: "REC: partner.id"

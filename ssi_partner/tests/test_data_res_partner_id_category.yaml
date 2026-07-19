@@ -1,0 +1,61 @@
+scenarios:
+  - name: "Create ID category"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "National ID"
+          code: "/"
+      - step: "Assert created"
+        action: "assert"
+        target: "category"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "National ID"
+
+  - name: "Edit ID category name"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "National ID"
+          code: "/"
+      - step: "Write new name"
+        action: "write"
+        target: "category"
+        values:
+          name: "National ID Card"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "category"
+        asserts:
+          name:
+            type: "value"
+            expected: "National ID Card"
+
+  - name: "Delete ID category"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "res_partner_id_category"
+        save_as: "category"
+        values:
+          name: "Temporary Category"
+          code: "/"
+      - step: "Delete record"
+        action: "unlink"
+        target: "category"
+      - step: "Verify deleted"
+        action: "search"
+        model: "res_partner_id_category"
+        domain: [["name", "=", "Temporary Category"]]
+        save_as: "result"
+        expect_count: 0
