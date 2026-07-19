@@ -18,7 +18,6 @@ class ResPartnerIdCategory(models.Model):
     _description = "Partner ID Category"
 
     validation_code = fields.Text(
-        string="Validation Code",
         help="Python code evaluated to validate the format of an "
         "identification number belonging to this category. The number "
         "being validated is available as the `id_number` variable; "
@@ -27,7 +26,6 @@ class ResPartnerIdCategory(models.Model):
         "category.",
     )
     color = fields.Integer(
-        string="Color",
         help="Color index used to visually distinguish this category, "
         "e.g. in kanban or tag-like widgets.",
     )

@@ -26,7 +26,6 @@ class ResPartnerIdNumber(models.Model):
         "document (e.g. the National ID number).",
     )
     category_id = fields.Many2one(
-        string="Category",
         comodel_name="res_partner_id_category",
         required=True,
         ondelete="restrict",
@@ -35,7 +34,6 @@ class ResPartnerIdNumber(models.Model):
         "applied to the number.",
     )
     partner_id = fields.Many2one(
-        string="Partner",
         comodel_name="res.partner",
         required=True,
         ondelete="cascade",
@@ -49,26 +47,21 @@ class ResPartnerIdNumber(models.Model):
         "identification number, e.g. the government agency.",
     )
     date_issued = fields.Date(
-        string="Date Issued",
         help="Date this identification number was issued.",
     )
     valid_from = fields.Date(
-        string="Valid From",
         help="Date from which this identification number is "
         "considered valid. Leave empty if there is no start date.",
     )
     valid_until = fields.Date(
-        string="Valid Until",
         help="Date until which this identification number is "
         "considered valid. Leave empty if it does not expire.",
     )
     active = fields.Boolean(
-        string="Active",
         default=True,
         help="Uncheck to archive this identification number without deleting it.",
     )
     status = fields.Selection(
-        string="Status",
         selection=[
             ("draft", "Draft"),
             ("open", "Valid"),
