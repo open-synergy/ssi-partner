@@ -273,6 +273,15 @@ class ResPartner(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        for vals in vals_list:
+            # Core enforces `CHECK(type != 'contact' OR name IS NOT NULL)`
+            # at the database level, which runs on the initial INSERT
+            # itself. `_fields_sync()` only fills `name` from `contact_id`
+            # *after* the row already exists, which is too late to satisfy
+            # that constraint, so an attached contact created without an
+            # explicit `name` must have it pre-filled here.
+            if vals.get("contact_id") and not vals.get("name"):
+                vals["name"] = self.browse(vals["contact_id"]).name
         records = super().create(vals_list)
         # `title_id` is a precomputed, user-editable field: when
         # `is_company` and `title_id` are both given explicitly in the

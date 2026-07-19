@@ -55,7 +55,8 @@ scenarios:
             expected_records:
               - "REC: person_b"
 
-  - name: "Attached contact without a parent follows the main contact's commercial partner"
+  - name:
+      "Attached contact without a parent follows the main contact's commercial partner"
     steps:
       - step: "Assert commercial_partner_id follows contact_id"
         action: "assert"
@@ -95,7 +96,8 @@ scenarios:
             type: "value"
             expected: "Jane Doe Renamed"
 
-  - name: "Onchange fills the name from the main contact and clears it back to standalone"
+  - name:
+      "Onchange fills the name from the main contact and clears it back to standalone"
     steps:
       - step: "Set contact_id then switch back to standalone"
         action: "form"
