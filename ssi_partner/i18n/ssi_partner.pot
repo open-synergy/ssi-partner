@@ -43,6 +43,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_needaction
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_needaction
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_needaction
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_needaction
 msgid "Action Needed"
 msgstr ""
@@ -58,6 +59,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__active
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__active
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__active
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__active
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__active
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__active
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_title__active
 msgid "Active"
@@ -69,6 +72,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_ids
 msgid "Activities"
 msgstr ""
@@ -79,6 +83,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_exception_decoration
 msgid "Activity Exception Decoration"
 msgstr ""
@@ -89,6 +94,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_state
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_state
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_state
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_state
 msgid "Activity State"
 msgstr ""
@@ -99,6 +105,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_type_icon
 msgid "Activity Type Icon"
 msgstr ""
@@ -169,6 +176,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_attachment_count
 msgid "Attachment Count"
 msgstr ""
@@ -210,6 +218,18 @@ msgid "Branch Address"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__category_id
+msgid "Category"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__category_id
+msgid ""
+"Category of this identification number, e.g. National ID, Tax ID, Driving "
+"License. Determines the validation rule applied to the number."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__allowed_contact_ids
 msgid ""
 "Children of the commercial contact that can be selected in Contacts. Used to"
@@ -241,8 +261,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__code
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__code
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__code
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__code
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__code
 msgid "Code"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__color
+msgid "Color"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__color
+msgid ""
+"Color index used to visually distinguish this category, e.g. in kanban or "
+"tag-like widgets."
 msgstr ""
 
 #. module: ssi_partner
@@ -346,6 +379,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_title__create_uid
 msgid "Created by"
@@ -357,9 +392,23 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_title__create_date
 msgid "Created on"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__date_issued
+msgid "Date Issued"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__valid_from
+msgid ""
+"Date from which this identification number is considered valid. Leave empty "
+"if there is no start date."
 msgstr ""
 
 #. module: ssi_partner
@@ -383,6 +432,18 @@ msgid ""
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__date_issued
+msgid "Date this identification number was issued."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__valid_until
+msgid ""
+"Date until which this identification number is considered valid. Leave empty"
+" if it does not expire."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_title__sequence
 msgid "Determines the display order of titles in selection lists."
 msgstr ""
@@ -396,6 +457,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_title__display_name
 msgid "Display Name"
@@ -404,6 +467,11 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__marital__divorced
 msgid "Divorced"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner_id_number__status__draft
+msgid "Draft"
 msgstr ""
 
 #. module: ssi_partner
@@ -435,6 +503,11 @@ msgid "Ethnicity of the individual contact, used for demographic reporting."
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner_id_number__status__expired
+msgid "Expired"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__gender__female
 msgid "Female"
 msgstr ""
@@ -445,6 +518,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_follower_ids
 msgid "Followers"
 msgstr ""
@@ -455,6 +529,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
@@ -465,6 +540,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
@@ -495,6 +571,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__has_message
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__has_message
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__has_message
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__has_message
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__has_message
 msgid "Has Message"
 msgstr ""
@@ -524,9 +601,29 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_title__id
 msgid "ID"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.actions.act_window,name:ssi_partner.res_partner_id_category_action
+#: model:ir.ui.menu,name:ssi_partner.res_partner_id_category_menu
+msgid "ID Categories"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.res_partner_id_category_group
+msgid "ID Category"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__id_numbers
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__id_numbers
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
+msgid "ID Numbers"
 msgstr ""
 
 #. module: ssi_partner
@@ -535,6 +632,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_exception_icon
 msgid "Icon"
 msgstr ""
@@ -545,8 +643,17 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_exception_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__activity_exception_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__activity_exception_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_exception_icon
 msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__id_numbers
+#: model:ir.model.fields,help:ssi_partner.field_res_users__id_numbers
+msgid ""
+"Identification numbers held by this contact, e.g. National ID, Tax ID, "
+"Driving License, Passport, or Business Registration Number."
 msgstr ""
 
 #. module: ssi_partner
@@ -555,6 +662,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_needaction
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__message_needaction
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__message_needaction
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr ""
@@ -565,6 +673,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_has_error
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__message_has_error
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__message_has_error
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
@@ -575,8 +684,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_is_follower
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_is_follower
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_is_follower
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_is_follower
 msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__partner_issued_id
+msgid "Issued By"
 msgstr ""
 
 #. module: ssi_partner
@@ -585,6 +700,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_title__write_uid
 msgid "Last Updated by"
@@ -596,6 +713,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_title__write_date
 msgid "Last Updated on"
@@ -654,6 +773,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__active
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__active
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__active
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__active
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__active
 msgid ""
 "Master data status\n"
@@ -670,6 +790,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__code
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__code
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__code
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__code
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__code
 msgid ""
 "Master data unique identifier.\n"
@@ -686,6 +807,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_has_error
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_has_error
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_has_error
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_has_error
 msgid "Message Delivery error"
 msgstr ""
@@ -696,6 +818,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_ids
 msgid "Messages"
 msgstr ""
@@ -706,6 +829,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__my_activity_date_deadline
 msgid "My Activity Deadline"
 msgstr ""
@@ -716,6 +840,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__name
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__name
 msgid "Name"
 msgstr ""
@@ -737,6 +862,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
@@ -747,6 +873,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_summary
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_summary
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_summary
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_summary
 msgid "Next Activity Summary"
 msgstr ""
@@ -757,6 +884,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_type_id
 msgid "Next Activity Type"
 msgstr ""
@@ -767,8 +895,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__note
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__note
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__note
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__note
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__note
 msgid "Note"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__name
+msgid "Number"
 msgstr ""
 
 #. module: ssi_partner
@@ -777,6 +911,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
@@ -787,6 +922,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_has_error_counter
 msgid "Number of errors"
 msgstr ""
@@ -797,6 +933,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_needaction_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__message_needaction_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__message_needaction_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr ""
@@ -807,6 +944,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_has_error_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__message_has_error_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__message_has_error_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr ""
@@ -854,10 +992,18 @@ msgid "Ownership Types"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__partner_id
 #: model:ir.module.category,name:ssi_partner.partner_module_category
 #: model:ir.ui.menu,name:ssi_partner.menu_partner_root
 #: model:res.groups.privilege,name:ssi_partner.res_groups_privilege_partner
 msgid "Partner"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__partner_issued_id
+msgid ""
+"Partner (institution/authority) that issued this identification number, e.g."
+" the government agency."
 msgstr ""
 
 #. module: ssi_partner
@@ -871,13 +1017,37 @@ msgid "Partner Ethnicity"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_res_partner_id_category
+msgid "Partner ID Category"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_res_partner_id_number
+msgid "Partner ID Number"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model,name:ssi_partner.model_res_partner_religion
 msgid "Partner Religion"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__partner_id
+msgid "Partner this identification number belongs to."
+msgstr ""
+
+#. module: ssi_partner
 #: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
 msgid "Personal Information"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__validation_code
+msgid ""
+"Python code evaluated to validate the format of an identification number "
+"belonging to this category. The number being validated is available as the "
+"`id_number` variable; the code must set a boolean `result` variable (True = "
+"valid, False = invalid). Leave empty to accept any number for this category."
 msgstr ""
 
 #. module: ssi_partner
@@ -901,6 +1071,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_user_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_user_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_user_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_user_id
 msgid "Responsible User"
 msgstr ""
@@ -976,17 +1147,30 @@ msgid "State/province where the individual contact was born."
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__status
+msgid "Status"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_state
 msgid ""
 "Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__name
+msgid ""
+"The identification number itself, as printed on the document (e.g. the "
+"National ID number)."
 msgstr ""
 
 #. module: ssi_partner
@@ -1009,8 +1193,14 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_exception_decoration
 msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__active
+msgid "Uncheck to archive this identification number without deleting it."
 msgstr ""
 
 #. module: ssi_partner
@@ -1021,6 +1211,39 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__usage_id
 msgid "Usage"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner_id_number__status__open
+msgid "Valid"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__valid_from
+msgid "Valid From"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__valid_until
+msgid "Valid Until"
+msgstr ""
+
+#. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_id_category_view_form
+msgid "Validation"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__validation_code
+msgid "Validation Code"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__status
+msgid ""
+"Validity status computed from the Valid From/Valid Until dates compared to "
+"today: Draft when no validity period is set at all, Expired once Valid Until"
+" has passed, Valid otherwise."
 msgstr ""
 
 #. module: ssi_partner
