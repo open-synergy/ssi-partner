@@ -86,7 +86,7 @@ scenarios:
         model: "res.partner.title"
         save_as: "title"
         values:
-          name: "Doctor"
+          name: "Doctor Kept"
       - step: "Create individual with the title"
         action: "create"
         model: "res.partner"
@@ -109,7 +109,7 @@ scenarios:
         model: "res.partner.title"
         save_as: "title"
         values:
-          name: "Doctor"
+          name: "Doctor Cleared On Create"
       - step: "Create company with a title set"
         action: "create"
         model: "res.partner"
@@ -133,7 +133,7 @@ scenarios:
         model: "res.partner.title"
         save_as: "title"
         values:
-          name: "Doctor"
+          name: "Doctor Cleared On Write"
       - step: "Create individual with the title"
         action: "create"
         model: "res.partner"

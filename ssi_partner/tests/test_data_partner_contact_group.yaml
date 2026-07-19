@@ -21,6 +21,7 @@ scenarios:
         save_as: "group"
         values:
           name: "Deal Team"
+          code: "/"
           commercial_contact_id: "REC: commercial_contact.id"
           contact_ids:
             - - 6
@@ -67,6 +68,7 @@ scenarios:
         save_as: "group"
         values:
           name: "Deal Team"
+          code: "/"
           commercial_contact_id: "REC: commercial_contact.id"
           contact_ids:
             - - 6
@@ -107,6 +109,7 @@ scenarios:
         save_as: "group"
         values:
           name: "Temporary Team"
+          code: "/"
           commercial_contact_id: "REC: commercial_contact.id"
           contact_ids:
             - - 6

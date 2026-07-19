@@ -30,6 +30,7 @@ class TestPartnerContactGroup(YamlTransactionCase):
             self.env["partner_contact_group"].create(
                 {
                     "name": "Deal Team",
+                    "code": "/",
                     "contact_ids": [(6, 0, [contact.id])],
                 }
             )
