@@ -1,0 +1,61 @@
+scenarios:
+  - name: "Create partner ethnicity"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "res_partner_ethnicity"
+        save_as: "record"
+        values:
+          name: "Javanese"
+          code: "/"
+      - step: "Assert created"
+        action: "assert"
+        target: "record"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Javanese"
+
+  - name: "Edit partner ethnicity name"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "res_partner_ethnicity"
+        save_as: "record"
+        values:
+          name: "Javanese"
+          code: "/"
+      - step: "Write new name"
+        action: "write"
+        target: "record"
+        values:
+          name: "Sundanese"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "record"
+        asserts:
+          name:
+            type: "value"
+            expected: "Sundanese"
+
+  - name: "Delete partner ethnicity"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "res_partner_ethnicity"
+        save_as: "record"
+        values:
+          name: "Temporary"
+          code: "/"
+      - step: "Delete record"
+        action: "unlink"
+        target: "record"
+      - step: "Verify deleted"
+        action: "search"
+        model: "res_partner_ethnicity"
+        domain: [["name", "=", "Temporary"]]
+        save_as: "result"
+        expect_count: 0

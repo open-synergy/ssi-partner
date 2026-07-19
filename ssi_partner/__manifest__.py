@@ -1,0 +1,43 @@
+# Copyright 2026 OpenSynergy Indonesia
+# Copyright 2026 PT. Simetri Sinergi Indonesia
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+{
+    "name": "Partner",
+    "version": "19.0.1.0.0",
+    "website": "https://simetri-sinergi.id",
+    "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
+    "contributors": [
+        "Andhitia Rama <andhitia.r@gmail.com>",
+    ],
+    "license": "AGPL-3",
+    "installable": True,
+    "application": True,
+    "depends": [
+        "contacts",
+        "ssi_master_data_mixin",
+    ],
+    "data": [
+        "security/ir_module_category_data.xml",
+        "security/res_groups/company_ownership_type.xml",
+        "security/res_groups/company_entity_type.xml",
+        "security/res_groups/res_partner_religion.xml",
+        "security/res_groups/res_partner_ethnicity.xml",
+        "security/res_groups/res_partner_bank_usage.xml",
+        "security/res_groups/res_partner_title.xml",
+        "security/ir_model_access/company_ownership_type.xml",
+        "security/ir_model_access/company_entity_type.xml",
+        "security/ir_model_access/res_partner_religion.xml",
+        "security/ir_model_access/res_partner_ethnicity.xml",
+        "security/ir_model_access/res_partner_bank_usage.xml",
+        "security/ir_model_access/res_partner_title.xml",
+        "menu.xml",
+        "views/res_partner.xml",
+        "views/company_ownership_type.xml",
+        "views/company_entity_type.xml",
+        "views/res_partner_religion.xml",
+        "views/res_partner_ethnicity.xml",
+        "views/res_partner_bank_usage.xml",
+        "views/res_partner_title.xml",
+        "views/res_partner_bank.xml",
+    ],
+}

@@ -1,0 +1,61 @@
+scenarios:
+  - name: "Create company ownership type"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "company_ownership_type"
+        save_as: "record"
+        values:
+          name: "Private"
+          code: "/"
+      - step: "Assert created"
+        action: "assert"
+        target: "record"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Private"
+
+  - name: "Edit company ownership type name"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "company_ownership_type"
+        save_as: "record"
+        values:
+          name: "Private"
+          code: "/"
+      - step: "Write new name"
+        action: "write"
+        target: "record"
+        values:
+          name: "State-Owned"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "record"
+        asserts:
+          name:
+            type: "value"
+            expected: "State-Owned"
+
+  - name: "Delete company ownership type"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "company_ownership_type"
+        save_as: "record"
+        values:
+          name: "Temporary"
+          code: "/"
+      - step: "Delete record"
+        action: "unlink"
+        target: "record"
+      - step: "Verify deleted"
+        action: "search"
+        model: "company_ownership_type"
+        domain: [["name", "=", "Temporary"]]
+        save_as: "result"
+        expect_count: 0

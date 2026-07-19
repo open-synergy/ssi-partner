@@ -1,0 +1,42 @@
+scenarios:
+  - name: "Create bank account with usage classification"
+    steps:
+      - step: "Create bank account usage"
+        action: "create"
+        model: "res_partner_bank_usage"
+        save_as: "usage"
+        values:
+          name: "Operational"
+          code: "/"
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Acme Corp"
+          is_company: true
+      - step: "Create bank"
+        action: "create"
+        model: "res.bank"
+        save_as: "bank"
+        values:
+          name: "Test Bank"
+      - step: "Create partner bank account"
+        action: "create"
+        model: "res.partner.bank"
+        save_as: "bank_account"
+        values:
+          acc_number: "1234567890"
+          partner_id: "REC: partner.id"
+          bank_id: "REC: bank.id"
+          usage_id: "REC: usage.id"
+      - step: "Assert usage_id points to the created usage"
+        action: "assert"
+        target: "bank_account"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          usage_id:
+            type: "m2o"
+            expected: "REC: usage"

@@ -1,0 +1,31 @@
+scenarios:
+  - name: "Create branch address under a company partner"
+    steps:
+      - step: "Create parent company"
+        action: "create"
+        model: "res.partner"
+        save_as: "company_partner"
+        values:
+          name: "Acme Corp"
+          is_company: true
+      - step: "Create branch address"
+        action: "create"
+        model: "res.partner"
+        save_as: "branch"
+        values:
+          name: "Acme Corp - Branch A"
+          type: "branch"
+          parent_id: "REC: company_partner.id"
+      - step: "Assert branch saved without error"
+        action: "assert"
+        target: "branch"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          type:
+            type: "value"
+            expected: "branch"
+          parent_id:
+            type: "m2o"
+            expected: "REC: company_partner"

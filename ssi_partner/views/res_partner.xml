@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- No new view/action for res.partner in this module: field and view
+         changes on res.partner itself are out of scope (separate backlog
+         issue). Re-use the existing Contacts action so it is reachable
+         from the new Partner root menu. -->
+    <menuitem
+        id="menu_partner_contacts"
+        parent="menu_partner_root"
+        action="contacts.action_contacts"
+        sequence="10"
+    />
+</odoo>

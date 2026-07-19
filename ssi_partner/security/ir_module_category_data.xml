@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="partner_module_category" model="ir.module.category">
+        <field name="name">Partner</field>
+    </record>
+
+    <!-- Odoo 19 replaced res.groups.category_id with res.groups.privilege_id
+         (res.groups.privilege.category_id); see base/models/res_groups.py
+         and base/models/res_groups_privilege.py. Every configurator group
+         defined by this module points to this single shared privilege,
+         per design decision in the backlog issue (one group per model,
+         one shared privilege for the module). -->
+    <record id="res_groups_privilege_partner" model="res.groups.privilege">
+        <field name="name">Partner</field>
+        <field name="category_id" ref="partner_module_category" />
+    </record>
+</odoo>

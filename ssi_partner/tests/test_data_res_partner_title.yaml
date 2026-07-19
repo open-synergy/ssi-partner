@@ -1,0 +1,69 @@
+scenarios:
+  - name: "Create contact title"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "res.partner.title"
+        save_as: "record"
+        values:
+          name: "Doctor"
+          shortcut: "Dr."
+      - step: "Assert created with defaults"
+        action: "assert"
+        target: "record"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Doctor"
+          shortcut:
+            type: "value"
+            expected: "Dr."
+          sequence:
+            type: "value"
+            expected: 0
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Edit contact title name"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "res.partner.title"
+        save_as: "record"
+        values:
+          name: "Doctor"
+          shortcut: "Dr."
+      - step: "Write new name"
+        action: "write"
+        target: "record"
+        values:
+          name: "Professor"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "record"
+        asserts:
+          name:
+            type: "value"
+            expected: "Professor"
+
+  - name: "Delete contact title"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "res.partner.title"
+        save_as: "record"
+        values:
+          name: "Temporary Title"
+      - step: "Delete record"
+        action: "unlink"
+        target: "record"
+      - step: "Verify deleted"
+        action: "search"
+        model: "res.partner.title"
+        domain: [["name", "=", "Temporary Title"]]
+        save_as: "result"
+        expect_count: 0
