@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_partner_bank_usage_view_search" model="ir.ui.view">
+        <field name="name">res_partner_bank_usage - search</field>
+        <field name="model">res_partner_bank_usage</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="res_partner_bank_usage_view_list" model="ir.ui.view">
+        <field name="name">res_partner_bank_usage - list</field>
+        <field name="model">res_partner_bank_usage</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="res_partner_bank_usage_view_form" model="ir.ui.view">
+        <field name="name">res_partner_bank_usage - form</field>
+        <field name="model">res_partner_bank_usage</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="res_partner_bank_usage_action" model="ir.actions.act_window">
+        <field name="name">Bank Account Usage</field>
+        <field name="res_model">res_partner_bank_usage</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+        id="res_partner_bank_usage_menu"
+        parent="menu_partner_bank_accounts"
+        action="res_partner_bank_usage_action"
+        sequence="10"
+    />
+</odoo>

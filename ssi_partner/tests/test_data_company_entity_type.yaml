@@ -1,0 +1,61 @@
+scenarios:
+  - name: "Create company entity type"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "company_entity_type"
+        save_as: "record"
+        values:
+          name: "Limited Liability Company"
+          code: "/"
+      - step: "Assert created"
+        action: "assert"
+        target: "record"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Limited Liability Company"
+
+  - name: "Edit company entity type name"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "company_entity_type"
+        save_as: "record"
+        values:
+          name: "Limited Liability Company"
+          code: "/"
+      - step: "Write new name"
+        action: "write"
+        target: "record"
+        values:
+          name: "Cooperative"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "record"
+        asserts:
+          name:
+            type: "value"
+            expected: "Cooperative"
+
+  - name: "Delete company entity type"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "company_entity_type"
+        save_as: "record"
+        values:
+          name: "Temporary"
+          code: "/"
+      - step: "Delete record"
+        action: "unlink"
+        target: "record"
+      - step: "Verify deleted"
+        action: "search"
+        model: "company_entity_type"
+        domain: [["name", "=", "Temporary"]]
+        save_as: "result"
+        expect_count: 0

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <menuitem
+        id="menu_partner_root"
+        name="Partner"
+        web_icon="ssi_partner,static/description/icon.png"
+    />
+
+    <!-- Container for localization-related master data (e.g. country,
+         state, region). Empty for now: no localization model is created
+         by this module yet; future modules attach their config menus
+         here instead of declaring a new container. -->
+    <menuitem
+        id="menu_partner_localization"
+        name="Localization"
+        parent="menu_partner_root"
+        sequence="50"
+    />
+
+    <menuitem
+        id="menu_partner_bank_accounts"
+        name="Bank Accounts"
+        parent="menu_partner_root"
+        sequence="70"
+    />
+
+    <menuitem
+        id="menu_partner_configuration"
+        name="Configuration"
+        parent="menu_partner_root"
+        sequence="99"
+    />
+</odoo>
