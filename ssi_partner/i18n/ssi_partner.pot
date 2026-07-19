@@ -14,6 +14,94 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__0
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__0
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__0
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__0
+msgid "0 - No Proficiency"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__0+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__0+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__0+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__0+
+msgid "0+ - Memorized Proficiency"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__1
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__1
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__1
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__1
+msgid "1 - Elementary Proficiency"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__1+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__1+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__1+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__1+
+msgid "1+ - Elementary Proficiency, Plus"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__2
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__2
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__2
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__2
+msgid "2 - Limited Working Proficiency"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__2+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__2+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__2+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__2+
+msgid "2+ - Limited Working Proficiency, Plus"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__3
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__3
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__3
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__3
+msgid "3 - General Professional Proficiency"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__3+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__3+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__3+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__3+
+msgid "3+ - General Professional Proficiency, Plus"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__4
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__4
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__4
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__4
+msgid "4 - Advanced Professional Proficiency"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__4+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__4+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__4+
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__4+
+msgid "4+ - Advanced Professional Proficiency, Plus"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__listen_rating__5
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__read_rating__5
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__speak_rating__5
+#: model:ir.model.fields.selection,name:ssi_partner.selection__partner_language__write_rating__5
+msgid "5 - Functionally Native Proficiency"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__blood_type__a
 msgid "A"
 msgstr ""
@@ -377,6 +465,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__create_uid
@@ -390,6 +479,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__create_date
@@ -444,6 +534,11 @@ msgid ""
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__description
+msgid "Description"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_title__sequence
 msgid "Determines the display order of titles in selection lists."
 msgstr ""
@@ -453,6 +548,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_ir_actions_act_window__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__display_name
@@ -546,6 +642,13 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_language__description
+msgid ""
+"Free-text note about this language proficiency, e.g. the context in which it"
+" was learned."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_res_partner__spouse_complete_name
 #: model:ir.model.fields,help:ssi_partner.field_res_users__spouse_complete_name
 msgid ""
@@ -597,6 +700,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__id
 #: model:ir.model.fields,field_description:ssi_partner.field_ir_actions_act_window__id
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__id
@@ -695,9 +799,37 @@ msgid "Issued By"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__name
+msgid "Language"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_language__name
+msgid ""
+"Language spoken by the partner, sourced from the languages installed on this"
+" database."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__language_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__language_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
+msgid "Languages"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__language_ids
+#: model:ir.model.fields,help:ssi_partner.field_res_users__language_ids
+msgid ""
+"Languages spoken by this contact, each rated on the 11-level ILR scale for "
+"reading, writing, speaking, and listening proficiency."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__write_uid
@@ -711,6 +843,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__write_date
@@ -731,6 +864,16 @@ msgstr ""
 msgid ""
 "Legal entity form of the company contact (e.g. Limited Liability Company, "
 "Partnership, Cooperative)."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__listen_rating
+msgid "Listening"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_language__listen_rating
+msgid "Listening proficiency rated on the 11-level ILR scale."
 msgstr ""
 
 #. module: ssi_partner
@@ -992,6 +1135,7 @@ msgid "Ownership Types"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__partner_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__partner_id
 #: model:ir.module.category,name:ssi_partner.partner_module_category
 #: model:ir.ui.menu,name:ssi_partner.menu_partner_root
@@ -1027,6 +1171,11 @@ msgid "Partner ID Number"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_partner_language
+msgid "Partner Language"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model,name:ssi_partner.model_res_partner_religion
 msgid "Partner Religion"
 msgstr ""
@@ -1034,6 +1183,11 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__partner_id
 msgid "Partner this identification number belongs to."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_language__partner_id
+msgid "Partner this language proficiency record belongs to."
 msgstr ""
 
 #. module: ssi_partner
@@ -1048,6 +1202,16 @@ msgid ""
 "belonging to this category. The number being validated is available as the "
 "`id_number` variable; the code must set a boolean `result` variable (True = "
 "valid, False = invalid). Leave empty to accept any number for this category."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__read_rating
+msgid "Reading"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_language__read_rating
+msgid "Reading proficiency rated on the 11-level ILR scale."
 msgstr ""
 
 #. module: ssi_partner
@@ -1107,6 +1271,16 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__marital__single
 msgid "Single"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__speak_rating
+msgid "Speaking"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_language__speak_rating
+msgid "Speaking proficiency rated on the 11-level ILR scale."
 msgstr ""
 
 #. module: ssi_partner
@@ -1249,4 +1423,14 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__marital__widower
 msgid "Widower"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_language__write_rating
+msgid "Writing"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_language__write_rating
+msgid "Writing proficiency rated on the 11-level ILR scale."
 msgstr ""
