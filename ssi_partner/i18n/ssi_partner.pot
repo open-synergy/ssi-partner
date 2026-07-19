@@ -126,9 +126,30 @@ msgid "Abbreviation"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__academic_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__academic_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
+msgid "Academic History"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__academic_ids
+#: model:ir.model.fields,help:ssi_partner.field_res_users__academic_ids
+msgid ""
+"Academic background of this contact, e.g. degrees obtained and fields of "
+"study."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_needaction
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__message_needaction
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__message_needaction
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_needaction
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_needaction
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_needaction
@@ -144,7 +165,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__active
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__active
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__active
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__active
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__active
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__active
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__active
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__active
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__active
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__active
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__active
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__active
@@ -157,18 +184,31 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner.partner_academic_view_form
 msgid "Activities"
 msgstr ""
 
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_exception_decoration
@@ -179,7 +219,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_state
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__activity_state
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__activity_state
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__activity_state
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_state
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_state
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_state
@@ -190,7 +236,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_type_icon
@@ -248,6 +300,7 @@ msgid "Another title with that name already exists."
 msgstr ""
 
 #. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.mixin_partner_experience_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_title_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_title_view_search
 msgid "Archived"
@@ -261,7 +314,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_attachment_count
@@ -306,6 +365,13 @@ msgid "Branch Address"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__parent_id
+msgid ""
+"Broader field of study this one specializes from. Leave empty for a top-"
+"level field of study."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__category_id
 msgid "Category"
 msgstr ""
@@ -315,6 +381,18 @@ msgstr ""
 msgid ""
 "Category of this identification number, e.g. National ID, Tax ID, Driving "
 "License. Determines the validation rule applied to the number."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__certification
+msgid "Certification"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__certification_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__certification_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
+msgid "Certifications"
 msgstr ""
 
 #. module: ssi_partner
@@ -347,6 +425,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__code
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__code
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__code
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__code
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__code
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__code
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__code
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__code
@@ -464,7 +544,12 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__create_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_language__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__create_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__create_uid
@@ -478,7 +563,12 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__create_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_language__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__create_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__create_date
@@ -490,8 +580,24 @@ msgid "Created on"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__date_end
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__date_end
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__date_end
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__date_end
+msgid "Date End"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__date_issued
 msgid "Date Issued"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__date_start
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__date_start
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__date_start
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__date_start
+msgid "Date Start"
 msgstr ""
 
 #. module: ssi_partner
@@ -522,6 +628,22 @@ msgid ""
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__date_end
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__date_end
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__date_end
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__date_end
+msgid "Date this history entry ended. Leave empty if it is still ongoing."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__date_start
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__date_start
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__date_start
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__date_start
+msgid "Date this history entry started."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__date_issued
 msgid "Date this identification number was issued."
 msgstr ""
@@ -539,15 +661,33 @@ msgid "Description"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__sequence
+msgid ""
+"Determines the display order of education levels in selection lists, from "
+"the lowest to the highest level."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_title__sequence
 msgid "Determines the display order of titles in selection lists."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__diploma
+msgid "Diploma"
 msgstr ""
 
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_ir_actions_act_window__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__display_name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_language__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__display_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__display_name
@@ -568,6 +708,11 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner_id_number__status__draft
 msgid "Draft"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__education_level_id
+msgid "Education Level"
 msgstr ""
 
 #. module: ssi_partner
@@ -599,8 +744,28 @@ msgid "Ethnicity of the individual contact, used for demographic reporting."
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__expire
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__expire
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__expire
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__expire
+msgid "Expire"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner_id_number__status__expired
 msgid "Expired"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activities
+msgid "Extracurricular Activities"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__activities
+msgid ""
+"Extracurricular activities and organizations the partner was involved in "
+"during this academic history entry."
 msgstr ""
 
 #. module: ssi_partner
@@ -609,9 +774,36 @@ msgid "Female"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__field_of_study_id
+msgid "Field Of Study"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.partner_field_of_study_group
+msgid "Field of Study"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__field_of_study_id
+msgid "Field of study of this academic history entry."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.actions.act_window,name:ssi_partner.partner_field_of_study_action
+#: model:ir.ui.menu,name:ssi_partner.partner_field_of_study_menu
+msgid "Fields of Study"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_follower_ids
@@ -622,7 +814,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_partner_ids
@@ -633,12 +831,42 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_partner
+#: model:res.groups,name:ssi_partner.partner_formal_education_level_group
+msgid "Formal Education Level"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.actions.act_window,name:ssi_partner.partner_formal_education_level_action
+#: model:ir.ui.menu,name:ssi_partner.partner_formal_education_level_menu
+msgid "Formal Education Levels"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__education_level_id
+msgid "Formal education level of this academic history entry."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__note
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__note
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__note
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__note
+msgid "Free-text note about this history entry."
 msgstr ""
 
 #. module: ssi_partner
@@ -657,6 +885,11 @@ msgid ""
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__gpa
+msgid "GPA"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__gender
 #: model:ir.model.fields,field_description:ssi_partner.field_res_users__gender
 msgid "Gender"
@@ -669,9 +902,20 @@ msgid "Gender of the individual contact."
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__gpa
+msgid "Grade point average obtained, if applicable."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__has_message
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__has_message
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__has_message
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__has_message
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__has_message
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__has_message
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__has_message
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__has_message
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__has_message
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__has_message
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__has_message
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__has_message
@@ -699,7 +943,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__id
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__id
 #: model:ir.model.fields,field_description:ssi_partner.field_ir_actions_act_window__id
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__id
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__id
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_language__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__id
@@ -733,7 +983,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_exception_icon
@@ -744,7 +1000,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__activity_exception_icon
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__activity_exception_icon
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__activity_exception_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__activity_exception_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_exception_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__activity_exception_icon
@@ -763,7 +1025,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_needaction
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__message_needaction
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__message_needaction
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__message_needaction
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__message_needaction
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_needaction
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__message_needaction
@@ -774,7 +1042,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_has_error
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__message_has_error
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__message_has_error
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__message_has_error
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__message_has_error
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_has_error
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__message_has_error
@@ -783,9 +1057,33 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__partner_address_id
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__partner_address_id
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__partner_address_id
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__partner_address_id
+msgid ""
+"Institution or company associated with this history entry (e.g. the school "
+"or employer)."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__partner_address_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__partner_address_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__partner_address_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__partner_address_id
+msgid "Institution/Company"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_is_follower
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__message_is_follower
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__message_is_follower
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_is_follower
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_is_follower
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_is_follower
@@ -796,6 +1094,28 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__partner_issued_id
 msgid "Issued By"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__job_level
+msgid "Job Level"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__job_position
+msgid "Job Position"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__job_level
+msgid ""
+"Job level/rank held during this work experience entry, e.g. Junior, Senior, "
+"Manager."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__job_position
+msgid "Job position/title held during this work experience entry."
 msgstr ""
 
 #. module: ssi_partner
@@ -828,7 +1148,12 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__write_uid
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_language__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__write_uid
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__write_uid
@@ -842,7 +1167,12 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__write_date
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_language__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__write_date
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__write_date
@@ -882,6 +1212,14 @@ msgid "Localization"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__location
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__location
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__location
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__location
+msgid "Location"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__contact_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_users__contact_id
 msgid "Main Contact"
@@ -914,6 +1252,8 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__active
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__active
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__active
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__active
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__active
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__active
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__active
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__active
@@ -931,6 +1271,8 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__code
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__code
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__code
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__code
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__code
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__code
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__code
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__code
@@ -945,9 +1287,22 @@ msgid ""
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__parent_path
+msgid ""
+"Materialized path used internally to query the field of study hierarchy "
+"efficiently."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_has_error
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__message_has_error
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__message_has_error
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_has_error
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_has_error
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_has_error
@@ -958,7 +1313,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__message_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__message_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__message_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_ids
@@ -967,9 +1328,20 @@ msgid "Messages"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_mixin_partner_experience
+msgid "Mixin for Partner Experience"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__my_activity_date_deadline
@@ -980,7 +1352,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__name
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__name
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__name
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__name
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__name
@@ -989,8 +1367,23 @@ msgid "Name"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__certification
+msgid "Name of the certification obtained, e.g. Certified Public Accountant."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__diploma
+msgid "Name of the diploma/degree obtained, e.g. Bachelor of Science."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_title__name
 msgid "Name of the title, displayed after the contact's name (e.g. Doctor)."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__child_ids
+msgid "Narrower specializations under this field of study."
 msgstr ""
 
 #. module: ssi_partner
@@ -1002,7 +1395,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_date_deadline
@@ -1013,7 +1412,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_summary
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__activity_summary
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__activity_summary
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_summary
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_summary
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_summary
@@ -1024,7 +1429,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__activity_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__activity_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_type_id
@@ -1035,11 +1446,18 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__note
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__note
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__note
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__note
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__note
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__note
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__note
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__note
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__note
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__note
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__note
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__note
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__note
+#: model_terms:ir.ui.view,arch_db:ssi_partner.mixin_partner_experience_view_form
 msgid "Note"
 msgstr ""
 
@@ -1051,7 +1469,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_needaction_counter
@@ -1062,7 +1486,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__message_has_error_counter
@@ -1073,7 +1503,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_needaction_counter
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__message_needaction_counter
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__message_needaction_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__message_needaction_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_needaction_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__message_needaction_counter
@@ -1084,7 +1520,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__message_has_error_counter
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__message_has_error_counter
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__message_has_error_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__message_has_error_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__message_has_error_counter
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__message_has_error_counter
@@ -1135,6 +1577,20 @@ msgid "Ownership Types"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__parent_id
+msgid "Parent"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__partner_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__partner_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__partner_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__partner_id
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_language__partner_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_number__partner_id
 #: model:ir.module.category,name:ssi_partner.partner_module_category
@@ -1151,6 +1607,16 @@ msgid ""
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_partner_academic
+msgid "Partner Academic History"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_partner_certification
+msgid "Partner Certification"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model,name:ssi_partner.model_partner_contact_group
 msgid "Partner Contact Group"
 msgstr ""
@@ -1158,6 +1624,16 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model,name:ssi_partner.model_res_partner_ethnicity
 msgid "Partner Ethnicity"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_partner_field_of_study
+msgid "Partner Field of Study"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_partner_formal_education_level
+msgid "Partner Formal Education Level"
 msgstr ""
 
 #. module: ssi_partner
@@ -1181,6 +1657,19 @@ msgid "Partner Religion"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model,name:ssi_partner.model_partner_experience
+msgid "Partner Work Experience"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__partner_id
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__partner_id
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__partner_id
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__partner_id
+msgid "Partner this history entry belongs to."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_number__partner_id
 msgid "Partner this identification number belongs to."
 msgstr ""
@@ -1193,6 +1682,20 @@ msgstr ""
 #. module: ssi_partner
 #: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
 msgid "Personal Information"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__location
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__location
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__location
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__location
+msgid "Place where this history entry took place, e.g. city or campus."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__certification_ids
+#: model:ir.model.fields,help:ssi_partner.field_res_users__certification_ids
+msgid "Professional certifications held by this contact."
 msgstr ""
 
 #. module: ssi_partner
@@ -1232,7 +1735,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__activity_user_id
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_mixin_partner_experience__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_academic__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_certification__activity_user_id
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_experience__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__activity_user_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank_usage__activity_user_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_user_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_id_category__activity_user_id
@@ -1259,6 +1768,7 @@ msgid "Secondary Industries"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_formal_education_level__sequence
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_title__sequence
 msgid "Sequence"
 msgstr ""
@@ -1266,6 +1776,14 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_title__shortcut
 msgid "Short form of the title, used when space is limited (e.g. Dr.)."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__name
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__name
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__name
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__name
+msgid "Short label identifying this history entry."
 msgstr ""
 
 #. module: ssi_partner
@@ -1281,6 +1799,12 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_partner_language__speak_rating
 msgid "Speaking proficiency rated on the 11-level ILR scale."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_partner_field_of_study__child_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner.partner_field_of_study_view_form
+msgid "Specializations"
 msgstr ""
 
 #. module: ssi_partner
@@ -1328,7 +1852,13 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__activity_state
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_state
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__activity_state
@@ -1364,12 +1894,26 @@ msgstr ""
 #. module: ssi_partner
 #: model:ir.model.fields,help:ssi_partner.field_company_entity_type__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_partner.field_company_ownership_type__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_partner.field_partner_contact_group__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_partner_field_of_study__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner.field_partner_formal_education_level__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank_usage__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_id_category__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_exception_decoration
 msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__active
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__active
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__active
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__active
+msgid "Uncheck to archive this history entry without deleting it."
 msgstr ""
 
 #. module: ssi_partner
@@ -1421,8 +1965,29 @@ msgid ""
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_mixin_partner_experience__expire
+#: model:ir.model.fields,help:ssi_partner.field_partner_academic__expire
+#: model:ir.model.fields,help:ssi_partner.field_partner_certification__expire
+#: model:ir.model.fields,help:ssi_partner.field_partner_experience__expire
+msgid "Whether this history entry is expected to have an end date at all."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields.selection,name:ssi_partner.selection__res_partner__marital__widower
 msgid "Widower"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__experience_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__experience_ids
+#: model_terms:ir.ui.view,arch_db:ssi_partner.res_partner_view_form
+msgid "Work Experience"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__experience_ids
+#: model:ir.model.fields,help:ssi_partner.field_res_users__experience_ids
+msgid "Work experience history of this contact."
 msgstr ""
 
 #. module: ssi_partner
