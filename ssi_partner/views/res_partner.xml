@@ -88,6 +88,20 @@
                         <field name="secondary_industry_ids" widget="many2many_tags" />
                     </group>
                 </page>
+                <page name="ssi_partner_id_numbers" string="ID Numbers">
+                    <field name="id_numbers" context="{'default_partner_id': id}">
+                        <list editable="bottom">
+                            <field name="category_id" />
+                            <field name="name" />
+                            <field name="partner_issued_id" />
+                            <field name="date_issued" />
+                            <field name="valid_from" />
+                            <field name="valid_until" />
+                            <field name="status" readonly="1" />
+                            <field name="active" widget="boolean_toggle" />
+                        </list>
+                    </field>
+                </page>
             </notebook>
         </field>
     </record>

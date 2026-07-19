@@ -32,6 +32,14 @@ sync with it. Contact lists only show standalone contacts by default; the
 "All Positions" filter on the partner search view reveals attached
 contacts as well.
 
+Adds a partner identification mechanism: the ``res_partner_id_category``
+master data model (National ID, Tax ID, Driving License, Passport,
+Business Registration Number, etc.), each optionally carrying a Python
+``validation_code`` used to validate the format of numbers assigned to it,
+and the ``res_partner_id_number`` model, shown as an "ID Numbers" tab on
+``res.partner``, tracking the number, issuing partner, issue date, and
+validity period (with a computed Draft/Valid/Expired ``status``).
+
 
 Installation
 ============

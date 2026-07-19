@@ -165,6 +165,16 @@ class ResPartner(models.Model):
         "person as this standalone contact.",
     )
 
+    # Identification numbers
+    id_numbers = fields.One2many(
+        string="ID Numbers",
+        comodel_name="res_partner_id_number",
+        inverse_name="partner_id",
+        help="Identification numbers held by this contact, e.g. "
+        "National ID, Tax ID, Driving License, Passport, or Business "
+        "Registration Number.",
+    )
+
     @api.depends("birthdate_date")
     def _compute_age(self):
         today = date.today()
