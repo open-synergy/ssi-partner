@@ -1,0 +1,68 @@
+scenarios:
+  - name: "Create formal education level"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "partner_formal_education_level"
+        save_as: "level"
+        values:
+          name: "Bachelor's Degree"
+          code: "/"
+      - step: "Assert created and defaults to sequence 5"
+        action: "assert"
+        target: "level"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Bachelor's Degree"
+          sequence:
+            type: "value"
+            expected: 5
+
+  - name: "Edit formal education level name and sequence"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "partner_formal_education_level"
+        save_as: "level"
+        values:
+          name: "Bachelor's Degree"
+          code: "/"
+      - step: "Write new name and sequence"
+        action: "write"
+        target: "level"
+        values:
+          name: "Bachelor"
+          sequence: 30
+      - step: "Assert updated"
+        action: "assert"
+        target: "level"
+        asserts:
+          name:
+            type: "value"
+            expected: "Bachelor"
+          sequence:
+            type: "value"
+            expected: 30
+
+  - name: "Delete formal education level"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "partner_formal_education_level"
+        save_as: "level"
+        values:
+          name: "Temporary Level"
+          code: "/"
+      - step: "Delete record"
+        action: "unlink"
+        target: "level"
+      - step: "Verify deleted"
+        action: "search"
+        model: "partner_formal_education_level"
+        domain: [["name", "=", "Temporary Level"]]
+        save_as: "result"
+        expect_count: 0

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="partner_experience_view_form" model="ir.ui.view">
+        <field name="name">partner_experience - form</field>
+        <field name="model">partner_experience</field>
+        <field name="inherit_id" ref="mixin_partner_experience_view_form" />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <group name="group_left" position="inside">
+                    <field name="job_position" />
+                    <field name="job_level" />
+                </group>
+            </data>
+        </field>
+    </record>
+</odoo>

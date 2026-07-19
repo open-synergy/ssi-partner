@@ -1,0 +1,95 @@
+scenarios:
+  - name: "Create field of study"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "partner_field_of_study"
+        save_as: "field_of_study"
+        values:
+          name: "Computer Science"
+          code: "/"
+      - step: "Assert created"
+        action: "assert"
+        target: "field_of_study"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Computer Science"
+
+  - name: "Edit field of study name"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "partner_field_of_study"
+        save_as: "field_of_study"
+        values:
+          name: "Computer Science"
+          code: "/"
+      - step: "Write new name"
+        action: "write"
+        target: "field_of_study"
+        values:
+          name: "Information Technology"
+      - step: "Assert name updated"
+        action: "assert"
+        target: "field_of_study"
+        asserts:
+          name:
+            type: "value"
+            expected: "Information Technology"
+
+  - name: "Delete field of study"
+    steps:
+      - step: "Create record"
+        action: "create"
+        model: "partner_field_of_study"
+        save_as: "field_of_study"
+        values:
+          name: "Temporary Field"
+          code: "/"
+      - step: "Delete record"
+        action: "unlink"
+        target: "field_of_study"
+      - step: "Verify deleted"
+        action: "search"
+        model: "partner_field_of_study"
+        domain: [["name", "=", "Temporary Field"]]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Child field of study links to its parent"
+    steps:
+      - step: "Create parent field of study"
+        action: "create"
+        model: "partner_field_of_study"
+        save_as: "parent"
+        values:
+          name: "Engineering"
+          code: "/"
+      - step: "Create child field of study"
+        action: "create"
+        model: "partner_field_of_study"
+        save_as: "child"
+        values:
+          name: "Civil Engineering"
+          code: "/"
+          parent_id: "REC: parent.id"
+      - step: "Assert child parent_id points to the parent"
+        action: "assert"
+        target: "child"
+        asserts:
+          parent_id:
+            type: "m2o"
+            expected: "REC: parent"
+      - step: "Assert parent child_ids contains the child"
+        action: "assert"
+        target: "parent"
+        asserts:
+          child_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: child"

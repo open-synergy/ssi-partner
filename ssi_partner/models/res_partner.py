@@ -185,6 +185,27 @@ class ResPartner(models.Model):
         "listening proficiency.",
     )
 
+    # Academic history, certifications & work experience
+    academic_ids = fields.One2many(
+        string="Academic History",
+        comodel_name="partner_academic",
+        inverse_name="partner_id",
+        help="Academic background of this contact, e.g. degrees "
+        "obtained and fields of study.",
+    )
+    certification_ids = fields.One2many(
+        string="Certifications",
+        comodel_name="partner_certification",
+        inverse_name="partner_id",
+        help="Professional certifications held by this contact.",
+    )
+    experience_ids = fields.One2many(
+        string="Work Experience",
+        comodel_name="partner_experience",
+        inverse_name="partner_id",
+        help="Work experience history of this contact.",
+    )
+
     @api.depends("birthdate_date")
     def _compute_age(self):
         today = date.today()

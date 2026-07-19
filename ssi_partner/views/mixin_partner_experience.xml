@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- Base form for mixin.partner_experience, reused by the three
+         concrete history models (partner_academic, partner_certification,
+         partner_experience) through a primary-mode inherit, mirroring
+         the pattern used by ssi_master_data_mixin.mixin_master_data_view_form. -->
+    <record id="mixin_partner_experience_view_form" model="ir.ui.view">
+        <field name="name">mixin.partner_experience - form</field>
+        <field name="model">mixin.partner_experience</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        invisible="active"
+                    />
+                    <field name="active" invisible="1" />
+                    <field name="partner_id" invisible="1" />
+                    <group name="group_1">
+                        <group name="group_left">
+                            <field name="name" />
+                            <field name="partner_address_id" />
+                            <field name="location" />
+                        </group>
+                        <group name="group_right">
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="expire" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="note" string="Note">
+                            <field name="note" colspan="4" nolabel="1" />
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+</odoo>

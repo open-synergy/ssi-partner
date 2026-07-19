@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- partner_certification is history data owned by the partner (edited
+         directly from the res.partner form's Certifications page), not
+         master data, so it has no configurator group of its own — it
+         re-uses the core "Contact Creation" group instead, mirroring
+         partner_language's ACL (base.group_user read-only +
+         base.group_partner_manager full access). -->
+    <record id="partner_certification_all_access" model="ir.model.access">
+        <field name="name">partner_certification - all</field>
+        <field name="model_id" ref="model_partner_certification" />
+        <field name="group_id" ref="base.group_user" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <record id="partner_certification_manager_access" model="ir.model.access">
+        <field name="name">partner_certification - manager</field>
+        <field name="model_id" ref="model_partner_certification" />
+        <field name="group_id" ref="base.group_partner_manager" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+</odoo>

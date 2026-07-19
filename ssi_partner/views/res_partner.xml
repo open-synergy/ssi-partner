@@ -113,6 +113,46 @@
                         </list>
                     </field>
                 </page>
+                <page name="ssi_partner_academic" string="Academic History">
+                    <field name="academic_ids" context="{'default_partner_id': id}">
+                        <list>
+                            <field name="name" />
+                            <field name="education_level_id" />
+                            <field name="field_of_study_id" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="active" widget="boolean_toggle" />
+                        </list>
+                    </field>
+                </page>
+                <page name="ssi_partner_certification" string="Certifications">
+                    <field
+                        name="certification_ids"
+                        context="{'default_partner_id': id}"
+                    >
+                        <list>
+                            <field name="name" />
+                            <field name="certification" />
+                            <field name="partner_address_id" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="active" widget="boolean_toggle" />
+                        </list>
+                    </field>
+                </page>
+                <page name="ssi_partner_experience" string="Work Experience">
+                    <field name="experience_ids" context="{'default_partner_id': id}">
+                        <list>
+                            <field name="name" />
+                            <field name="job_position" />
+                            <field name="job_level" />
+                            <field name="partner_address_id" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="active" widget="boolean_toggle" />
+                        </list>
+                    </field>
+                </page>
             </notebook>
         </field>
     </record>

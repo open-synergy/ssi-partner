@@ -16,3 +16,6 @@ from . import test_partner_contact_group
 from . import test_res_partner_id_category
 from . import test_res_partner_id_number
 from . import test_partner_language
+from . import test_partner_field_of_study
+from . import test_partner_formal_education_level
+from . import test_partner_history
