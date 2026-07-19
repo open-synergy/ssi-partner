@@ -40,6 +40,14 @@ and the ``res_partner_id_number`` model, shown as an "ID Numbers" tab on
 ``res.partner``, tracking the number, issuing partner, issue date, and
 validity period (with a computed Draft/Valid/Expired ``status``).
 
+Adds a partner language proficiency mechanism: the ``partner_language``
+model, shown as an editable list on the "Personal Information" page of
+``res.partner`` (``language_ids``), records the languages spoken by an
+individual contact together with reading, writing, speaking, and
+listening proficiency on the 11-level ILR (Interagency Language
+Roundtable) scale. A given language can only be recorded once per
+partner.
+
 
 Installation
 ============

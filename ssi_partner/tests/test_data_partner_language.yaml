@@ -1,0 +1,204 @@
+setup:
+  steps:
+    - step: "Create partner A"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner_a"
+      values:
+        name: "Jane Doe"
+
+scenarios:
+  - name: "Create language for a partner"
+    steps:
+      - step: "Create English language for partner A"
+        action: "create"
+        model: "partner_language"
+        save_as: "language"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_a.id"
+      - step: "Assert saved and linked to partner A"
+        action: "assert"
+        target: "language"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          partner_id:
+            type: "m2o"
+            expected: "REC: partner_a"
+
+  - name: "Ratings default to 0 when not provided"
+    steps:
+      - step: "Create language without explicit ratings"
+        action: "create"
+        model: "partner_language"
+        save_as: "language"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_a.id"
+      - step: "Assert all four ratings default to 0"
+        action: "assert"
+        target: "language"
+        asserts:
+          read_rating:
+            type: "value"
+            expected: "0"
+          write_rating:
+            type: "value"
+            expected: "0"
+          speak_rating:
+            type: "value"
+            expected: "0"
+          listen_rating:
+            type: "value"
+            expected: "0"
+
+  - name: "Write speak_rating stores the new value"
+    steps:
+      - step: "Create language"
+        action: "create"
+        model: "partner_language"
+        save_as: "language"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_a.id"
+      - step: "Write speak_rating to 3+"
+        action: "write"
+        target: "language"
+        values:
+          speak_rating: "3+"
+      - step: "Assert speak_rating updated"
+        action: "assert"
+        target: "language"
+        asserts:
+          speak_rating:
+            type: "value"
+            expected: "3+"
+
+  - name: "Same language is allowed for a different partner"
+    steps:
+      - step: "Create partner B"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner_b"
+        values:
+          name: "John Roe"
+      - step: "Create English language for partner A"
+        action: "create"
+        model: "partner_language"
+        save_as: "language_a"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_a.id"
+      - step: "Create English language for partner B"
+        action: "create"
+        model: "partner_language"
+        save_as: "language_b"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_b.id"
+      - step: "Assert partner B's language saved and linked"
+        action: "assert"
+        target: "language_b"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          partner_id:
+            type: "m2o"
+            expected: "REC: partner_b"
+
+  - name: "Partner language_ids contains the created language"
+    steps:
+      - step: "Create language for partner A"
+        action: "create"
+        model: "partner_language"
+        save_as: "language"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_a.id"
+      - step: "Assert language_ids contains the created record"
+        action: "assert"
+        target: "partner_a"
+        asserts:
+          language_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: language"
+
+  - name: "Deleting a language record removes it"
+    steps:
+      - step: "Create language for partner A"
+        action: "create"
+        model: "partner_language"
+        save_as: "language"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_a.id"
+      - step: "Delete the language record"
+        action: "unlink"
+        target: "language"
+      - step: "Verify no language remains for partner A"
+        action: "search"
+        model: "partner_language"
+        domain: [["partner_id", "=", "REC: partner_a.id"]]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Deleting a partner cascades to its languages"
+    steps:
+      - step: "Create temporary partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner_temp"
+        values:
+          name: "Temporary Contact"
+      - step: "Create language for the temporary partner"
+        action: "create"
+        model: "partner_language"
+        save_as: "language"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_temp.id"
+      - step: "Delete the temporary partner"
+        action: "unlink"
+        target: "partner_temp"
+      - step: "Verify the language was cascaded"
+        action: "search"
+        model: "partner_language"
+        domain: [["id", "=", "REC: language.id"]]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Duplicate language for the same partner is rejected"
+    steps:
+      - step: "Create first English language for partner A"
+        action: "create"
+        model: "partner_language"
+        save_as: "language"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_a.id"
+      - step: "Create duplicate English language for partner A must fail"
+        action: "create"
+        model: "partner_language"
+        expect_error:
+          type: "UserError"
+          message_contains: "English"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_a.id"
+
+  - name: "Rating value outside the ILR selection is rejected"
+    steps:
+      - step: "Create language with an out-of-selection rating must fail"
+        action: "create"
+        model: "partner_language"
+        expect_error:
+          type: "ValueError"
+        values:
+          name: "en_US"
+          partner_id: "REC: partner_a.id"
+          read_rating: "6"

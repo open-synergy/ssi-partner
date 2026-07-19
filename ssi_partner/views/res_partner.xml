@@ -61,6 +61,17 @@
                             required="contact_type == 'attached'"
                         />
                     </group>
+                    <separator string="Languages" />
+                    <field name="language_ids" context="{'default_partner_id': id}">
+                        <list editable="bottom">
+                            <field name="name" />
+                            <field name="description" />
+                            <field name="read_rating" />
+                            <field name="write_rating" />
+                            <field name="speak_rating" />
+                            <field name="listen_rating" />
+                        </list>
+                    </field>
                 </page>
                 <page
                     name="ssi_partner_other_positions"
