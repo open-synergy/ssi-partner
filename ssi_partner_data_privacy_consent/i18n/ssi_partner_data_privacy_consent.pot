@@ -26,6 +26,12 @@ msgid "Active"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__active_consent_purpose_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_users__active_consent_purpose_ids
+msgid "Active Consent Purposes"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_ids
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_ids
 msgid "Activities"
@@ -50,14 +56,41 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner__consent_ids
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_users__consent_ids
+msgid "Append-only log of privacy consent events for this partner."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_attachment_count
 msgid "Attachment Count"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__channel__manual
+msgid "Back Office"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__body
 msgid "Body"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__evidence_user_agent
+msgid ""
+"Browser user agent recorded as technical evidence of the consent event."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__channel
+msgid "Channel"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__channel
+msgid "Channel through which this consent event was captured."
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
@@ -67,20 +100,42 @@ msgid "Code"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_date
+msgid "Consent Date"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model_terms:ir.ui.view,arch_db:ssi_partner_data_privacy_consent.res_partner_view_form
+msgid "Consent Log"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.actions.act_window,name:ssi_partner_data_privacy_consent.partner_consent_purpose_action
 #: model:ir.ui.menu,name:ssi_partner_data_privacy_consent.partner_consent_purpose_menu
 msgid "Consent Purpose"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_type
+msgid "Consent Type"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model,name:ssi_partner_data_privacy_consent.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__create_uid
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__create_uid
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__create_date
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__create_date
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__create_date
 msgid "Created on"
 msgstr ""
 
@@ -90,8 +145,50 @@ msgid "Data Privacy"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model_terms:ir.ui.view,arch_db:ssi_partner_data_privacy_consent.res_partner_view_form
+msgid "Data Privacy Consent"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__consent_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_users__consent_ids
+msgid "Data Privacy Consents"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: code:addons/ssi_partner_data_privacy_consent/models/res_partner_consent.py:0
+#, python-format
+msgid "Data privacy consent records are immutable and cannot be deleted."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: code:addons/ssi_partner_data_privacy_consent/models/res_partner_consent.py:0
+#, python-format
+msgid ""
+"Data privacy consent records are immutable and cannot be modified. To "
+"withdraw a consent, create a new record with consent type Withdrawn."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__partner_id
+msgid "Data subject whose consent this record captures."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__purpose_id
+msgid ""
+"Data-processing purpose granted or withdrawn by this consent event. One "
+"purpose per record allows per-purpose granularity and withdrawal."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__purpose_ids
 msgid "Data-processing purposes covered by this privacy notice."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_date
+msgid "Date and time at which the consent event occurred."
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
@@ -102,12 +199,24 @@ msgstr ""
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__display_name
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__display_name
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__display_name
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__date_effective
 msgid "Effective Date"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__evidence_ip
+msgid "Evidence IP"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__evidence_user_agent
+msgid "Evidence User Agent"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
@@ -140,9 +249,26 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__note
+msgid "Free-text note about this consent event."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__consent_type__grant
+msgid "Granted"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__id
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__id
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__id
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__id
 msgid "ID"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__evidence_ip
+msgid "IP address recorded as technical evidence of the consent event."
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
@@ -172,6 +298,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__channel__import
+msgid "Import"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_is_follower
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_is_follower
 msgid "Is Follower"
@@ -180,18 +311,22 @@ msgstr ""
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice____last_update
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose____last_update
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner____last_update
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__write_uid
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__write_uid
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__write_date
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__write_date
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -270,6 +405,7 @@ msgstr ""
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__note
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__note
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__note
 msgid "Note"
 msgstr ""
 
@@ -309,6 +445,11 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.model,name:ssi_partner_data_privacy_consent.model_partner_consent_notice
 #: model:res.groups,name:ssi_partner_data_privacy_consent.partner_consent_notice_group
 msgid "Partner Consent Privacy Notice"
@@ -321,15 +462,41 @@ msgid "Partner Consent Purpose"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__channel__portal
+msgid "Portal"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.actions.act_window,name:ssi_partner_data_privacy_consent.partner_consent_notice_action
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__notice_id
 #: model:ir.ui.menu,name:ssi_partner_data_privacy_consent.partner_consent_notice_menu
 #: model_terms:ir.ui.view,arch_db:ssi_partner_data_privacy_consent.partner_consent_notice_view_form
 msgid "Privacy Notice"
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__notice_id
+msgid ""
+"Privacy notice version presented to and agreed by the data subject at the "
+"time of this consent event."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__purpose_id
+msgid "Purpose"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__purpose_ids
 msgid "Purposes"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner__active_consent_purpose_ids
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_users__active_consent_purpose_ids
+msgid ""
+"Purposes whose most recent consent event is a grant. Derived from the "
+"consent log, not stored."
 msgstr ""
 
 #. module: ssi_partner_data_privacy_consent
@@ -386,4 +553,19 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__website_message_ids
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__website_message_ids
 msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_type
+msgid "Whether this event grants or withdraws consent for the purpose."
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__consent_type__withdraw
+msgid "Withdrawn"
+msgstr ""
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model,name:ssi_partner_data_privacy_consent.model_res_partner_consent
+msgid "res.partner - Data Privacy Consent"
 msgstr ""
