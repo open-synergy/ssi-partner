@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="partner_consent_notice_view_search" model="ir.ui.view">
+    <field name="name">partner_consent_notice - search</field>
+    <field name="model">partner_consent_notice</field>
+    <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="version" />
+                <field name="purpose_ids" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="partner_consent_notice_view_tree" model="ir.ui.view">
+    <field name="name">partner_consent_notice - tree</field>
+    <field name="model">partner_consent_notice</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="version" />
+                <field name="date_effective" optional="hide" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="partner_consent_notice_view_form" model="ir.ui.view">
+    <field name="name">partner_consent_notice - form</field>
+    <field name="model">partner_consent_notice</field>
+    <field name="priority">100</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//notebook/page[@name='note']" position="before">
+                <page name="notice" string="Privacy Notice">
+                    <group name="notice_group_1">
+                        <field name="version" />
+                        <field name="date_effective" />
+                        <field name="purpose_ids" widget="many2many_tags" />
+                    </group>
+                    <group name="notice_group_2" string="Notice Body">
+                        <field name="body" nolabel="1" />
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="partner_consent_notice_action" model="ir.actions.act_window">
+    <field name="name">Privacy Notice</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">partner_consent_notice</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="partner_consent_notice_menu"
+        name="Privacy Notice"
+        parent="menu_config_data_privacy"
+        groups="partner_consent_notice_group"
+        action="partner_consent_notice_action"
+        sequence="2"
+    />
+
+</odoo>

@@ -1,0 +1,211 @@
+scenarios:
+  - name: "Consent Purpose - Create"
+    steps:
+      - step: "Create consent purpose"
+        action: "create"
+        model: "partner_consent_purpose"
+        save_as: "purpose"
+        values:
+          name: "Marketing Communication"
+          code: "PURPOSE-01"
+
+      - step: "Assert consent purpose created"
+        action: "assert"
+        target: "purpose"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Marketing Communication"
+          code:
+            type: "value"
+            expected: "PURPOSE-01"
+
+  - name: "Consent Notice - Create with Purpose"
+    steps:
+      - step: "Create consent purpose"
+        action: "create"
+        model: "partner_consent_purpose"
+        save_as: "purpose"
+        values:
+          name: "Service Delivery"
+          code: "PURPOSE-02"
+
+      - step: "Create consent notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        values:
+          name: "General Privacy Notice"
+          code: "NOTICE-02"
+          version: "1.0"
+          body: "This is the exact text of the privacy notice."
+          date_effective: 2026-01-01
+          purpose_ids:
+            - - 6
+              - 0
+              - - "REC: purpose.id"
+
+      - step: "Assert consent notice created"
+        action: "assert"
+        target: "notice"
+        asserts:
+          version:
+            type: "value"
+            expected: "1.0"
+          body:
+            type: "value"
+            expected: "This is the exact text of the privacy notice."
+          date_effective:
+            type: "value"
+            expected: 2026-01-01
+          purpose_ids:
+            type: "m2m"
+            check: "contains"
+            expected_records:
+              - "REC: purpose"
+
+  - name: "Consent Notice - Configurator can write and unlink"
+    steps:
+      - step: "Create configurator user"
+        action: "create"
+        model: "res.users"
+        save_as: "config_user"
+        values:
+          name: "Consent Configurator"
+          login: "consent_config_s3@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_partner_data_privacy_consent.partner_consent_notice_group"
+
+      - step: "Configurator creates consent notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        as_user: "config_user"
+        values:
+          name: "Configurator Notice"
+          code: "NOTICE-03"
+          version: "1.0"
+          body: "Notice created by configurator."
+
+      - step: "Configurator updates the consent notice"
+        action: "write"
+        target: "notice"
+        as_user: "config_user"
+        values:
+          version: "1.1"
+
+      - step: "Assert consent notice updated"
+        action: "assert"
+        target: "notice"
+        asserts:
+          version:
+            type: "value"
+            expected: "1.1"
+
+      - step: "Configurator deletes the consent notice"
+        action: "unlink"
+        target: "notice"
+        as_user: "config_user"
+
+      - step: "Assert consent notice deleted"
+        action: "search"
+        model: "partner_consent_notice"
+        domain: [["code", "=", "NOTICE-03"]]
+        save_as: "deleted_notice"
+        expect_count: 0
+
+  - name: "Consent Notice - Internal user cannot write"
+    steps:
+      - step: "Create consent notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        values:
+          name: "Protected Notice"
+          code: "NOTICE-04"
+          version: "1.0"
+          body: "Notice body."
+
+      - step: "Create internal user"
+        action: "create"
+        model: "res.users"
+        save_as: "internal_user"
+        values:
+          name: "Internal User"
+          login: "internal_s4@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+
+      - step: "Internal user cannot update the consent notice"
+        action: "write"
+        target: "notice"
+        as_user: "internal_user"
+        expect_error:
+          type: "AccessError"
+        values:
+          version: "1.1"
+
+  - name: "Consent Notice - Internal user cannot unlink"
+    steps:
+      - step: "Create consent notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        values:
+          name: "Protected Notice"
+          code: "NOTICE-05"
+          version: "1.0"
+          body: "Notice body."
+
+      - step: "Create internal user"
+        action: "create"
+        model: "res.users"
+        save_as: "internal_user"
+        values:
+          name: "Internal User"
+          login: "internal_s5@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+
+      - step: "Internal user cannot delete the consent notice"
+        action: "unlink"
+        target: "notice"
+        as_user: "internal_user"
+        expect_error:
+          type: "AccessError"
+
+  - name: "Consent Notice - Version is required"
+    steps:
+      - step: "Create consent notice without version must fail"
+        action: "form"
+        model: "partner_consent_notice"
+        expect_error:
+          type: "AssertionError"
+          message_contains: "version"
+        values:
+          name: "Notice Missing Version"
+          code: "NOTICE-06"
+          body: "Notice body without version."
+
+  - name: "Consent Notice - Body is required"
+    steps:
+      - step: "Create consent notice without body must fail"
+        action: "form"
+        model: "partner_consent_notice"
+        expect_error:
+          type: "AssertionError"
+          message_contains: "body"
+        values:
+          name: "Notice Missing Body"
+          code: "NOTICE-07"
+          version: "1.0"
