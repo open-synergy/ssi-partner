@@ -5,4 +5,6 @@
 from . import (
     partner_consent_purpose,
     partner_consent_notice,
+    res_partner_consent,
+    res_partner,
 )

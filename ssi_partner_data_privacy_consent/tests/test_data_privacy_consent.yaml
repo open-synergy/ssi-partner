@@ -209,3 +209,335 @@ scenarios:
           name: "Notice Missing Body"
           code: "NOTICE-07"
           version: "1.0"
+
+  - name: "Partner Consent - Grant activates purpose"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Consent Subject Grant"
+
+      - step: "Create purpose"
+        action: "create"
+        model: "partner_consent_purpose"
+        save_as: "purpose"
+        values:
+          name: "Marketing Communication"
+          code: "CONSENT-PURPOSE-G1"
+
+      - step: "Create notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        values:
+          name: "Grant Privacy Notice"
+          code: "CONSENT-NOTICE-G1"
+          version: "1.0"
+          body: "Notice body for grant."
+
+      - step: "Create grant consent"
+        action: "create"
+        model: "res.partner.consent"
+        save_as: "consent"
+        values:
+          partner_id: "REC: partner.id"
+          notice_id: "REC: notice.id"
+          purpose_id: "REC: purpose.id"
+          consent_type: "grant"
+          consent_date: "2026-01-01 00:00:00"
+          channel: "portal"
+
+      - step: "Assert grant consent created"
+        action: "assert"
+        target: "consent"
+        asserts:
+          partner_id:
+            type: "m2o"
+            expected: "REC: partner"
+          purpose_id:
+            type: "m2o"
+            expected: "REC: purpose"
+          notice_id:
+            type: "m2o"
+            expected: "REC: notice"
+          consent_type:
+            type: "value"
+            expected: "grant"
+
+      - step: "Assert purpose is active on partner"
+        action: "assert"
+        target: "partner"
+        refresh: true
+        asserts:
+          active_consent_purpose_ids:
+            type: "m2m"
+            check: "contains"
+            expected_records:
+              - "REC: purpose"
+
+  - name: "Partner Consent - Later withdraw deactivates purpose"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Consent Subject Withdraw"
+
+      - step: "Create purpose"
+        action: "create"
+        model: "partner_consent_purpose"
+        save_as: "purpose"
+        values:
+          name: "Profiling"
+          code: "CONSENT-PURPOSE-W1"
+
+      - step: "Create notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        values:
+          name: "Withdraw Privacy Notice"
+          code: "CONSENT-NOTICE-W1"
+          version: "1.0"
+          body: "Notice body for withdraw."
+
+      - step: "Create grant consent (earlier)"
+        action: "create"
+        model: "res.partner.consent"
+        save_as: "grant_consent"
+        values:
+          partner_id: "REC: partner.id"
+          notice_id: "REC: notice.id"
+          purpose_id: "REC: purpose.id"
+          consent_type: "grant"
+          consent_date: "2026-01-01 00:00:00"
+          channel: "portal"
+
+      - step: "Assert purpose active after grant"
+        action: "assert"
+        target: "partner"
+        refresh: true
+        asserts:
+          active_consent_purpose_ids:
+            type: "m2m"
+            check: "count"
+            expected_count: 1
+
+      - step: "Create withdraw consent (later)"
+        action: "create"
+        model: "res.partner.consent"
+        save_as: "withdraw_consent"
+        values:
+          partner_id: "REC: partner.id"
+          notice_id: "REC: notice.id"
+          purpose_id: "REC: purpose.id"
+          consent_type: "withdraw"
+          consent_date: "2026-02-01 00:00:00"
+          channel: "portal"
+
+      - step: "Assert purpose no longer active after withdraw"
+        action: "assert"
+        target: "partner"
+        refresh: true
+        asserts:
+          active_consent_purpose_ids:
+            type: "m2m"
+            check: "count"
+            expected_count: 0
+
+  - name: "Partner Consent - Record is immutable on write"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Consent Subject Immutable Write"
+
+      - step: "Create purpose"
+        action: "create"
+        model: "partner_consent_purpose"
+        save_as: "purpose"
+        values:
+          name: "Service Delivery"
+          code: "CONSENT-PURPOSE-IW1"
+
+      - step: "Create notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        values:
+          name: "Immutable Write Notice"
+          code: "CONSENT-NOTICE-IW1"
+          version: "1.0"
+          body: "Notice body."
+
+      - step: "Create consent"
+        action: "create"
+        model: "res.partner.consent"
+        save_as: "consent"
+        values:
+          partner_id: "REC: partner.id"
+          notice_id: "REC: notice.id"
+          purpose_id: "REC: purpose.id"
+          consent_type: "grant"
+
+      - step: "Non-superuser cannot modify the consent record"
+        action: "write"
+        target: "consent"
+        as_user: "base.user_admin"
+        expect_error:
+          type: "UserError"
+        values:
+          note: "attempt to modify"
+
+  - name: "Partner Consent - Record is immutable on unlink"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Consent Subject Immutable Unlink"
+
+      - step: "Create purpose"
+        action: "create"
+        model: "partner_consent_purpose"
+        save_as: "purpose"
+        values:
+          name: "Analytics"
+          code: "CONSENT-PURPOSE-IU1"
+
+      - step: "Create notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        values:
+          name: "Immutable Unlink Notice"
+          code: "CONSENT-NOTICE-IU1"
+          version: "1.0"
+          body: "Notice body."
+
+      - step: "Create consent"
+        action: "create"
+        model: "res.partner.consent"
+        save_as: "consent"
+        values:
+          partner_id: "REC: partner.id"
+          notice_id: "REC: notice.id"
+          purpose_id: "REC: purpose.id"
+          consent_type: "grant"
+
+      - step: "Non-superuser cannot delete the consent record"
+        action: "unlink"
+        target: "consent"
+        as_user: "base.user_admin"
+        expect_error:
+          type: "UserError"
+
+  - name: "Partner Consent - Purpose is required"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Consent Subject Missing Purpose"
+
+      - step: "Create notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        values:
+          name: "Missing Purpose Notice"
+          code: "CONSENT-NOTICE-MP1"
+          version: "1.0"
+          body: "Notice body."
+
+      - step: "Create consent without purpose must fail"
+        action: "form"
+        model: "res.partner.consent"
+        expect_error:
+          type: "AssertionError"
+          message_contains: "purpose"
+        values:
+          partner_id: "REC: partner"
+          notice_id: "REC: notice"
+
+  - name: "Partner Consent - Notice is required"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Consent Subject Missing Notice"
+
+      - step: "Create purpose"
+        action: "create"
+        model: "partner_consent_purpose"
+        save_as: "purpose"
+        values:
+          name: "Support"
+          code: "CONSENT-PURPOSE-MN1"
+
+      - step: "Create consent without notice must fail"
+        action: "form"
+        model: "res.partner.consent"
+        expect_error:
+          type: "AssertionError"
+          message_contains: "notice"
+        values:
+          partner_id: "REC: partner"
+          purpose_id: "REC: purpose"
+
+  - name: "Partner Consent - Deleting partner cascades consents"
+    steps:
+      - step: "Create partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Consent Subject Cascade"
+
+      - step: "Create purpose"
+        action: "create"
+        model: "partner_consent_purpose"
+        save_as: "purpose"
+        values:
+          name: "Cascade Purpose"
+          code: "CONSENT-PURPOSE-C1"
+
+      - step: "Create notice"
+        action: "create"
+        model: "partner_consent_notice"
+        save_as: "notice"
+        values:
+          name: "Cascade Notice"
+          code: "CONSENT-NOTICE-C1"
+          version: "1.0"
+          body: "Notice body."
+
+      - step: "Create consent"
+        action: "create"
+        model: "res.partner.consent"
+        save_as: "consent"
+        values:
+          partner_id: "REC: partner.id"
+          notice_id: "REC: notice.id"
+          purpose_id: "REC: purpose.id"
+          consent_type: "grant"
+
+      - step: "Delete the partner"
+        action: "unlink"
+        target: "partner"
+
+      - step: "Assert consents of the partner are gone"
+        action: "search"
+        model: "res.partner.consent"
+        domain: [["notice_id.code", "=", "CONSENT-NOTICE-C1"]]
+        save_as: "remaining"
+        expect_count: 0
