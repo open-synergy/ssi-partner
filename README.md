@@ -22,6 +22,7 @@ addon | version | maintainers | summary
 [ssi_partner](ssi_partner/) | 14.0.1.14.0 |  | Partner App
 [ssi_partner_company_capital](ssi_partner_company_capital/) | 14.0.1.2.0 |  | Company Capital Information
 [ssi_partner_creditor_debitor](ssi_partner_creditor_debitor/) | 14.0.1.1.0 |  | Partner Creditor and Debitor Information
+[ssi_partner_data_privacy_consent](ssi_partner_data_privacy_consent/) | 14.0.1.0.0 |  | Partner Data Privacy Consent
 [ssi_partner_education_level](ssi_partner_education_level/) | 14.0.1.3.0 |  | Partner Education Level
 [ssi_partner_evaluation](ssi_partner_evaluation/) | 14.0.4.3.0 |  | Partner Evaluation
 [ssi_partner_experience](ssi_partner_experience/) | 14.0.1.3.0 |  | Partner Experience
