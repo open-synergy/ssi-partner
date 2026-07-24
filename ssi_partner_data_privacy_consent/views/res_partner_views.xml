@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_partner_view_form" model="ir.ui.view">
+        <field name="name">res.partner - data privacy consent form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="priority" eval="20" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page name="data_privacy_consent" string="Data Privacy Consent">
+                    <group name="active_consent" colspan="4" col="2">
+                        <field
+                            name="active_consent_purpose_ids"
+                            widget="many2many_tags"
+                            readonly="1"
+                        />
+                    </group>
+                    <separator string="Consent Log" />
+                    <field name="consent_ids" readonly="1">
+                        <tree create="false" edit="false" delete="false">
+                            <field name="consent_date" />
+                            <field name="purpose_id" />
+                            <field name="notice_id" />
+                            <field name="consent_type" />
+                            <field name="channel" />
+                        </tree>
+                        <form>
+                            <group name="consent_1" colspan="4" col="2">
+                                <group name="consent_1_1" colspan="1" col="2">
+                                    <field name="consent_date" />
+                                    <field name="purpose_id" />
+                                    <field name="notice_id" />
+                                    <field name="consent_type" />
+                                    <field name="channel" />
+                                </group>
+                                <group name="consent_1_2" colspan="1" col="2">
+                                    <field name="evidence_ip" />
+                                    <field name="evidence_user_agent" />
+                                </group>
+                            </group>
+                            <group name="consent_2" colspan="4" col="1">
+                                <field name="note" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -3,3 +3,4 @@ access_partner_consent_purpose_configurator,partner_consent_purpose - configurat
 access_partner_consent_purpose_all,partner_consent_purpose - all,model_partner_consent_purpose,,1,0,0,0
 access_partner_consent_notice_configurator,partner_consent_notice - configurator,model_partner_consent_notice,partner_consent_notice_group,1,1,1,1
 access_partner_consent_notice_all,partner_consent_notice - all,model_partner_consent_notice,,1,0,0,0
+access_res_partner_consent_all,res.partner.consent - all,model_res_partner_consent,,1,1,1,1

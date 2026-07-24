@@ -19,6 +19,7 @@
         "menu.xml",
         "views/partner_consent_purpose_views.xml",
         "views/partner_consent_notice_views.xml",
+        "views/res_partner_views.xml",
     ],
     "demo": [],
     "contributors": [
