@@ -225,6 +225,15 @@ msgid "Contacts"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__ward_ids
+#: model:ir.model.fields,help:ssi_partner.field_res_users__ward_ids
+msgid ""
+"Contacts that have this contact set as their legal guardian. This is the "
+"automatic inverse of the Guardian field and is maintained entirely by the "
+"ORM."
+msgstr ""
+
+#. module: ssi_partner
 #: model:res.groups,name:ssi_partner.countries_configurator_group
 msgid "Countries"
 msgstr ""
@@ -871,6 +880,12 @@ msgstr ""
 msgid ""
 "Usage/purpose of this bank account, e.g. Operational, Payroll, Tax, Escrow. "
 "Optional, used to classify how the account is intended to be used."
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__ward_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__ward_ids
+msgid "Wards"
 msgstr ""
 
 #. module: ssi_partner
