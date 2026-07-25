@@ -68,6 +68,49 @@ class ResPartner(models.Model):
         string="Spouse Birthdate",
         required=False,
     )
+    father_id = fields.Many2one(
+        string="Father",
+        comodel_name="res.partner",
+        domain=[("is_company", "=", False)],
+        required=False,
+        help="Father of this contact. Only individual contacts can be selected.",
+    )
+    mother_id = fields.Many2one(
+        string="Mother",
+        comodel_name="res.partner",
+        domain=[("is_company", "=", False)],
+        required=False,
+        help="Mother of this contact. Only individual contacts can be selected.",
+    )
+    guardian_id = fields.Many2one(
+        string="Guardian",
+        comodel_name="res.partner",
+        domain=[("is_company", "=", False)],
+        required=False,
+        help="Legal guardian of this contact. Only individual contacts can be "
+        "selected.",
+    )
+    spouse_id = fields.Many2one(
+        string="Spouse",
+        comodel_name="res.partner",
+        domain=[("is_company", "=", False)],
+        required=False,
+        help="Spouse of this contact, linked as a partner record. Only "
+        "individual contacts can be selected. This does not replace or "
+        "synchronize with Spouse Complete Name/Spouse Birthdate.",
+    )
+    children_ids = fields.Many2many(
+        string="Children",
+        comodel_name="res.partner",
+        relation="rel_partner_2_children",
+        column1="parent_id",
+        column2="children_id",
+        domain=[("is_company", "=", False)],
+        required=False,
+        help="Children of this contact. Only individual contacts can be "
+        "selected. Many2many is used because a single contact record cannot "
+        "hold a dedicated parent field for both father and mother.",
+    )
 
     def action_open_contact_address(self):
         for record in self.sudo():

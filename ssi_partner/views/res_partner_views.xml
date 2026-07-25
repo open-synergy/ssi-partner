@@ -146,6 +146,15 @@
                     attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"
                 />
         </xpath>
+        <xpath expr="//group[@name='personal_information_group']" position="after">
+            <group name="family" string="Family">
+                <field name="father_id" />
+                <field name="mother_id" />
+                <field name="guardian_id" />
+                <field name="spouse_id" />
+                <field name="children_ids" widget="many2many_tags" />
+            </group>
+        </xpath>
     </field>
 </record>
 

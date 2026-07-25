@@ -1,0 +1,331 @@
+options:
+  auto_refresh: true
+
+scenarios:
+  - name: "Family - All Family Fields Set on Create"
+    steps:
+      - step: "Create father"
+        action: "create"
+        model: "res.partner"
+        save_as: "father"
+        values:
+          name: "Test Father"
+          is_company: false
+
+      - step: "Create mother"
+        action: "create"
+        model: "res.partner"
+        save_as: "mother"
+        values:
+          name: "Test Mother"
+          is_company: false
+
+      - step: "Create guardian"
+        action: "create"
+        model: "res.partner"
+        save_as: "guardian"
+        values:
+          name: "Test Guardian"
+          is_company: false
+
+      - step: "Create spouse"
+        action: "create"
+        model: "res.partner"
+        save_as: "spouse"
+        values:
+          name: "Test Spouse"
+          is_company: false
+
+      - step: "Create first child"
+        action: "create"
+        model: "res.partner"
+        save_as: "child_1"
+        values:
+          name: "Test Child 1"
+          is_company: false
+
+      - step: "Create second child"
+        action: "create"
+        model: "res.partner"
+        save_as: "child_2"
+        values:
+          name: "Test Child 2"
+          is_company: false
+
+      - step: "Create contact X with all family fields set"
+        action: "create"
+        model: "res.partner"
+        save_as: "contact_x"
+        values:
+          name: "Test Contact X"
+          is_company: false
+          father_id: "REC: father.id"
+          mother_id: "REC: mother.id"
+          guardian_id: "REC: guardian.id"
+          spouse_id: "REC: spouse.id"
+          children_ids: [[6, 0, ["REC: child_1.id", "REC: child_2.id"]]]
+
+      - step: "Assert family many2one fields"
+        action: "assert"
+        target: "contact_x"
+        asserts:
+          father_id:
+            type: "m2o"
+            expected: "REC: father"
+          mother_id:
+            type: "m2o"
+            expected: "REC: mother"
+          guardian_id:
+            type: "m2o"
+            expected: "REC: guardian"
+          spouse_id:
+            type: "m2o"
+            expected: "REC: spouse"
+
+      - step: "Assert children_ids contains exactly both children"
+        action: "assert"
+        target: "contact_x"
+        asserts:
+          children_ids:
+            type: "m2m"
+            check: "exact"
+            expected_records:
+              - "REC: child_1"
+              - "REC: child_2"
+
+  - name: "Family - Contact Without Family Fields is Empty"
+    steps:
+      - step: "Create contact without any family field"
+        action: "create"
+        model: "res.partner"
+        save_as: "contact_no_family"
+        values:
+          name: "Test Contact No Family"
+          is_company: false
+
+      - step: "Assert family many2one fields are falsy"
+        action: "assert"
+        target: "contact_no_family"
+        asserts:
+          father_id:
+            type: "value"
+            operator: "is_falsy"
+          mother_id:
+            type: "value"
+            operator: "is_falsy"
+          guardian_id:
+            type: "value"
+            operator: "is_falsy"
+          spouse_id:
+            type: "value"
+            operator: "is_falsy"
+
+      - step: "Assert children_ids is empty"
+        action: "assert"
+        target: "contact_no_family"
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 0
+
+  - name: "Family - Write Spouse Changes to New Record"
+    steps:
+      - step: "Create first spouse candidate"
+        action: "create"
+        model: "res.partner"
+        save_as: "spouse_1"
+        values:
+          name: "Test Spouse 1"
+          is_company: false
+
+      - step: "Create second spouse candidate"
+        action: "create"
+        model: "res.partner"
+        save_as: "spouse_2"
+        values:
+          name: "Test Spouse 2"
+          is_company: false
+
+      - step: "Create contact with first spouse"
+        action: "create"
+        model: "res.partner"
+        save_as: "contact_spouse"
+        values:
+          name: "Test Contact Spouse"
+          is_company: false
+          spouse_id: "REC: spouse_1.id"
+
+      - step: "Assert spouse_id is first spouse"
+        action: "assert"
+        target: "contact_spouse"
+        asserts:
+          spouse_id:
+            type: "m2o"
+            expected: "REC: spouse_1"
+
+      - step: "Write spouse_id to second spouse"
+        action: "write"
+        target: "contact_spouse"
+        values:
+          spouse_id: "REC: spouse_2.id"
+
+      - step: "Assert spouse_id changed to second spouse"
+        action: "assert"
+        target: "contact_spouse"
+        asserts:
+          spouse_id:
+            type: "m2o"
+            expected: "REC: spouse_2"
+
+  - name: "Family - Same Child Linked to Both Father and Mother (Many2many)"
+    steps:
+      - step: "Create father"
+        action: "create"
+        model: "res.partner"
+        save_as: "father"
+        values:
+          name: "Test Father"
+          is_company: false
+
+      - step: "Create mother"
+        action: "create"
+        model: "res.partner"
+        save_as: "mother"
+        values:
+          name: "Test Mother"
+          is_company: false
+
+      - step: "Create shared child"
+        action: "create"
+        model: "res.partner"
+        save_as: "child"
+        values:
+          name: "Test Shared Child"
+          is_company: false
+
+      - step: "Link child to father's children_ids"
+        action: "write"
+        target: "father"
+        values:
+          children_ids: [[6, 0, ["REC: child.id"]]]
+
+      - step: "Link child to mother's children_ids"
+        action: "write"
+        target: "mother"
+        values:
+          children_ids: [[6, 0, ["REC: child.id"]]]
+
+      - step: "Assert father's children_ids contains the shared child"
+        action: "assert"
+        target: "father"
+        asserts:
+          children_ids:
+            type: "m2m"
+            check: "exact"
+            expected_records:
+              - "REC: child"
+
+      - step: "Assert mother's children_ids contains the shared child"
+        action: "assert"
+        target: "mother"
+        asserts:
+          children_ids:
+            type: "m2m"
+            check: "exact"
+            expected_records:
+              - "REC: child"
+
+  - name: "Family - Write Children_ids Removes One Child"
+    steps:
+      - step: "Create first child"
+        action: "create"
+        model: "res.partner"
+        save_as: "child_1"
+        values:
+          name: "Test Child 1"
+          is_company: false
+
+      - step: "Create second child"
+        action: "create"
+        model: "res.partner"
+        save_as: "child_2"
+        values:
+          name: "Test Child 2"
+          is_company: false
+
+      - step: "Create parent with both children"
+        action: "create"
+        model: "res.partner"
+        save_as: "parent"
+        values:
+          name: "Test Parent"
+          is_company: false
+          children_ids: [[6, 0, ["REC: child_1.id", "REC: child_2.id"]]]
+
+      - step: "Assert both children are linked"
+        action: "assert"
+        target: "parent"
+        asserts:
+          children_ids:
+            type: "m2m"
+            check: "exact"
+            expected_records:
+              - "REC: child_1"
+              - "REC: child_2"
+
+      - step: "Write children_ids to keep only the second child"
+        action: "write"
+        target: "parent"
+        values:
+          children_ids: [[6, 0, ["REC: child_2.id"]]]
+
+      - step: "Assert children_ids now contains only the second child"
+        action: "assert"
+        target: "parent"
+        asserts:
+          children_ids:
+            type: "m2m"
+            check: "exact"
+            expected_records:
+              - "REC: child_2"
+
+  - name: "Family - Unlink Guardian Sets guardian_id Falsy (ondelete=set null)"
+    steps:
+      - step: "Create guardian"
+        action: "create"
+        model: "res.partner"
+        save_as: "guardian"
+        values:
+          name: "Test Guardian To Delete"
+          is_company: false
+
+      - step: "Create contact pointing to the guardian"
+        action: "create"
+        model: "res.partner"
+        save_as: "contact_guarded"
+        values:
+          name: "Test Contact Guarded"
+          is_company: false
+          guardian_id: "REC: guardian.id"
+
+      - step: "Assert guardian_id is set"
+        action: "assert"
+        target: "contact_guarded"
+        asserts:
+          guardian_id:
+            type: "m2o"
+            expected: "REC: guardian"
+
+      - step: "Unlink the guardian record"
+        action: "unlink"
+        target: "guardian"
+
+      - step: "Assert guardian_id on the pointing contact becomes falsy"
+        action: "assert"
+        target: "contact_guarded"
+        refresh: true
+        asserts:
+          guardian_id:
+            type: "value"
+            operator: "is_falsy"
