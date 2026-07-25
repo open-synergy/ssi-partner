@@ -146,6 +146,21 @@ msgid "Branch Address"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__children_ids
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__children_ids
+msgid "Children"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__children_ids
+#: model:ir.model.fields,help:ssi_partner.field_res_users__children_ids
+msgid ""
+"Children of this contact. Only individual contacts can be selected. "
+"Many2many is used because a single contact record cannot hold a dedicated "
+"parent field for both father and mother."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_company_entity_type__code
 #: model:ir.model.fields,field_description:ssi_partner.field_company_ownership_type__code
 #: model:ir.model.fields,field_description:ssi_partner.field_partner_contact_group__code
@@ -290,6 +305,23 @@ msgid "Ethnicity"
 msgstr ""
 
 #. module: ssi_partner
+#: model_terms:ir.ui.view,arch_db:ssi_partner.personal_information
+msgid "Family"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__father_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__father_id
+msgid "Father"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__father_id
+#: model:ir.model.fields,help:ssi_partner.field_res_users__father_id
+msgid "Father of this contact. Only individual contacts can be selected."
+msgstr ""
+
+#. module: ssi_partner
 #: model:res.groups,name:ssi_partner.fed_states_configurator_group
 msgid "Fed. States"
 msgstr ""
@@ -332,6 +364,12 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_ethnicity__activity_type_icon
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_religion__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__guardian_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__guardian_id
+msgid "Guardian"
 msgstr ""
 
 #. module: ssi_partner
@@ -453,6 +491,13 @@ msgid "Legal Cohabitant"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__guardian_id
+#: model:ir.model.fields,help:ssi_partner.field_res_users__guardian_id
+msgid ""
+"Legal guardian of this contact. Only individual contacts can be selected."
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.ui.menu,name:ssi_partner.menu_localisation
 msgid "Localization"
 msgstr ""
@@ -528,6 +573,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__message_ids
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__message_ids
 msgid "Messages"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__mother_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__mother_id
+msgid "Mother"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__mother_id
+#: model:ir.model.fields,help:ssi_partner.field_res_users__mother_id
+msgid "Mother of this contact. Only individual contacts can be selected."
 msgstr ""
 
 #. module: ssi_partner
@@ -734,6 +791,12 @@ msgid "Single"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__spouse_id
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__spouse_id
+msgid "Spouse"
+msgstr ""
+
+#. module: ssi_partner
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__spouse_birthdate
 #: model:ir.model.fields,field_description:ssi_partner.field_res_users__spouse_birthdate
 msgid "Spouse Birthdate"
@@ -743,6 +806,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner__spouse_complete_name
 #: model:ir.model.fields,field_description:ssi_partner.field_res_users__spouse_complete_name
 msgid "Spouse Complete Name"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__spouse_id
+#: model:ir.model.fields,help:ssi_partner.field_res_users__spouse_id
+msgid ""
+"Spouse of this contact, linked as a partner record. Only individual contacts"
+" can be selected. This does not replace or synchronize with Spouse Complete "
+"Name/Spouse Birthdate."
 msgstr ""
 
 #. module: ssi_partner
