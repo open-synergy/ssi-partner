@@ -4,3 +4,4 @@
 
 from . import test_ssi_partner  # noqa: F401
 from . import test_res_partner_family  # noqa: F401
+from . import test_res_partner_family_sync  # noqa: F401
