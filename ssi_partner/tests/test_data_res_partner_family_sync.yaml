@@ -1,0 +1,529 @@
+options:
+  auto_refresh: true
+
+scenarios:
+  - name: "Sync - Create Child With father_id Adds Child To Father's children_ids"
+    steps:
+      - step: "Create father"
+        action: "create"
+        model: "res.partner"
+        save_as: "a"
+        values:
+          name: "Sync Father A"
+          is_company: false
+
+      - step: "Create child with father_id set on create"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "Sync Child B"
+          is_company: false
+          father_id: "REC: a.id"
+
+      - step: "Assert father's children_ids contains the child"
+        action: "assert"
+        target: "a"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+  - name: "Sync - Write mother_id Adds Child To Mother's children_ids"
+    steps:
+      - step: "Create mother"
+        action: "create"
+        model: "res.partner"
+        save_as: "c"
+        values:
+          name: "Sync Mother C"
+          is_company: false
+
+      - step: "Create child without family fields"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "Sync Child B"
+          is_company: false
+
+      - step: "Write mother_id on the child"
+        action: "write"
+        target: "b"
+        values:
+          mother_id: "REC: c.id"
+
+      - step: "Assert mother's children_ids contains the child"
+        action: "assert"
+        target: "c"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+  - name: "Sync - Write guardian_id Populates ward_ids, Not children_ids"
+    steps:
+      - step: "Create guardian"
+        action: "create"
+        model: "res.partner"
+        save_as: "g"
+        values:
+          name: "Sync Guardian G"
+          is_company: false
+
+      - step: "Create child without family fields"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "Sync Child B"
+          is_company: false
+
+      - step: "Write guardian_id on the child"
+        action: "write"
+        target: "b"
+        values:
+          guardian_id: "REC: g.id"
+
+      - step: "Assert guardian's ward_ids contains the child"
+        action: "assert"
+        target: "g"
+        refresh: true
+        asserts:
+          ward_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+      - step: "Assert guardian's children_ids stays empty"
+        action: "assert"
+        target: "g"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 0
+
+  - name: "Sync - Dual Role Father And Mother Keeps children_ids When One Role Cleared"
+    steps:
+      - step: "Create contact playing both parent roles"
+        action: "create"
+        model: "res.partner"
+        save_as: "a"
+        values:
+          name: "Sync Dual Role A"
+          is_company: false
+
+      - step: "Create child with father_id set to A"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "Sync Child B"
+          is_company: false
+          father_id: "REC: a.id"
+
+      - step: "Write mother_id on the child to the same contact A"
+        action: "write"
+        target: "b"
+        values:
+          mother_id: "REC: a.id"
+
+      - step: "Clear mother_id on the child"
+        action: "write"
+        target: "b"
+        values:
+          mother_id: false
+
+      - step: "Assert A's children_ids still contains the child (still father_id)"
+        action: "assert"
+        target: "a"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+  - name: "Sync - Changing father_id Moves Child Between Parents"
+    steps:
+      - step: "Create original father"
+        action: "create"
+        model: "res.partner"
+        save_as: "a"
+        values:
+          name: "Sync Original Father A"
+          is_company: false
+
+      - step: "Create new father"
+        action: "create"
+        model: "res.partner"
+        save_as: "d"
+        values:
+          name: "Sync New Father D"
+          is_company: false
+
+      - step: "Create child with father_id set to original father"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "Sync Child B"
+          is_company: false
+          father_id: "REC: a.id"
+
+      - step: "Change father_id to the new father"
+        action: "write"
+        target: "b"
+        values:
+          father_id: "REC: d.id"
+
+      - step: "Assert new father's children_ids contains the child"
+        action: "assert"
+        target: "d"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+      - step: "Assert original father's children_ids is now empty"
+        action: "assert"
+        target: "a"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 0
+
+  - name: "Sync - Changing guardian_id Moves Ward Between Guardians"
+    steps:
+      - step: "Create original guardian"
+        action: "create"
+        model: "res.partner"
+        save_as: "g"
+        values:
+          name: "Sync Original Guardian G"
+          is_company: false
+
+      - step: "Create new guardian"
+        action: "create"
+        model: "res.partner"
+        save_as: "h"
+        values:
+          name: "Sync New Guardian H"
+          is_company: false
+
+      - step: "Create child with guardian_id set to original guardian"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "Sync Child B"
+          is_company: false
+          guardian_id: "REC: g.id"
+
+      - step: "Change guardian_id to the new guardian"
+        action: "write"
+        target: "b"
+        values:
+          guardian_id: "REC: h.id"
+
+      - step: "Assert new guardian's ward_ids contains the child"
+        action: "assert"
+        target: "h"
+        refresh: true
+        asserts:
+          ward_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+      - step: "Assert original guardian's ward_ids is now empty"
+        action: "assert"
+        target: "g"
+        refresh: true
+        asserts:
+          ward_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 0
+
+  - name: "link_child - Father Relationship Sets father_id And children_ids When Empty"
+    steps:
+      - step: "Create parent A"
+        action: "create"
+        model: "res.partner"
+        save_as: "a"
+        values:
+          name: "LinkChild Parent A"
+          is_company: false
+
+      - step: "Create child B without father_id"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "LinkChild Child B"
+          is_company: false
+
+      - step: "Call link_child with relationship father"
+        action: "call"
+        target: "a"
+        method: "link_child"
+        args:
+          - "REC: b"
+        kwargs:
+          relationship: "father"
+
+      - step: "Assert child's father_id is now A"
+        action: "assert"
+        target: "b"
+        refresh: true
+        asserts:
+          father_id:
+            type: "m2o"
+            expected: "REC: a"
+
+      - step: "Assert A's children_ids contains the child"
+        action: "assert"
+        target: "a"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+  - name: "link_child - Father Relationship Does Not Overwrite Existing father_id"
+    steps:
+      - step: "Create actual father A"
+        action: "create"
+        model: "res.partner"
+        save_as: "a"
+        values:
+          name: "LinkChild Actual Father A"
+          is_company: false
+
+      - step: "Create another contact D"
+        action: "create"
+        model: "res.partner"
+        save_as: "d"
+        values:
+          name: "LinkChild Other Contact D"
+          is_company: false
+
+      - step: "Create child B with father_id already set to A"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "LinkChild Child B"
+          is_company: false
+          father_id: "REC: a.id"
+
+      - step: "Call link_child on D with relationship father"
+        action: "call"
+        target: "d"
+        method: "link_child"
+        args:
+          - "REC: b"
+        kwargs:
+          relationship: "father"
+
+      - step: "Assert child's father_id is still A"
+        action: "assert"
+        target: "b"
+        refresh: true
+        asserts:
+          father_id:
+            type: "m2o"
+            expected: "REC: a"
+
+      - step: "Assert D's children_ids contains the child"
+        action: "assert"
+        target: "d"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+  - name: "link_child - Guardian Relationship Sets guardian_id, Not children_ids"
+    steps:
+      - step: "Create guardian G"
+        action: "create"
+        model: "res.partner"
+        save_as: "g"
+        values:
+          name: "LinkChild Guardian G"
+          is_company: false
+
+      - step: "Create ward B"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "LinkChild Ward B"
+          is_company: false
+
+      - step: "Call link_child on G with relationship guardian"
+        action: "call"
+        target: "g"
+        method: "link_child"
+        args:
+          - "REC: b"
+        kwargs:
+          relationship: "guardian"
+
+      - step: "Assert ward's guardian_id is now G"
+        action: "assert"
+        target: "b"
+        refresh: true
+        asserts:
+          guardian_id:
+            type: "m2o"
+            expected: "REC: g"
+
+      - step: "Assert G's ward_ids contains the ward"
+        action: "assert"
+        target: "g"
+        refresh: true
+        asserts:
+          ward_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+      - step: "Assert G's children_ids stays empty"
+        action: "assert"
+        target: "g"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 0
+
+  - name: "link_child - Without Relationship Only Links children_ids"
+    steps:
+      - step: "Create parent A"
+        action: "create"
+        model: "res.partner"
+        save_as: "a"
+        values:
+          name: "LinkChild No Relationship Parent A"
+          is_company: false
+
+      - step: "Create child B without any family field"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "LinkChild No Relationship Child B"
+          is_company: false
+
+      - step: "Call link_child on A without relationship"
+        action: "call"
+        target: "a"
+        method: "link_child"
+        args:
+          - "REC: b"
+
+      - step: "Assert A's children_ids contains the child"
+        action: "assert"
+        target: "a"
+        refresh: true
+        asserts:
+          children_ids:
+            type: "o2m"
+            check: "contains"
+            expected_records:
+              - "REC: b"
+
+      - step: "Assert child's father_id/mother_id/guardian_id stay falsy"
+        action: "assert"
+        target: "b"
+        refresh: true
+        asserts:
+          father_id:
+            type: "value"
+            operator: "is_falsy"
+          mother_id:
+            type: "value"
+            operator: "is_falsy"
+          guardian_id:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Sync - Self Reference On father_id Raises ValidationError"
+    steps:
+      - step: "Create contact B"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "Sync Self Reference B"
+          is_company: false
+
+      - step: "Write father_id on B to itself must be rejected"
+        action: "write"
+        target: "b"
+        expect_error:
+          type: "ValidationError"
+        values:
+          father_id: "REC: b.id"
+
+  - name: "Sync - Self Reference On guardian_id Raises ValidationError"
+    steps:
+      - step: "Create contact B"
+        action: "create"
+        model: "res.partner"
+        save_as: "b"
+        values:
+          name: "Sync Self Reference B"
+          is_company: false
+
+      - step: "Write guardian_id on B to itself must be rejected"
+        action: "write"
+        target: "b"
+        expect_error:
+          type: "ValidationError"
+        values:
+          guardian_id: "REC: b.id"
+
+  - name: "link_child - Linking Self As Child Raises ValidationError"
+    steps:
+      - step: "Create contact A"
+        action: "create"
+        model: "res.partner"
+        save_as: "a"
+        values:
+          name: "LinkChild Self Reference A"
+          is_company: false
+
+      - step: "Call link_child on A with A itself as child must be rejected"
+        action: "call"
+        target: "a"
+        method: "link_child"
+        args:
+          - "REC: a"
+        expect_error:
+          type: "ValidationError"

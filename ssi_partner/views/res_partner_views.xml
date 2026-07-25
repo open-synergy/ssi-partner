@@ -153,6 +153,7 @@
                 <field name="guardian_id" />
                 <field name="spouse_id" />
                 <field name="children_ids" widget="many2many_tags" />
+                <field name="ward_ids" widget="many2many_tags" />
             </group>
         </xpath>
     </field>
