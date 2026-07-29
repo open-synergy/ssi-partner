@@ -143,3 +143,68 @@ scenarios:
             - "EVAL: registry['usage'].id"
         save_as: "result"
         expect_count: 1
+
+  - name: "Partner - Nickname is Stored on Create"
+    steps:
+      - step: "Create individual partner with nickname"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner_nickname"
+        values:
+          name: "Test Nickname Partner"
+          is_company: false
+          nickname: "Nick"
+
+      - step: "Assert nickname stored as given"
+        action: "assert"
+        target: "partner_nickname"
+        asserts:
+          nickname:
+            type: "value"
+            expected: "Nick"
+
+  - name: "Partner - Nickname can be Updated via Write"
+    steps:
+      - step: "Create individual partner with nickname"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner_nickname_write"
+        values:
+          name: "Test Nickname Write Partner"
+          is_company: false
+          nickname: "Old Nick"
+
+      - step: "Write new nickname"
+        action: "write"
+        target: "partner_nickname_write"
+        values:
+          nickname: "New Nick"
+
+      - step: "Assert nickname changed to new value"
+        action: "assert"
+        target: "partner_nickname_write"
+        asserts:
+          nickname:
+            type: "value"
+            expected: "New Nick"
+
+  - name: "Partner - Nickname is Optional"
+    steps:
+      - step: "Create individual partner without nickname"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner_no_nickname"
+        values:
+          name: "Test No Nickname Partner"
+          is_company: false
+
+      - step: "Assert partner created successfully without nickname"
+        action: "assert"
+        target: "partner_no_nickname"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          nickname:
+            type: "value"
+            operator: "is_falsy"

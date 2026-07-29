@@ -7,8 +7,22 @@ from odoo.exceptions import ValidationError
 
 
 class ResPartner(models.Model):
+    """Extend ``res.partner`` with SSI personal, company, and family data.
+
+    Adds identity fields (nickname, blood type, religion, ethnicity,
+    marital status), family relations (father, mother, guardian,
+    spouse, children, wards), and company classification fields
+    (ownership type, entity type) used across SSI modules.
+    """
+
     _inherit = "res.partner"
 
+    nickname = fields.Char(
+        string="Nickname",
+        required=False,
+        help="Familiar or informal name the individual contact is "
+        "commonly called by, as opposed to their official name.",
+    )
     type = fields.Selection(
         selection_add=[
             ("branch", "Branch Address"),

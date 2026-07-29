@@ -126,6 +126,7 @@
     <field name="priority" eval="20" />
     <field name="arch" type="xml">
         <xpath expr="//group[@name='personal_information_group']" position="inside">
+            <field name="nickname" />
             <field name="nationality_id" string="Nationality (Country)" />
             <field name="gender" />
             <field name="birthdate_date" string="Date of Birth" />
