@@ -4,7 +4,7 @@
 # pylint: disable=C8101
 {
     "name": "Partner App",
-    "version": "14.0.1.16.0",
+    "version": "14.0.1.17.0",
     "website": "https://simetri-sinergi.id",
     "author": "PT. Simetri Sinergi Indonesia, OpenSynergy Indonesia",
     "license": "AGPL-3",
