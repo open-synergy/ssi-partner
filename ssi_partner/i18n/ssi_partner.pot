@@ -314,6 +314,14 @@ msgid "Ethnicity"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_res_partner__nickname
+#: model:ir.model.fields,help:ssi_partner.field_res_users__nickname
+msgid ""
+"Familiar or informal name the individual contact is commonly called by, as "
+"opposed to their official name."
+msgstr ""
+
+#. module: ssi_partner
 #: model_terms:ir.ui.view,arch_db:ssi_partner.personal_information
 msgid "Family"
 msgstr ""
@@ -649,6 +657,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_ethnicity__activity_type_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_religion__activity_type_id
 msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_res_partner__nickname
+#: model:ir.model.fields,field_description:ssi_partner.field_res_users__nickname
+msgid "Nickname"
 msgstr ""
 
 #. module: ssi_partner
