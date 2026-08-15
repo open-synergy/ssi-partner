@@ -142,7 +142,7 @@
                                 type="date"
                                 t-attf-class="form-control form-control-sm"
                                 name="date_start"
-                                required="required"
+                                required="1"
                                 t-att-value="current_academic_id.date_start"
                             />
                         </div>
@@ -389,7 +389,7 @@
                                 type="date"
                                 t-attf-class="form-control form-control-sm"
                                 name="date_start"
-                                required="required"
+                                required="1"
                                 t-att-value="current_experience_id.date_start"
                             />
                         </div>

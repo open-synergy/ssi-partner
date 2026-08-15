@@ -1,0 +1,102 @@
+scenarios:
+  - name: "Create Portal Partner Experience"
+    steps:
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner"
+        values:
+          name: "Test Portal Experience Owner"
+          is_company: false
+
+      - step: "Create employer"
+        action: "create"
+        model: "res.partner"
+        save_as: "employer"
+        values:
+          name: "Test Portal Experience Employer"
+          is_company: true
+
+      - step: "Create portal experience record"
+        action: "create"
+        model: "portal_partner_experience"
+        save_as: "experience"
+        values:
+          partner_id: "REC: owner.id"
+          partner_address_id: "REC: employer.id"
+          date_start: 2020-01-01
+          job_position: "Engineer"
+
+      - step: "Assert record saved with the submitted values"
+        action: "assert"
+        target: "experience"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          partner_id:
+            type: "m2o"
+            expected: "REC: owner"
+          partner_address_id:
+            type: "m2o"
+            expected: "REC: employer"
+          date_start:
+            type: "value"
+            expected: 2020-01-01
+          job_position:
+            type: "value"
+            expected: "Engineer"
+
+  - name: "Update Job Level Persists the New Value"
+    steps:
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner2"
+        values:
+          name: "Test Portal Experience Owner 2"
+          is_company: false
+
+      - step: "Create portal experience record"
+        action: "create"
+        model: "portal_partner_experience"
+        save_as: "experience2"
+        values:
+          partner_id: "REC: owner2.id"
+          date_start: 2019-06-01
+          job_level: "Junior"
+
+      - step: "Update job level"
+        action: "write"
+        target: "experience2"
+        values:
+          job_level: "Senior"
+
+      - step: "Assert job level reflects the update"
+        action: "assert"
+        target: "experience2"
+        asserts:
+          job_level:
+            type: "value"
+            expected: "Senior"
+
+  - name: "Date End Before Date Start Is Rejected"
+    steps:
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner3"
+        values:
+          name: "Test Portal Experience Owner 3"
+          is_company: false
+
+      - step: "Create record with date_end before date_start"
+        action: "create"
+        model: "portal_partner_experience"
+        expect_error:
+          type: "UserError"
+          message_contains: "Date end must be greater than date start"
+        values:
+          partner_id: "REC: owner3.id"
+          date_start: 2022-01-01
+          date_end: 2021-01-01
