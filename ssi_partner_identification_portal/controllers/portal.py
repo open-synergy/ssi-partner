@@ -13,10 +13,22 @@ _logger = logging.getLogger(__name__)
 
 
 class CustomerPortalExtended(CustomerPortal):
+    """
+    Extends the portal controller with identification number
+    self-service pages under ``/my/identifications``.
+    """
+
     @route(
         ["/my/identifications"], type="http", auth="user", website=True, methods=["GET"]
     )
     def identifications(self):
+        """Render the list of identification numbers of the partner.
+
+        :return: rendered
+            ``ssi_partner_identification_portal.portal_my_identifications``
+            page listing the ``portal_identification_number`` records
+            owned by the current user's partner
+        """
         values = self._prepare_portal_layout_values()
         values["get_error"] = portal.get_error
         values["id_numbers"] = request.env["portal_identification_number"].search(
@@ -37,6 +49,18 @@ class CustomerPortalExtended(CustomerPortal):
         methods=["GET", "POST"],
     )
     def identification(self, **post):
+        """Show, create, or update a single portal identification number.
+
+        On ``GET`` it renders the form (empty for a new record, or
+        pre-filled when ``id`` is given). On ``POST`` it validates
+        the submitted ``category`` reference, then creates or writes
+        the ``portal_identification_number`` record and redirects
+        back to the identification list.
+
+        :return: rendered
+            ``ssi_partner_identification_portal.portal_my_identification``
+            page, or a redirect to ``/my/identifications`` on success
+        """
         id = post.get("id")
         category_obj = request.env["res.partner.id_category"].sudo()
         partner_obj = request.env["res.partner"].sudo()
@@ -117,6 +141,10 @@ class CustomerPortalExtended(CustomerPortal):
         methods=["GET", "POST"],
     )
     def remove_identification(self, **post):
+        """Delete a portal identification number of the current user.
+
+        :return: redirect to ``/my/identifications``
+        """
         id = post.get("id")
         id_number_id = request.env["portal_identification_number"].search(
             [("id", "=", int(id))]

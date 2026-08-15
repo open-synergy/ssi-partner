@@ -1,0 +1,90 @@
+scenarios:
+  - name: "Create Portal Identification Number"
+    steps:
+      - step: "Create id category"
+        action: "create"
+        model: "res.partner.id_category"
+        save_as: "category"
+        values:
+          code: "test_id_category"
+          name: "Test ID Category"
+
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner"
+        values:
+          name: "Test Portal Identification Owner"
+          is_company: true
+
+      - step: "Create portal identification number"
+        action: "create"
+        model: "portal_identification_number"
+        save_as: "id_number"
+        values:
+          partner_id: "REC: owner.id"
+          category_id: "REC: category.id"
+          name: "ID-0001"
+          place_issuance: "Jakarta"
+
+      - step: "Assert record saved with the submitted values"
+        action: "assert"
+        target: "id_number"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          partner_id:
+            type: "m2o"
+            expected: "REC: owner"
+          category_id:
+            type: "m2o"
+            expected: "REC: category"
+          name:
+            type: "value"
+            expected: "ID-0001"
+          place_issuance:
+            type: "value"
+            expected: "Jakarta"
+
+  - name: "Update Place Of Issuance"
+    steps:
+      - step: "Create id category"
+        action: "create"
+        model: "res.partner.id_category"
+        save_as: "category"
+        values:
+          code: "test_id_category_2"
+          name: "Test ID Category 2"
+
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner"
+        values:
+          name: "Test Portal Identification Owner 2"
+          is_company: true
+
+      - step: "Create portal identification number"
+        action: "create"
+        model: "portal_identification_number"
+        save_as: "id_number"
+        values:
+          partner_id: "REC: owner.id"
+          category_id: "REC: category.id"
+          name: "ID-0002"
+          place_issuance: "Bandung"
+
+      - step: "Update place of issuance"
+        action: "write"
+        target: "id_number"
+        values:
+          place_issuance: "Surabaya"
+
+      - step: "Assert place of issuance reflects the new value"
+        action: "assert"
+        target: "id_number"
+        asserts:
+          place_issuance:
+            type: "value"
+            expected: "Surabaya"
