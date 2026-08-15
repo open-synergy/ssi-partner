@@ -139,6 +139,15 @@ class ResPartner(models.Model):
         "father_id", "mother_id", "guardian_id", "spouse_id", "children_ids"
     )
     def _check_family_self_reference(self):
+        """Forbid a contact from being its own family relation.
+
+        Validates ``father_id``, ``mother_id``, ``guardian_id``,
+        ``spouse_id``, and ``children_ids`` so none of them point back to
+        the record itself.
+
+        :raises ValidationError: if any family field references the
+            record itself.
+        """
         for record in self:
             for field_name, field_label in (
                 ("father_id", "Father"),
@@ -193,6 +202,15 @@ Solution: Remove this contact from its own children list
 
     @api.model_create_multi
     def create(self, vals_list):
+        """Create partners and sync ``children_ids`` with the new parents.
+
+        Overrides the standard ``create`` so that, when ``father_id`` or
+        ``mother_id`` is set on creation, the corresponding parent's
+        ``children_ids`` is updated to include the new record.
+
+        :param list vals_list: list of value dicts for the new records
+        :return: the newly created ``res.partner`` records
+        """
         records = super().create(vals_list)
         empty = self.env["res.partner"]
         for record, vals in zip(records, vals_list):
@@ -201,6 +219,16 @@ Solution: Remove this contact from its own children list
         return records
 
     def write(self, vals):
+        """Write partner values and re-sync ``children_ids`` on change.
+
+        Overrides the standard ``write`` so that, when ``father_id`` or
+        ``mother_id`` changes, the previous parent's ``children_ids`` is
+        cleared of this record and the new parent's ``children_ids`` is
+        updated to include it.
+
+        :param dict vals: values to write
+        :return: the result of the underlying ``write`` call
+        """
         if "father_id" in vals or "mother_id" in vals:
             previous_parents = {
                 record.id: (record.father_id, record.mother_id) for record in self
@@ -250,11 +278,29 @@ Solution: Choose a different contact as child
         return True
 
     def action_open_contact_address(self):
+        """Open the list of this contact's own child contacts.
+
+        Button action (``self.ensure_one()`` is not required; only the
+        last record's window action is returned when called on multiple
+        records). Delegates to :meth:`_open_contact_address`.
+
+        :return: an ``ir.actions.act_window`` opening the Contacts list
+            filtered to children of this contact
+        """
         for record in self.sudo():
             result = record._open_contact_address()
         return result
 
     def _open_contact_address(self):
+        """Build the window action listing this contact's children.
+
+        Extension point: override to further customise the returned
+        window action (e.g. view mode, extra domain).
+
+        :return: an ``ir.actions.act_window`` dict opening the Contacts
+            list/form filtered to ``child_of`` this contact, excluding
+            the contact itself
+        """
         waction = self.env.ref("contacts.action_contacts").read()[0]
         waction.update(
             {

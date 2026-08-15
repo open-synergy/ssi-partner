@@ -6,6 +6,13 @@ from odoo import api, fields, models
 
 
 class PartnerContactGroup(models.Model):
+    """Group a commercial contact's own sub-contacts for reuse.
+
+    Bundles a subset of a commercial (parent) contact's child contacts
+    into a named group, so the same set of contacts can be selected
+    together elsewhere instead of picking each one individually.
+    """
+
     _name = "partner_contact_group"
     _inherit = [
         "mixin.master_data",
@@ -25,6 +32,12 @@ class PartnerContactGroup(models.Model):
         "commercial_contact_id",
     )
     def _compute_allowed_contact_ids(self):
+        """Restrict selectable contacts to children of the commercial contact.
+
+        Recomputed whenever ``commercial_contact_id`` changes; used as the
+        domain source for ``contact_ids`` so only direct child contacts of
+        the selected commercial contact can be added to the group.
+        """
         for record in self:
             result = []
             criteria = [("parent_id", "=", record.commercial_contact_id.id)]
