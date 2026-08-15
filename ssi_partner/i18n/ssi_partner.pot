@@ -885,11 +885,13 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,field_description:ssi_partner.field_account_setup_bank_manual_config__usage_id
 #: model:ir.model.fields,field_description:ssi_partner.field_res_partner_bank__usage_id
 msgid "Usage"
 msgstr ""
 
 #. module: ssi_partner
+#: model:ir.model.fields,help:ssi_partner.field_account_setup_bank_manual_config__usage_id
 #: model:ir.model.fields,help:ssi_partner.field_res_partner_bank__usage_id
 msgid ""
 "Usage/purpose of this bank account, e.g. Operational, Payroll, Tax, Escrow. "
