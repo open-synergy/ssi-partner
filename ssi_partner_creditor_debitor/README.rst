@@ -19,6 +19,11 @@ To install this module, you need to:
 5.  Search For *Partner Creditor and Debitor Information*
 6.  Install the module
 
+Work Instruction
+================
+
+* `Create Contact <docs/res_partner/index.html>`_
+
 Bug Tracker
 ===========
 

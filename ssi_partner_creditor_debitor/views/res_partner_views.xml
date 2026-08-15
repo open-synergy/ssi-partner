@@ -18,12 +18,26 @@
                                 domain="[('category_id','=',%(res_partner_category_creditor)d)]"
                             />
                     </tree>
+                    <form>
+                        <group>
+                            <field name="sequence" />
+                            <field
+                                    name="creditor_id"
+                                    domain="[('category_id','=',%(res_partner_category_creditor)d)]"
+                                />
+                        </group>
+                    </form>
                 </field>
                 <group name="debtor" string="Debtors" colspan="4" col="2" />
                 <field name="debtor_ids">
                     <tree editable="bottom">
                         <field name="debtor_id" />
                     </tree>
+                    <form>
+                        <group>
+                            <field name="debtor_id" />
+                        </group>
+                    </form>
                 </field>
             </page>
         </xpath>
