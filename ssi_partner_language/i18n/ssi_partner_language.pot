@@ -424,7 +424,7 @@ msgid "Mongolian / монгол"
 msgstr ""
 
 #. module: ssi_partner_language
-#: code:addons/ssi_partner_language/models/partner_languange.py:0
+#: code:addons/ssi_partner_language/models/partner_language.py:0
 #, python-format
 msgid "No duplicate language"
 msgstr ""
