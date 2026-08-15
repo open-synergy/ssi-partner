@@ -1,0 +1,8 @@
+# Copyright 2026 OpenSynergy Indonesia
+# Copyright 2026 PT. Simetri Sinergi Indonesia
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+#
+# Format: <validator> <kunci-temuan> -- <alasan>
+# Lihat skill odoo-development, references/validator-contract.md §13.
+
+ik modul-tak-punya-direktori-docs-belum-ada-ik-sama-sekali|docs/ -- Modul ini murni permukaan portal/website: satu-satunya cara pengguna mengoperasikan model portal_identification_number adalah controller @http.route (/my/identifications, /my/identification, /my/identification/remove) yang me-render template QWeb frontend; tidak ada ir.actions.act_window/menuitem/form view backend sama sekali (tak ada menu.xml di modul ini, satu-satunya <form> di views/portal_templates.xml adalah HTML form portal biasa, bukan ir.ui.view Odoo). Ini arketipe E7 pada skill odoo-development-instruksi-kerja (references/modul-extension.md) dan skill odoo-development-ui-test (references/scope-and-boundaries.md): IK dan tour untuk permukaan portal/website dinyatakan eksplisit di luar cakupan kedua skill tersebut, jadi direktori docs/ dengan format IK backend tidak dapat dibuat untuk model ini.

@@ -149,11 +149,7 @@
                         />
                         <div class="form-group">
                             <label for="category">Category:</label>
-                            <select
-                                class="form-control"
-                                name="category"
-                                required="required"
-                            >
+                            <select class="form-control" name="category" required="1">
                                 <option value="" />
                                 <t t-foreach="category_ids" t-as="category_id">
                                     <option
@@ -170,7 +166,7 @@
                                 type="text"
                                 t-attf-class="form-control form-control-sm"
                                 name="name"
-                                required="required"
+                                required="1"
                                 t-att-value="current_id_number_id.name"
                             />
                         </div>

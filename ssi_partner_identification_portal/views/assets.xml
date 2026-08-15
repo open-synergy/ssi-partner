@@ -2,7 +2,7 @@
 <odoo>
     <template
         id="assets_frontend"
-        inherit_id="web_editor.assets_frontend"
+        inherit_id="web.assets_frontend"
         name="Portal Assets"
         priority="15"
     >
