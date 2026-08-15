@@ -6,6 +6,13 @@ from odoo import fields, models
 
 
 class PartnerEvaluationValueSet(models.Model):
+    """
+    Master data grouping an ordered list of
+    ``partner_evaluation_value_item`` choices, used as the allowed
+    values for qualitative questions configured to reference this
+    set.
+    """
+
     _name = "partner_evaluation_value_set"
     _inherit = ["mixin.master_data"]
     _description = "Partner Evaluation Value Set"

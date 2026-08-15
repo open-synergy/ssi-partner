@@ -6,6 +6,15 @@ from odoo import api, fields, models
 
 
 class ResPartnerEvaluationResult(models.Model):
+    """
+    Tracks, per partner and evaluation type, the latest and previous
+    ``done`` evaluation results.
+
+    Created once a partner completes its first evaluation of a given
+    type, then kept up to date as new evaluations reach ``done``, so
+    reports can show whether the partner's result changed.
+    """
+
     _name = "res.partner.evaluation_result"
     _description = "res.partner - Evaluation Result"
 
@@ -73,6 +82,14 @@ class ResPartnerEvaluationResult(models.Model):
         "partner_id.partner_evaluation_ids.final_result_id",
     )
     def _compute_latest_evaluation_id(self):
+        """Resolve the latest/previous ``done`` evaluation of the type.
+
+        Filters the partner's evaluations of ``type_id`` to ``done``
+        state, ordered by the model's default order (most recent
+        first): the first becomes ``latest_evaluation_id``, the
+        second ``previous_evaluation_id``, and
+        ``diff_evaluation`` is set when both exist and differ.
+        """
         for record in self:
             latest = previous = diff = False
             evaluations = record.partner_id.partner_evaluation_ids.filtered(

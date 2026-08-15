@@ -6,6 +6,11 @@ from odoo import fields, models
 
 
 class PartnerEvaluationValueSetItem(models.Model):
+    """
+    Detail line linking a ``partner_evaluation_value_item`` into a
+    ``partner_evaluation_value_set``, in a given display ``sequence``.
+    """
+
     _name = "partner_evaluation_value_set.item"
     _description = "Partner Evaluation Value Set - Item"
 

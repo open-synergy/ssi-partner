@@ -40,6 +40,12 @@
                             <field name="sequence" widget="handle" />
                             <field name="question_type_id" />
                         </tree>
+                        <form>
+                            <group name="question_form_1" colspan="4">
+                                <field name="sequence" widget="handle" />
+                                <field name="question_type_id" />
+                            </group>
+                        </form>
                     </field>
                 </page>
                 <page name="result" string="Result">

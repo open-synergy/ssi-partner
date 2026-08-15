@@ -6,6 +6,16 @@ from odoo import fields, models
 
 
 class PartnerEvaluationQuestionType(models.Model):
+    """
+    Master data describing a reusable question that can be attached
+    to a ``partner_evaluation_type``.
+
+    Defines whether the question is qualitative or quantitative, the
+    value set used for qualitative answers, and whether its value is
+    filled manually or computed automatically from
+    ``computation_code``.
+    """
+
     _name = "partner_evaluation_question_type"
     _description = "Partner Evaluation - Question"
     _inherit = [

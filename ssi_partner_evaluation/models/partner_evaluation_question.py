@@ -7,6 +7,14 @@ from odoo.tools.safe_eval import safe_eval
 
 
 class PartnerEvaluationQuestion(models.Model):
+    """
+    Represents one answered question line of a ``partner_evaluation``.
+
+    Holds both manual and automatically computed qualitative/
+    quantitative values; the effective value used downstream depends
+    on the question type's ``mode`` (manual or auto).
+    """
+
     _name = "partner_evaluation.question"
     _description = "Partner Evaluation - Question"
     _inherit = [
@@ -87,6 +95,12 @@ class PartnerEvaluationQuestion(models.Model):
         "mode",
     )
     def _compute_qualitative_value_id(self):
+        """Pick the qualitative value matching the question's mode.
+
+        Uses ``manual_qualitative_value_id`` when ``mode`` is
+        ``"manual"``, otherwise falls back to
+        ``automatic_qualitative_value_id``.
+        """
         for record in self:
             result = False
             if record.mode == "manual":
@@ -101,6 +115,12 @@ class PartnerEvaluationQuestion(models.Model):
         "mode",
     )
     def _compute_quantitative_value(self):
+        """Pick the quantitative value matching the question's mode.
+
+        Uses ``manual_quantitative_value`` when ``mode`` is
+        ``"manual"``, otherwise falls back to
+        ``automatic_quantitative_value``.
+        """
         for record in self:
             result = 0.0
             if record.mode == "manual":
@@ -115,6 +135,16 @@ class PartnerEvaluationQuestion(models.Model):
         "mode",
     )
     def _compute_automatic_value(self):
+        """Evaluate ``question_type_id.computation_code`` for the row.
+
+        Executes the question type's computation code in a sandboxed
+        ``localdict``; the code is expected to set a ``result``
+        variable. The resolved value is stored on
+        ``automatic_qualitative_value_id`` or
+        ``automatic_quantitative_value`` depending on ``type``. Any
+        exception during evaluation is swallowed and treated as no
+        result.
+        """
         for record in self:
             result = False
 
@@ -145,6 +175,12 @@ class PartnerEvaluationQuestion(models.Model):
         "quantitative_value",
     )
     def _compute_value(self):
+        """Build the display value shown in the question's list view.
+
+        Returns ``quantitative_value`` as-is for quantitative
+        questions, or ``qualitative_value_id``'s display name for
+        qualitative ones.
+        """
         for record in self:
             result = ""
             if record.type == "quantitative":
@@ -158,6 +194,7 @@ class PartnerEvaluationQuestion(models.Model):
             record.value = result
 
     def _compute_result(self):
+        """Recompute this question's automatic and derived values."""
         self.ensure_one()
         self._compute_automatic_value()
         self._compute_qualitative_value_id()

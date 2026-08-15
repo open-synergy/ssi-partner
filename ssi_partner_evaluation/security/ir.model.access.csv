@@ -15,3 +15,4 @@ access_partner_evaluation_question_type_configurator,partner_evaluation_question
 access_partner_evaluation_question_type_all,partner_evaluation_question_type - all,model_partner_evaluation_question_type,,1,0,0,0
 access_res_partner_evaluation_result_all,res.partner.evaluation_result - all,model_res_partner_evaluation_result,,1,1,1,1
 access_evaluate_partner_all,evaluate_partner - all,model_evaluate_partner,partner_evaluation_user_group,1,1,1,1
+evaluate_partner_user_access,evaluate_partner - user,model_evaluate_partner,partner_evaluation_user_group,1,1,1,1
