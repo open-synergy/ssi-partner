@@ -40,6 +40,12 @@
                             <field name="sequence" widget="handle" />
                             <field name="item_id" />
                         </tree>
+                        <form>
+                            <group name="value_form_1" colspan="4">
+                                <field name="sequence" widget="handle" />
+                                <field name="item_id" />
+                            </group>
+                        </form>
                     </field>
                 </page>
             </xpath>

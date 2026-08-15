@@ -24,6 +24,7 @@
         "base_duration",
         "queue_job_batch",
         "base_automation",
+        "web_tour",
     ],
     "data": [
         "security/ir_module_category/partner_evaluation.xml",
@@ -47,6 +48,7 @@
         "data/ir_actions_server_data.xml",
         "data/base_automation_data.xml",
         "menu.xml",
+        "views/assets.xml",
         "wizards/evaluate_partnet.xml",
         "views/partner_evaluation_type_views.xml",
         "views/partner_evaluation_result_views.xml",

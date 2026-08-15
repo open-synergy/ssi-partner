@@ -6,6 +6,16 @@ from odoo import fields, models
 
 
 class PartnerEvaluationTypeQuestion(models.Model):
+    """
+    Detail line configuring one question of a
+    ``partner_evaluation_type``.
+
+    Each line links a ``partner_evaluation_question_type`` to the
+    parent evaluation type in a given ``sequence``, and is used as
+    the template to create a ``partner_evaluation.question`` when an
+    evaluation of that type is opened.
+    """
+
     _name = "partner_evaluation_type.question"
     _description = "Partner Evaluation Type - Question"
     _order = "type_id, sequence"
@@ -29,6 +39,11 @@ class PartnerEvaluationTypeQuestion(models.Model):
     )
 
     def _create_evaluation_question(self, evaluation):
+        """Create a ``partner_evaluation.question`` from this line.
+
+        :param evaluation: the ``partner_evaluation`` record the new
+            question line is attached to
+        """
         self.ensure_one()
         self.env["partner_evaluation.question"].create(
             {

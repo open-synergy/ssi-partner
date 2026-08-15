@@ -9,5 +9,8 @@ from odoo.tests import tagged
 
 @tagged("post_install", "-at_install")
 class TestPartnerEvaluation(YamlTransactionCase):
+    """Cover master data creation for the partner evaluation models."""
+
     def test_partner_evaluation(self):
+        """Run the evaluation result/type creation scenario."""
         self.run_yaml_scenario("test_data_partner_evaluation.yaml")

@@ -11,6 +11,16 @@ from odoo.addons.ssi_decorator import ssi_decorator
 
 
 class PartnerBatchEvaluation(models.Model):
+    """
+    Represents a batch that groups several partner evaluations.
+
+    Loads a set of partners eligible for a given evaluation type,
+    creates one ``partner_evaluation`` per partner on confirmation,
+    and offers bulk actions (start/confirm/approve/reject/cancel/
+    restart) that dispatch to the underlying evaluations through
+    queue jobs.
+    """
+
     _name = "partner_batch_evaluation"
     _description = "Partner Batch Evaluation"
     _inherit = [
@@ -131,37 +141,52 @@ class PartnerBatchEvaluation(models.Model):
 
     @api.model
     def _default_date(self):
+        """Return today as the default batch date.
+
+        :return: a ``date`` instance
+        """
         return date.today()
 
     def action_load_partner(self):
+        """Populate ``partner_ids`` with the current allowed partners."""
         for record in self.sudo():
             record._load_partner()
 
     def action_confirm_evaluation(self):
+        """Queue ``action_confirm`` for all open evaluations in batch."""
         for record in self.sudo():
             record._confirm_evaluation()
 
     def action_start_evaluation(self):
+        """Queue ``action_open`` for all draft evaluations in batch."""
         for record in self.sudo():
             record._start_evaluation()
 
     def action_approve_evaluation(self):
+        """Queue approval for all confirmed evaluations in batch."""
         for record in self.sudo():
             record._approve_evaluation()
 
     def action_reject_evaluation(self):
+        """Queue rejection for all confirmed evaluations in batch."""
         for record in self.sudo():
             record._reject_evaluation()
 
     def action_cancel_evaluation(self):
+        """Queue ``action_cancel`` for every non-cancelled evaluation."""
         for record in self.sudo():
             record._cancel_evaluation()
 
     def action_restart_evaluation(self):
+        """Queue ``action_restart`` for all cancelled evaluations."""
         for record in self.sudo():
             record._restart_evaluation()
 
     def _create_job_batch(self, batch_name):
+        """Create and link a new ``queue.job.batch`` for this record.
+
+        :param batch_name: label used for the queue job batch
+        """
         self.ensure_one()
         batch = self.env["queue.job.batch"].get_new_batch(batch_name)
         self.write(
@@ -178,6 +203,22 @@ class PartnerBatchEvaluation(models.Model):
         split_action_name,
         state_condition=None,
     ):
+        """Dispatch an evaluation action in split queue jobs.
+
+        Creates a ``queue.job.batch``, filters ``evaluation_ids`` either
+        by ``state_filter`` or by ``state_condition``, splits the
+        resulting recordset into chunks of 100 records, and enqueues
+        ``action_method`` for each chunk with a delayed job.
+
+        :param action_method: name of the method to run on evaluations
+        :param state_filter: evaluation state to select, or ``None``
+            when ``state_condition`` is used instead
+        :param batch_action_name: label used for the job batch name
+        :param split_action_name: label used for each split job
+            description
+        :param state_condition: optional callable used to filter
+            ``evaluation_ids`` instead of ``state_filter``
+        """
         self.ensure_one()
         batch_name = f"{batch_action_name} batch evaluation ID {self.id}"
         self._create_job_batch(batch_name)
@@ -205,6 +246,7 @@ class PartnerBatchEvaluation(models.Model):
             self.queue_job_batch_id.enqueue()
 
     def _confirm_evaluation(self):
+        """Enqueue ``action_confirm`` for open evaluations in batch."""
         self._process_evaluation_batch(
             action_method="action_confirm",
             state_filter="open",
@@ -213,6 +255,7 @@ class PartnerBatchEvaluation(models.Model):
         )
 
     def _start_evaluation(self):
+        """Enqueue ``action_open`` for draft evaluations in batch."""
         self._process_evaluation_batch(
             action_method="action_open",
             state_filter="draft",
@@ -221,6 +264,7 @@ class PartnerBatchEvaluation(models.Model):
         )
 
     def _approve_evaluation(self):
+        """Enqueue approval for confirmed evaluations in batch."""
         self._process_evaluation_batch(
             action_method="action_approve_approval",
             state_filter="confirm",
@@ -229,6 +273,7 @@ class PartnerBatchEvaluation(models.Model):
         )
 
     def _reject_evaluation(self):
+        """Enqueue rejection for confirmed evaluations in batch."""
         self._process_evaluation_batch(
             action_method="action_reject_approval",
             state_filter="confirm",
@@ -237,6 +282,7 @@ class PartnerBatchEvaluation(models.Model):
         )
 
     def _cancel_evaluation(self):
+        """Enqueue ``action_cancel`` for non-cancelled evaluations."""
         self._process_evaluation_batch(
             action_method="action_cancel",
             state_filter=None,
@@ -246,6 +292,7 @@ class PartnerBatchEvaluation(models.Model):
         )
 
     def _restart_evaluation(self):
+        """Enqueue ``action_restart`` for cancelled evaluations."""
         self._process_evaluation_batch(
             action_method="action_restart",
             state_filter="cancel",
@@ -255,6 +302,12 @@ class PartnerBatchEvaluation(models.Model):
 
     @api.depends("type_id")
     def _compute_allowed_partner_ids(self):
+        """Resolve partners matching the evaluation type configurator.
+
+        Uses ``type_id``'s many2one configurator fields (selection
+        method, manual recordset, domain, python code) to build the
+        set of partners that may be loaded into this batch.
+        """
         for record in self:
             result = False
             if record.type_id:
@@ -268,11 +321,20 @@ class PartnerBatchEvaluation(models.Model):
             record.allowed_partner_ids = result
 
     def action_open_evaluation(self):
+        """Open the list view of evaluations belonging to this batch.
+
+        :return: an ``ir.actions.act_window`` dict
+        """
         for record in self.sudo():
             result = record._open_evaluation()
         return result
 
     def _open_evaluation(self):
+        """Build the window action listing this batch's evaluations.
+
+        :return: an ``ir.actions.act_window`` dict filtered by
+            ``batch_id`` and pre-filled with this batch's defaults
+        """
         self.ensure_one()
         action = self.env.ref(
             "ssi_partner_evaluation.partner_evaluation_action"
@@ -288,11 +350,17 @@ class PartnerBatchEvaluation(models.Model):
         return action
 
     def _load_partner(self):
+        """Replace ``partner_ids`` with the current allowed partners."""
         self.ensure_one()
         self.write({"partner_ids": [(6, 0, self.allowed_partner_ids.ids)]})
 
     @ssi_decorator.post_done_action()
     def _create_evaluations(self):
+        """Create one ``partner_evaluation`` per partner on done.
+
+        Runs after the batch reaches ``done``; each evaluation is
+        created with this batch's type, dates, and target partner.
+        """
         self.ensure_one()
         Evaluation = self.env["partner_evaluation"]
         for partner in self.partner_ids:
@@ -308,6 +376,7 @@ class PartnerBatchEvaluation(models.Model):
 
     @ssi_decorator.post_cancel_action()
     def _delete_evaluation(self):
+        """Delete every evaluation linked to this batch on cancel."""
         self.ensure_one()
         self.evaluation_ids.unlink()
 

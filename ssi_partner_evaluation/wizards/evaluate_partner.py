@@ -7,6 +7,14 @@ from odoo import fields, models
 
 
 class EvaluatePartner(models.TransientModel):
+    """
+    Wizard to create ``partner_evaluation`` records for a set of
+    partners against one or more evaluation types in a single step.
+
+    Opened from the ``res.partner`` list/form action; defaults the
+    partner selection to the record(s) the action was triggered from.
+    """
+
     _name = "evaluate_partner"
     _description = "Evaluate Partner"
 
@@ -29,17 +37,29 @@ class EvaluatePartner(models.TransientModel):
     )
 
     def _default_partner_ids(self):
-        # Default to active_id or active_ids from context
+        """Default to the ``active_ids``/``active_id`` from context.
+
+        :return: the ``res.partner`` recordset the wizard was opened
+            from
+        """
         active_ids = self.env.context.get("active_ids", [])
         return self.env["res.partner"].browse(active_ids)
 
     def action_confirm(self):
+        """Create the evaluations and open them in a list/form view.
+
+        :return: an ``ir.actions.act_window`` dict, see :meth:`_confirm`
+        """
         for record in self.sudo():
             result = record._confirm()
         return result
 
     def _confirm(self):
-        # Create partner evaluation for each type
+        """Create one ``partner_evaluation`` per partner and type.
+
+        :return: an ``ir.actions.act_window`` dict listing the
+            evaluations just created
+        """
         evaluation_ids = []
         for evaluation_type in self.type_ids:
             for partner in self.partner_ids:

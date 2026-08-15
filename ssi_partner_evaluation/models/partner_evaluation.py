@@ -9,6 +9,16 @@ from odoo.addons.ssi_decorator import ssi_decorator
 
 
 class PartnerEvaluation(models.Model):
+    """
+    Represents a single evaluation of a partner against a given
+    evaluation type.
+
+    Holds the questions answered for the evaluation period, computes
+    the automatic result from the type's computation code, and lets
+    the answer be overridden manually before the final result is
+    stored back onto the partner.
+    """
+
     _name = "partner_evaluation"
     _description = "Partner Evaluation"
     _inherit = [
@@ -132,6 +142,15 @@ class PartnerEvaluation(models.Model):
         "question_ids.quantitative_value",
     )
     def _compute_automatic_result_id(self):
+        """Evaluate ``type_id.result_computation_code`` for each record.
+
+        Executes the type's computation code in a sandboxed
+        ``localdict`` built from :meth:`_get_default_localdict`; the
+        code is expected to set a ``result`` variable holding the
+        resolved ``partner_evaluation_result`` record (or ``False``).
+        Any exception during evaluation is swallowed and treated as
+        no result.
+        """
         for record in self:
             result = False
             localdict = record._get_default_localdict()
@@ -153,6 +172,7 @@ class PartnerEvaluation(models.Model):
         "manual_result_id",
     )
     def _compute_final_result_id(self):
+        """Prefer the manual result over the automatic one, if set."""
         for record in self:
             result = record.automatic_result_id
             if record.manual_result_id:
@@ -160,10 +180,12 @@ class PartnerEvaluation(models.Model):
             record.final_result_id = result
 
     def action_compute_result(self):
+        """Recompute every question and the evaluation's results."""
         for record in self.sudo():
             record._compute_result()
 
     def _compute_result(self):
+        """Recompute each question and refresh the evaluation totals."""
         self.ensure_one()
         for question in self.question_ids:
             question._compute_result()
@@ -172,12 +194,24 @@ class PartnerEvaluation(models.Model):
 
     @ssi_decorator.post_open_action()
     def _01_create_questions(self):
+        """Create ``question_ids`` from ``type_id``'s question list.
+
+        Runs after the evaluation is opened; one
+        ``partner_evaluation.question`` is created per question
+        configured on the evaluation type.
+        """
         self.ensure_one()
         for question in self.type_id.question_ids:
             question._create_evaluation_question(self)
 
     @ssi_decorator.post_done_action()
     def _01_create_partner_evaluation_result(self):
+        """Ensure the partner has a result tracker for this type.
+
+        Runs after the evaluation reaches ``done``; creates a
+        ``res.partner.evaluation_result`` for ``partner_id`` and
+        ``type_id`` if one does not already exist.
+        """
         self.ensure_one()
         if not self.partner_id._get_partner_evaluation_result(self.type_id):
             data = {
@@ -188,6 +222,7 @@ class PartnerEvaluation(models.Model):
 
     @ssi_decorator.post_cancel_action()
     def _01_delete_question(self):
+        """Delete every question linked to this evaluation on cancel."""
         self.ensure_one()
         self.question_ids.unlink()
 

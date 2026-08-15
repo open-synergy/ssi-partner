@@ -8,6 +8,15 @@ from odoo import fields, models
 
 
 class PartnerEvaluationType(models.Model):
+    """
+    Master data configuring a kind of partner evaluation.
+
+    Defines the questions asked, the code that computes the overall
+    result from those answers, the partners eligible via the many2one
+    configurator, and an optional recurring cron that automatically
+    creates ``partner_batch_evaluation`` records.
+    """
+
     _name = "partner_evaluation_type"
     _description = "Partner Evaluation Type"
     _inherit = [
@@ -48,18 +57,26 @@ class PartnerEvaluationType(models.Model):
     )
 
     def action_create_cron(self):
+        """Create the recurring cron that auto-batches evaluations."""
         for record in self.sudo():
             record._create_cron()
 
     def action_delete_cron(self):
+        """Delete the recurring cron linked to this evaluation type."""
         for record in self.sudo():
             record._delete_cron()
 
     def _delete_cron(self):
+        """Unlink ``cron_id`` and clear the field on the type."""
         self.ensure_one()
         self.cron_id.unlink()
 
     def _create_cron(self):
+        """Create an inactive monthly ``ir.cron`` for this type.
+
+        The cron code calls :meth:`_create_batch_evaluation` on this
+        record when activated; ``cron_id`` is set to the new cron.
+        """
         self.ensure_one()
         Cron = self.env["ir.cron"]
         name = "Partner Batch - Evaluation %s" % (self.name)
@@ -82,6 +99,13 @@ EVType._create_batch_evaluation()""" % (
         self.write({"cron_id": cron.id})
 
     def _create_batch_evaluation(self):
+        """Create and load a new batch evaluation for this type.
+
+        Computes the batch date range from ``date_start_offset_id``/
+        ``date_end_offset_id`` relative to today, creates the batch,
+        then loads its allowed partners. Called from the type's
+        recurring cron.
+        """
         self.ensure_one()
         Batch = self.env["partner_batch_evaluation"]
         batch_date = date.today()

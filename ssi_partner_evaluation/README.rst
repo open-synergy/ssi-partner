@@ -7,6 +7,40 @@ Partner Evaluation
 ==================
 
 
+Work Instruction
+================
+
+* `Create Partner Evaluation Type <docs/partner_evaluation_type/index.html>`_
+* `Edit Partner Evaluation Type <docs/partner_evaluation_type/index.html>`_
+* `Delete Partner Evaluation Type <docs/partner_evaluation_type/index.html>`_
+* `Create Partner Evaluation Result <docs/partner_evaluation_result/index.html>`_
+* `Edit Partner Evaluation Result <docs/partner_evaluation_result/index.html>`_
+* `Delete Partner Evaluation Result <docs/partner_evaluation_result/index.html>`_
+* `Create Partner Evaluation Value Item <docs/partner_evaluation_value_item/index.html>`_
+* `Edit Partner Evaluation Value Item <docs/partner_evaluation_value_item/index.html>`_
+* `Delete Partner Evaluation Value Item <docs/partner_evaluation_value_item/index.html>`_
+* `Create Partner Evaluation Value Set <docs/partner_evaluation_value_set/index.html>`_
+* `Edit Partner Evaluation Value Set <docs/partner_evaluation_value_set/index.html>`_
+* `Delete Partner Evaluation Value Set <docs/partner_evaluation_value_set/index.html>`_
+* `Create Partner Evaluation Question Type <docs/partner_evaluation_question_type/index.html>`_
+* `Edit Partner Evaluation Question Type <docs/partner_evaluation_question_type/index.html>`_
+* `Delete Partner Evaluation Question Type <docs/partner_evaluation_question_type/index.html>`_
+* `Create Partner Evaluation <docs/partner_evaluation/index.html>`_
+* `Edit Partner Evaluation <docs/partner_evaluation/index.html>`_
+* `Delete Partner Evaluation <docs/partner_evaluation/index.html>`_
+* `Start Partner Evaluation <docs/partner_evaluation/index.html>`_
+* `Confirm Partner Evaluation <docs/partner_evaluation/index.html>`_
+* `Approve Partner Evaluation <docs/partner_evaluation/index.html>`_
+* `Cancel Partner Evaluation <docs/partner_evaluation/index.html>`_
+* `Create Partner Batch Evaluation <docs/partner_batch_evaluation/index.html>`_
+* `Edit Partner Batch Evaluation <docs/partner_batch_evaluation/index.html>`_
+* `Delete Partner Batch Evaluation <docs/partner_batch_evaluation/index.html>`_
+* `Confirm Partner Batch Evaluation <docs/partner_batch_evaluation/index.html>`_
+* `Approve Partner Batch Evaluation <docs/partner_batch_evaluation/index.html>`_
+* `Cancel Partner Batch Evaluation <docs/partner_batch_evaluation/index.html>`_
+* `Evaluate Partner <docs/res_partner/index.html>`_
+
+
 Installation
 ============
 

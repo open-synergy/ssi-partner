@@ -6,6 +6,14 @@ from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
+    """
+    Adds partner evaluation traceability to ``res.partner``.
+
+    Exposes the evaluations and per-type result trackers linked to
+    the partner, plus a computed set of evaluation tags derived from
+    the latest result of each tracker.
+    """
+
     _name = "res.partner"
     _inherit = "res.partner"
 
@@ -38,6 +46,12 @@ class ResPartner(models.Model):
         "partner_evaluation_result_ids.latest_evaluation_id",
     )
     def _compute_evaluation_tag_ids(self):
+        """Collect the tags of the partner's latest evaluation results.
+
+        For each ``res.partner.evaluation_result`` tracker of the
+        partner, takes ``latest_evaluation_id.final_result_id.tag_id``
+        and merges the tags across all trackers.
+        """
         Evaluation = self.env["res.partner.evaluation_result"]
         for record in self:
             result = []
@@ -52,6 +66,12 @@ class ResPartner(models.Model):
             record.evaluation_tag_ids = result
 
     def _get_partner_evaluation_result(self, evaluation_type):
+        """Return this partner's result tracker for an evaluation type.
+
+        :param evaluation_type: a ``partner_evaluation_type`` record
+        :return: the matching ``res.partner.evaluation_result``
+            record, or ``False`` when none exists yet
+        """
         self.ensure_one()
         result = False
         evaluations = self.partner_evaluation_result_ids.filtered(
