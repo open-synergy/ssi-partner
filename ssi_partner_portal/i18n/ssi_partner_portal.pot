@@ -44,6 +44,11 @@ msgid "Account Holder Name:"
 msgstr ""
 
 #. module: ssi_partner_portal
+#: model:ir.model.fields,field_description:ssi_partner_portal.field_portal_partner_bank_account__journal_id
+msgid "Account Journal"
+msgstr ""
+
+#. module: ssi_partner_portal
 #: model:ir.model.fields,field_description:ssi_partner_portal.field_portal_partner_bank_account__acc_number
 msgid "Account Number"
 msgstr ""
@@ -232,6 +237,11 @@ msgstr ""
 #. module: ssi_partner_portal
 #: model:ir.model.fields,help:ssi_partner_portal.field_portal_partner_bank_account__bank_bic
 msgid "Sometimes called BIC or Swift."
+msgstr ""
+
+#. module: ssi_partner_portal
+#: model:ir.model.fields,help:ssi_partner_portal.field_portal_partner_bank_account__journal_id
+msgid "The accounting journal corresponding to this bank account."
 msgstr ""
 
 #. module: ssi_partner_portal
