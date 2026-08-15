@@ -7,6 +7,12 @@ Partner Language
 ================
 
 
+Work Instruction
+================
+
+* `Contact <docs/res_partner/index.html>`_
+
+
 Installation
 ============
 

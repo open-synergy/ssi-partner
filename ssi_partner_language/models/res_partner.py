@@ -6,6 +6,13 @@ from odoo import fields, models
 
 
 class ResPartner(models.Model):
+    """
+    Adds language proficiency tracking to contacts.
+    Lets a contact list one or more spoken/written languages, each
+    rated for reading, writing, speaking, and listening proficiency,
+    via the ``partner.language`` one2many.
+    """
+
     _inherit = "res.partner"
 
     language_ids = fields.One2many(
