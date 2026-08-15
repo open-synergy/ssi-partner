@@ -14,7 +14,7 @@ odoo.define("ssi_partner.partner_contact_group_tour", function (require) {
             tour.stepUtils.showAppsMenuItem(),
             {
                 content: "Open the Contacts app",
-                trigger: '.o_app[data-menu-xmlid="ssi_partner.menu_contacts"]',
+                trigger: '.o_app[data-menu-xmlid="contacts.menu_contacts"]',
             },
             {
                 content: "Open the Configuration menu",
