@@ -1,0 +1,71 @@
+scenarios:
+  - name: "Create Portal Partner Bank Account"
+    steps:
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner"
+        values:
+          name: "Test Portal Bank Account Owner"
+          is_company: true
+
+      - step: "Create portal bank account"
+        action: "create"
+        model: "portal_partner_bank_account"
+        save_as: "bank_account"
+        values:
+          partner_id: "REC: owner.id"
+          acc_number: "ID 1234 5678"
+          acc_holder_name: "Test Portal Bank Account Owner"
+
+      - step: "Assert record saved with computed sanitized number"
+        action: "assert"
+        target: "bank_account"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          partner_id:
+            type: "m2o"
+            expected: "REC: owner"
+          acc_number:
+            type: "value"
+            expected: "ID 1234 5678"
+          sanitized_acc_number:
+            type: "value"
+            expected: "ID12345678"
+
+  - name: "Update Account Number Refreshes Sanitized Number"
+    steps:
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner"
+        values:
+          name: "Test Portal Bank Account Owner 2"
+          is_company: true
+
+      - step: "Create portal bank account"
+        action: "create"
+        model: "portal_partner_bank_account"
+        save_as: "bank_account"
+        values:
+          partner_id: "REC: owner.id"
+          acc_number: "ID-0001"
+
+      - step: "Update account number"
+        action: "write"
+        target: "bank_account"
+        values:
+          acc_number: "ID-0002"
+
+      - step: "Assert sanitized number follows the new account number"
+        action: "assert"
+        target: "bank_account"
+        asserts:
+          acc_number:
+            type: "value"
+            expected: "ID-0002"
+          sanitized_acc_number:
+            type: "value"
+            expected: "ID0002"

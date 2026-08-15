@@ -21,10 +21,22 @@ CustomerPortal.OPTIONAL_BILLING_FIELDS += [
 
 
 class CustomerPortalExtended(CustomerPortal):
+    """
+    Extends the portal controller with bank account self-service pages
+    and additional profile fields (mobile, gender, birth data, avatar)
+    on the ``/my/account`` form.
+    """
+
     @route(
         ["/my/bank_accounts"], type="http", auth="user", website=True, methods=["GET"]
     )
     def bank_accounts(self):
+        """Render the list of bank accounts of the logged in partner.
+
+        :return: rendered ``ssi_partner_portal.portal_my_bank_accounts``
+            page listing the ``portal_partner_bank_account`` records
+            owned by the current user's partner
+        """
         values = self._prepare_portal_layout_values()
         values["get_error"] = portal.get_error
         values["bank_account_ids"] = request.env["portal_partner_bank_account"].search(
@@ -45,6 +57,17 @@ class CustomerPortalExtended(CustomerPortal):
         methods=["GET", "POST"],
     )
     def bank_account(self, **post):
+        """Show, create, or update a single portal bank account.
+
+        On ``GET`` it renders the form (empty for a new record, or
+        pre-filled when ``id`` is given). On ``POST`` it validates
+        the submitted ``bank``/``currency`` references, then creates
+        or writes the ``portal_partner_bank_account`` record and
+        redirects back to the bank account list.
+
+        :return: rendered ``ssi_partner_portal.portal_my_bank_account``
+            page, or a redirect to ``/my/bank_accounts`` on success
+        """
         id = post.get("id")
         bank_account_obj = request.env["portal_partner_bank_account"]
         bank_obj = request.env["res.bank"].sudo()
@@ -124,6 +147,10 @@ class CustomerPortalExtended(CustomerPortal):
         methods=["GET", "POST"],
     )
     def remove_bank_account(self, **post):
+        """Delete a portal bank account belonging to the current user.
+
+        :return: redirect to ``/my/bank_accounts``
+        """
         id = post.get("id")
         bank_account_id = request.env["portal_partner_bank_account"].search(
             [("id", "=", int(id))]
@@ -132,10 +159,27 @@ class CustomerPortalExtended(CustomerPortal):
         return request.redirect("/my/bank_accounts")
 
     def convert_url_to_base64(self, url):
+        """Fetch a remote image and return it base64-encoded.
+
+        Used when the avatar submitted from ``/my/account`` is posted
+        as an external URL instead of an inline ``data:`` URI.
+
+        :param url: HTTP(S) URL of the image to download
+        :return: base64-encoded bytes of the downloaded image
+        """
         return base64.b64encode(requests.get(url, timeout=30).content)
 
     @route(["/my/account"], type="http", auth="user", website=True)
     def account(self, redirect=None, **post):
+        """Extend the account form to accept an avatar upload.
+
+        Overridden so ``image_1920`` posted either as a ``data:`` URI
+        or as a plain external URL (converted via
+        ``convert_url_to_base64``) is normalized to raw base64 before
+        being handed to the original ``account`` implementation.
+
+        :return: same as the overridden ``CustomerPortal.account``
+        """
         if "input_image_1920" in post:
             post.pop("input_image_1920")
             if post.get("image_1920"):

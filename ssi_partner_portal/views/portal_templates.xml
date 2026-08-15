@@ -228,7 +228,7 @@
                                 type="text"
                                 t-attf-class="form-control form-control-sm"
                                 name="acc_number"
-                                required="required"
+                                required="1"
                                 t-att-value="current_bank_account_id.acc_number"
                             />
                         </div>
