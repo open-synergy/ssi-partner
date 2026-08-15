@@ -21,7 +21,7 @@
 
 1. Open the **Contacts > Partner Evaluation > Batch Evaluations** menu.
 2. Find and open the record to edit.
-3. Change the **Type** or **Date**.
+3. Change the **Type**, **Date**, **Date Start**, or **Date End**.
 4. On the **Partners** tab, click **Load** to refresh the partner list — for example
    after changing **Type** — replacing the current list with the partners matching the
    new configurator. You may also add or remove partners manually.

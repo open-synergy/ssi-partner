@@ -69,6 +69,22 @@ odoo.define("ssi_partner_evaluation.partner_batch_evaluation_tour", function (re
                 in_modal: false,
             },
             {
+                // Date Start/Date End (mixin.transaction_date_duration) are
+                // required and carry no default, unlike Date. Without
+                // filling them the implicit save behind the Load button
+                // click below fails client-side validation ("Invalid
+                // fields: Date Start, Date End"), so action_load_partner
+                // never actually runs on the server.
+                content: "Fill in the Date Start",
+                trigger: ".o_field_widget[name='date_start'] input",
+                run: "text 01/15/2026",
+            },
+            {
+                content: "Fill in the Date End",
+                trigger: ".o_field_widget[name='date_end'] input",
+                run: "text 01/31/2026",
+            },
+            {
                 content: "Open the Partners tab",
                 trigger: ".o_notebook .nav-link:contains(Partners)",
             },

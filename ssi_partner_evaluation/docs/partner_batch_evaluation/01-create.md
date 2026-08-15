@@ -26,6 +26,7 @@
 3. Fill in the required fields:
    - **Type**: the `partner_evaluation_type` this batch follows.
    - **Date**: defaults to today. Change if needed.
+   - **Date Start** / **Date End**: the batch period.
 4. On the **Partners** tab, click **Load** to populate the partner list with the
    partners matching the type's configurator (manual list, domain, or Python code). You
    may also add or remove partners manually. At least one partner must remain — later
