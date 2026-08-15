@@ -9,5 +9,8 @@ from odoo.tests import tagged
 
 @tagged("post_install", "-at_install")
 class TestInsuranceProvider(YamlTransactionCase):
+    """Cover ``insurance_product_coverage`` and ``insurance_product`` CRUD."""
+
     def test_insurance_provider(self):
+        """Run the coverage/product creation scenarios."""
         self.run_yaml_scenario("test_data_insurance_provider.yaml")
