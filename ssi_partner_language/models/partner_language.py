@@ -20,7 +20,15 @@ LANGUAGE_RATING = [
 ]
 
 
-class PartnerLanguange(models.Model):
+class PartnerLanguage(models.Model):
+    """
+    Records a single language proficiency entry for a contact.
+    Each record links one ``res.partner`` to one language, with
+    separate proficiency ratings for reading, writing, speaking, and
+    listening. Rows are managed inline from the Contacts form and have
+    no standalone menu of their own.
+    """
+
     _name = "partner.language"
     _description = "Partner Language"
 
@@ -72,6 +80,14 @@ class PartnerLanguange(models.Model):
         "name",
     )
     def _check_no_duplicate_language(self):
+        """Forbid a partner from having the same language twice.
+
+        Raised as a ``UserError`` when another ``partner.language``
+        record already exists for the same ``partner_id`` and
+        ``name`` combination.
+
+        :raises UserError: when a duplicate language entry is found
+        """
         obj_language = self.env["partner.language"]
         for language in self:
             criteria = [

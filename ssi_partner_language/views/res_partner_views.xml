@@ -19,6 +19,16 @@
                             <field name="speak_rating" />
                             <field name="listen_rating" />
                         </tree>
+                        <form>
+                            <group name="partner_language_1" colspan="4" col="2">
+                                <field name="name" />
+                                <field name="description" />
+                                <field name="read_rating" />
+                                <field name="write_rating" />
+                                <field name="speak_rating" />
+                                <field name="listen_rating" />
+                            </group>
+                        </form>
                     </field>
                 </page>
             </xpath>
