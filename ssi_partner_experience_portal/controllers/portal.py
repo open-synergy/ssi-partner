@@ -13,8 +13,22 @@ _logger = logging.getLogger(__name__)
 
 
 class CustomerPortalExtended(CustomerPortal):
+    """Portal routes for a partner's academic and professional history.
+
+    Extends the core ``CustomerPortal`` controller with list/edit/
+    remove routes for ``portal_partner_academic`` and
+    ``portal_partner_experience``, mirroring the ``/my/*`` pattern
+    already used by other portal document types.
+    """
+
     @route(["/my/academics"], type="http", auth="user", website=True, methods=["GET"])
     def academics(self):
+        """Render the list of the current user's academic experiences.
+
+        :return: rendered ``portal_my_academics`` page listing every
+            ``portal_partner_academic`` record owned by the logged-in
+            user's partner
+        """
         values = self._prepare_portal_layout_values()
         values["get_error"] = portal.get_error
         values["academic_ids"] = request.env["portal_partner_academic"].search(
@@ -35,6 +49,22 @@ class CustomerPortalExtended(CustomerPortal):
         methods=["GET", "POST"],
     )
     def academic(self, **post):
+        """Show or save one academic experience record for the portal.
+
+        On ``GET`` renders the create/edit form (empty when ``id`` is
+        absent, pre-filled when present). On ``POST`` validates the
+        submitted values, creates or writes the
+        ``portal_partner_academic`` record for the current user's
+        partner, then redirects to ``/my/academics``; on validation
+        failure the form is re-rendered with ``error_message`` set.
+
+        :param post: form payload (``id``, ``location``,
+            ``date_start``, ``expire``, ``date_end``, ``diploma``,
+            ``gpa``, ``activities``, ``note``,
+            ``partner_address``, ``education_level``,
+            ``field_of_study``)
+        :return: rendered form page, or a redirect on success
+        """
         id = post.get("id")
         partner_obj = request.env["res.partner"].sudo()
         academic_obj = request.env["portal_partner_academic"]
@@ -133,6 +163,13 @@ class CustomerPortalExtended(CustomerPortal):
         methods=["GET", "POST"],
     )
     def remove_academic(self, **post):
+        """Delete one academic experience record, then go back to list.
+
+        :param post: route payload; ``id`` is the ``portal_
+            partner_academic`` record to delete (also available as
+            the ``id`` path segment)
+        :return: redirect to ``/my/academics``
+        """
         id = post.get("id")
         academic_id = request.env["portal_partner_academic"].search(
             [("id", "=", int(id))]
@@ -142,6 +179,12 @@ class CustomerPortalExtended(CustomerPortal):
 
     @route(["/my/experiences"], type="http", auth="user", website=True, methods=["GET"])
     def experiences(self):
+        """Render the list of the current user's professional history.
+
+        :return: rendered ``portal_my_experiences`` page listing every
+            ``portal_partner_experience`` record owned by the
+            logged-in user's partner
+        """
         values = self._prepare_portal_layout_values()
         values["get_error"] = portal.get_error
         values["experience_ids"] = request.env["portal_partner_experience"].search(
@@ -162,6 +205,20 @@ class CustomerPortalExtended(CustomerPortal):
         methods=["GET", "POST"],
     )
     def experience(self, **post):
+        """Show or save one professional experience record.
+
+        On ``GET`` renders the create/edit form (empty when ``id`` is
+        absent, pre-filled when present). On ``POST`` validates the
+        submitted values, creates or writes the
+        ``portal_partner_experience`` record for the current user's
+        partner, then redirects to ``/my/experiences``; on validation
+        failure the form is re-rendered with ``error_message`` set.
+
+        :param post: form payload (``id``, ``job_position``,
+            ``job_level``, ``location``, ``date_start``, ``expire``,
+            ``date_end``, ``note``, ``partner_address``)
+        :return: rendered form page, or a redirect on success
+        """
         id = post.get("id")
         partner_obj = request.env["res.partner"].sudo()
         experience_obj = request.env["portal_partner_experience"]
@@ -233,6 +290,13 @@ class CustomerPortalExtended(CustomerPortal):
         methods=["GET", "POST"],
     )
     def remove_experience(self, **post):
+        """Delete one professional experience record, then go to list.
+
+        :param post: route payload; ``id`` is the ``portal_
+            partner_experience`` record to delete (also available as
+            the ``id`` path segment)
+        :return: redirect to ``/my/experiences``
+        """
         id = post.get("id")
         experience_id = request.env["portal_partner_experience"].search(
             [("id", "=", int(id))]

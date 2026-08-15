@@ -1,0 +1,102 @@
+scenarios:
+  - name: "Create Portal Partner Academic"
+    steps:
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner"
+        values:
+          name: "Test Portal Academic Owner"
+          is_company: false
+
+      - step: "Create academic institution"
+        action: "create"
+        model: "res.partner"
+        save_as: "institution"
+        values:
+          name: "Test Portal Academic Institution"
+          is_company: true
+
+      - step: "Create portal academic record"
+        action: "create"
+        model: "portal_partner_academic"
+        save_as: "academic"
+        values:
+          partner_id: "REC: owner.id"
+          partner_address_id: "REC: institution.id"
+          date_start: 2020-01-01
+          diploma: "12345"
+
+      - step: "Assert record saved with the submitted values"
+        action: "assert"
+        target: "academic"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          partner_id:
+            type: "m2o"
+            expected: "REC: owner"
+          partner_address_id:
+            type: "m2o"
+            expected: "REC: institution"
+          date_start:
+            type: "value"
+            expected: 2020-01-01
+          diploma:
+            type: "value"
+            expected: "12345"
+
+  - name: "Update Location Persists the New Value"
+    steps:
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner2"
+        values:
+          name: "Test Portal Academic Owner 2"
+          is_company: false
+
+      - step: "Create portal academic record"
+        action: "create"
+        model: "portal_partner_academic"
+        save_as: "academic2"
+        values:
+          partner_id: "REC: owner2.id"
+          date_start: 2019-06-01
+          location: "Jakarta"
+
+      - step: "Update location"
+        action: "write"
+        target: "academic2"
+        values:
+          location: "Bandung"
+
+      - step: "Assert location reflects the update"
+        action: "assert"
+        target: "academic2"
+        asserts:
+          location:
+            type: "value"
+            expected: "Bandung"
+
+  - name: "Date End Before Date Start Is Rejected"
+    steps:
+      - step: "Create owner partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "owner3"
+        values:
+          name: "Test Portal Academic Owner 3"
+          is_company: false
+
+      - step: "Create record with date_end before date_start"
+        action: "create"
+        model: "portal_partner_academic"
+        expect_error:
+          type: "UserError"
+          message_contains: "Date end must be greater than date start"
+        values:
+          partner_id: "REC: owner3.id"
+          date_start: 2022-01-01
+          date_end: 2021-01-01
