@@ -7,6 +7,13 @@ from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
+    """
+    Adds creditor/debtor tracking to contacts.
+    Lets a contact list which other contacts are its creditors and
+    which are its debtors, and exposes the primary (first-sequence)
+    creditor as a dedicated field for quick reference.
+    """
+
     _name = "res.partner"
     _inherit = "res.partner"
 
@@ -34,6 +41,12 @@ class ResPartner(models.Model):
         "creditor_ids.creditor_id",
     )
     def _compute_primary_creditor_id(self):
+        """Set ``primary_creditor_id`` to the first creditor in line.
+
+        The first row of ``creditor_ids``, ordered by ``sequence``, is
+        taken as the partner's primary creditor. Falls back to
+        ``False`` when no creditor row exists.
+        """
         for record in self:
             result = False
             if record.creditor_ids:

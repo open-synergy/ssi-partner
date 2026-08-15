@@ -6,6 +6,13 @@ from odoo import fields, models
 
 
 class PartnerCreditorDebtor(models.Model):
+    """
+    Represents a single creditor/debtor relationship between two
+    ``res.partner`` records. Each record links one partner acting as
+    creditor to another partner acting as debtor, and is edited inline
+    from the Creditor & Debtor tab of either partner's form.
+    """
+
     _name = "partner_creditor_debtor"
     _description = "Partner Creditors Debtors"
     _order = "sequence, id"
