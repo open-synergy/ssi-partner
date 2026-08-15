@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<template
+        id="assets_tests"
+        name="ssi_partner assets tests"
+        inherit_id="web.assets_tests"
+    >
+    <xpath expr="." position="inside">
+        <script
+                type="text/javascript"
+                src="/ssi_partner/static/tests/tours/company_entity_type_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_partner/static/tests/tours/company_ownership_type_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_partner/static/tests/tours/res_partner_ethnicity_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_partner/static/tests/tours/res_partner_religion_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_partner/static/tests/tours/res_partner_bank_usage_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_partner/static/tests/tours/partner_contact_group_tour.js"
+            />
+    </xpath>
+</template>
+</odoo>

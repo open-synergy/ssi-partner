@@ -9,5 +9,9 @@ from odoo.tests import tagged
 
 @tagged("post_install", "-at_install")
 class TestSsiPartner(YamlTransactionCase):
+    """Cover ``ssi_partner`` master data models and ``res.partner``
+    nickname/bank account usage fields."""
+
     def test_ssi_partner(self):
+        """Run the master data and nickname/bank usage scenario."""
         self.run_yaml_scenario("test_data_ssi_partner.yaml")

@@ -7,6 +7,18 @@ Partner App
 ===========
 
 
+Work Instruction
+================
+
+* `Contact <docs/res_partner/index.html>`_
+* `Contact Group <docs/partner_contact_group/index.html>`_
+* `Company Entity Type <docs/company_entity_type/index.html>`_
+* `Company Ownership Type <docs/company_ownership_type/index.html>`_
+* `Ethnicity <docs/res_partner_ethnicity/index.html>`_
+* `Religion <docs/res_partner_religion/index.html>`_
+* `Bank Account Usage <docs/res_partner_bank_usage/index.html>`_
+
+
 Installation
 ============
 

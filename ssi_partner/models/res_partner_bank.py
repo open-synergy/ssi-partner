@@ -6,6 +6,12 @@ from odoo import fields, models
 
 
 class ResPartnerBank(models.Model):
+    """Add a usage/purpose classification to partner bank accounts.
+
+    Links each bank account to a ``res_partner_bank_usage`` master data
+    record so its intended use (e.g. Operational, Payroll) is traceable.
+    """
+
     _inherit = "res.partner.bank"
 
     usage_id = fields.Many2one(
