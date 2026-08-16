@@ -6,6 +6,13 @@ from odoo import fields, models
 
 
 class CompanyShareholder(models.Model):
+    """
+    Represents a single shareholder holding shares of a company contact.
+    Each record links one company partner to a shareholder partner and
+    records how many shares that shareholder holds, and is edited
+    inline from the Capital tab of the company's own contact form.
+    """
+
     _name = "company.shareholder"
     _description = "Company Shareholder"
     _order = "partner_id, sequence, id"
