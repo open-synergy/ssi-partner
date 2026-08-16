@@ -6,6 +6,30 @@
 Partner Identification
 ======================
 
+This module adds a dedicated **Identities** menu (Contacts > Configuration >
+Identities) and its own security groups for the ``res.partner.id_category`` and
+``res.partner.id_number`` models provided by the OCA module ``partner_identification``.
+
+**Models:**
+
+* **Partner ID Category** (``res.partner.id_category``, from ``partner_identification``)
+  — a type of identification document, e.g. "Driver License".
+* **Partner ID Number** (``res.partner.id_number``, from ``partner_identification``) —
+  an identification number issued to a partner.
+
+Work Instruction
+================
+
+* `Create Partner ID Category <docs/res_partner_id_category/01-create.html>`_
+* `Edit Partner ID Category <docs/res_partner_id_category/02-edit.html>`_
+* `Delete Partner ID Category <docs/res_partner_id_category/03-delete.html>`_
+* `Deactivate Partner ID Category <docs/res_partner_id_category/04-deactivate.html>`_
+* `Activate Partner ID Category <docs/res_partner_id_category/05-activate.html>`_
+* `Create Partner ID Number <docs/res_partner_id_number/01-create.html>`_
+* `Edit Partner ID Number <docs/res_partner_id_number/02-edit.html>`_
+* `Delete Partner ID Number <docs/res_partner_id_number/03-delete.html>`_
+* `Deactivate Partner ID Number <docs/res_partner_id_number/04-deactivate.html>`_
+* `Activate Partner ID Number <docs/res_partner_id_number/05-activate.html>`_
 
 Installation
 ============
