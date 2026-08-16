@@ -101,7 +101,11 @@ odoo.define("ssi_partner_data_privacy_consent.partner_consent_notice_tour", func
                 },
                 {
                     content: "Fill in Body",
-                    trigger: ".o_field_widget[name='body'] textarea",
+                    // The Text widget class is on the <textarea> element
+                    // itself (o_field_text o_field_widget ...), not on a
+                    // wrapping <div> -- unlike some other field widgets,
+                    // there is no nested textarea to descend into.
+                    trigger: ".o_field_widget[name='body']",
                     run: "text This is the tour privacy notice body.",
                 },
 
