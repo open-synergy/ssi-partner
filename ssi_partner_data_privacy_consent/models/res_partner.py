@@ -6,6 +6,12 @@ from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
+    """
+    Adds data privacy consent tracking to partner records.
+    Exposes the append-only consent log and the set of purposes
+    currently granted, derived from that log.
+    """
+
     _name = "res.partner"
     _inherit = "res.partner"
 
@@ -33,6 +39,14 @@ class ResPartner(models.Model):
         "consent_ids.consent_date",
     )
     def _compute_active_consent_purpose_ids(self):
+        """Derive the purposes currently granted from the consent log.
+
+        For each purpose, only the most recent consent event (by
+        ``consent_date`` desc) determines whether it is active: a
+        purpose is active when that event's ``consent_type`` is
+        ``grant``, and inactive when it is ``withdraw`` or has no
+        event at all.
+        """
         for record in self:
             active = self.env["partner_consent_purpose"]
             seen = set()

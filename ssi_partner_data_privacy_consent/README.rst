@@ -19,6 +19,13 @@ Both master data are available under *Contacts -> Configuration -> Data
 Privacy* and are meant to be referenced by partner consent records.
 
 
+Work Instruction
+================
+
+* `Consent Purpose <docs/partner_consent_purpose/index.html>`_
+* `Privacy Notice <docs/partner_consent_notice/index.html>`_
+
+
 Installation
 ============
 

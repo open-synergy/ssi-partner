@@ -12,11 +12,13 @@
     "application": False,
     "depends": [
         "ssi_partner",
+        "web_tour",
     ],
     "data": [
         "security/res_group_data.xml",
         "security/ir.model.access.csv",
         "menu.xml",
+        "views/assets.xml",
         "views/partner_consent_purpose_views.xml",
         "views/partner_consent_notice_views.xml",
         "views/res_partner_views.xml",
