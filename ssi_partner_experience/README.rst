@@ -7,6 +7,14 @@ Partner Experience
 ==================
 
 
+Work Instruction
+================
+
+* `Professional Experience <docs/partner_experience/index.html>`_
+* `Academic Experience <docs/partner_academic/index.html>`_
+* `Certification <docs/partner_certification/index.html>`_
+
+
 Installation
 ============
 

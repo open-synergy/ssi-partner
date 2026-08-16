@@ -6,6 +6,15 @@ from odoo import fields, models
 
 
 class ResPartner(models.Model):
+    """
+    Adds background history to the contact form.
+
+    Exposes the ``partner.academic``, ``partner.certification``, and
+    ``partner.experience`` records owned by this contact as one2many
+    lines, so the Experiences page on the contact form can display and
+    manage them.
+    """
+
     _inherit = "res.partner"
 
     academic_ids = fields.One2many(
