@@ -87,6 +87,15 @@ class ResPartnerConsent(models.Model):
     )
 
     def write(self, vals):
+        """Block modification of consent records by non-superuser calls.
+
+        Consent events must stay immutable to keep the log an
+        auditable trail. Withdrawing consent means creating a new
+        record with ``consent_type`` "withdraw", never editing an
+        existing one.
+
+        :raises UserError: when called without ``self.env.su``
+        """
         if not self.env.su:
             raise UserError(
                 _(
@@ -98,6 +107,13 @@ class ResPartnerConsent(models.Model):
         return super(ResPartnerConsent, self).write(vals)
 
     def unlink(self):
+        """Block deletion of consent records by non-superuser calls.
+
+        Consent events must stay in the log permanently to preserve
+        the audit trail required for privacy compliance.
+
+        :raises UserError: when called without ``self.env.su``
+        """
         if not self.env.su:
             raise UserError(
                 _(
