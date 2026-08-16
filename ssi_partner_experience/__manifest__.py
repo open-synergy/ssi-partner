@@ -14,11 +14,13 @@
         "mail",
         "ssi_duration_mixin",
         "ssi_partner_education_level",
+        "web_tour",
     ],
     "data": [
         "security/res_group_data.xml",
         "security/ir.model.access.csv",
         "menu.xml",
+        "views/assets.xml",
         "views/partner_academic_view.xml",
         "views/partner_certification_view.xml",
         "views/partner_experience_view.xml",

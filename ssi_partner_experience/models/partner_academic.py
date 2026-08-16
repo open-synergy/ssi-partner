@@ -6,6 +6,16 @@ from odoo import fields, models
 
 
 class PartnerAcademic(models.Model):
+    """
+    Records one academic history entry of a contact.
+
+    Each record represents a study period of the ``res.partner``
+    referenced in ``partner_id`` at the institution stored in
+    ``partner_address_id`` (inherited from ``partner.experience.mixin``),
+    together with the diploma, education level, field of study, GPA, and
+    activities/associations of that period.
+    """
+
     _name = "partner.academic"
     _inherit = "partner.experience.mixin"
     _description = "Contact's Academic Experience"
