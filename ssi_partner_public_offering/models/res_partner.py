@@ -7,6 +7,12 @@ from odoo import fields, models
 
 
 class ResPartner(models.Model):
+    """
+    Adds public offering type traceability to partners.
+    Links a partner to the ``company_public_offering_type`` records that
+    describe which public offerings the company is involved in.
+    """
+
     _name = "res.partner"
     _inherit = "res.partner"
 

@@ -7,6 +7,13 @@ Company Partner's Public Offering Information
 =============================================
 
 
+Work Instruction
+================
+
+* `Company Public Offering Type <docs/company_public_offering_type/index.html>`_
+* `Contact <docs/res_partner/index.html>`_
+
+
 Installation
 ============
 
