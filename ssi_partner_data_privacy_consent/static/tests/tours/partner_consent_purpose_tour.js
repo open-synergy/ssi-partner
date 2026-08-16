@@ -24,11 +24,10 @@ odoo.define("ssi_partner_data_privacy_consent.partner_consent_purpose_tour", fun
                 trigger:
                     '.o_menu_sections [data-menu-xmlid="ssi_partner.res_partner_menu_config"]',
             },
-            {
-                content: "Open the Data Privacy menu",
-                trigger:
-                    '.o_menu_sections [data-menu-xmlid="ssi_partner_data_privacy_consent.menu_config_data_privacy"]',
-            },
+            // "Data Privacy" (menu_config_data_privacy) is a <menuitem>
+            // without an action that has children -- Odoo 14 renders it as
+            // a dropdown-header grouping label, not a clickable
+            // data-menu-xmlid item. Skip straight to the leaf menu below it.
             {
                 content: "Open the Consent Purpose menu",
                 trigger:
