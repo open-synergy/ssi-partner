@@ -7,6 +7,13 @@ from odoo import fields, models
 
 
 class ResPartner(models.Model):
+    """
+    Adds company capital/shareholder tracking to contacts.
+    Lets a company contact list the shareholders holding its shares
+    and how many shares each shareholder holds, edited from the
+    Capital page of the contact form.
+    """
+
     _name = "res.partner"
     _inherit = "res.partner"
 
