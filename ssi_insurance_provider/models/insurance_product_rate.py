@@ -6,6 +6,12 @@ from odoo import api, fields, models
 
 
 class InsuranceProductRate(models.Model):
+    """
+    Represents one effective-dated rate line of an insurance product.
+    Tracks the employer/employee contribution split, the resulting
+    total rate, and an optional cap amount for a given effective date.
+    """
+
     _name = "insurance_product.rate"
     _description = "Insurance Product - Rate"
     _order = "insurance_product_id, effective_date"
@@ -45,5 +51,9 @@ class InsuranceProductRate(models.Model):
 
     @api.depends("employer_rate", "employee_rate")
     def _compute_total_rate(self):
+        """Sum the employer and employee rates into ``total_rate``.
+
+        :return: None. Writes ``total_rate`` on every record in ``self``.
+        """
         for rec in self:
             rec.total_rate = rec.employer_rate + rec.employee_rate

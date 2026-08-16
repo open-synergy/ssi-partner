@@ -14,6 +14,20 @@ This module provides master data management for insurance products and coverage 
 * **Insurance Product** — records an insurance product offered by a provider,
   linked to a coverage type and enriched with a rate schedule.
 
+Work Instruction
+================
+
+* `Create Insurance Product Coverage <docs/insurance_product_coverage/01-create.html>`_
+* `Edit Insurance Product Coverage <docs/insurance_product_coverage/02-edit.html>`_
+* `Delete Insurance Product Coverage <docs/insurance_product_coverage/03-delete.html>`_
+* `Deactivate Insurance Product Coverage <docs/insurance_product_coverage/04-deactivate.html>`_
+* `Activate Insurance Product Coverage <docs/insurance_product_coverage/05-activate.html>`_
+* `Create Insurance Product <docs/insurance_product/01-create.html>`_
+* `Edit Insurance Product <docs/insurance_product/02-edit.html>`_
+* `Delete Insurance Product <docs/insurance_product/03-delete.html>`_
+* `Deactivate Insurance Product <docs/insurance_product/04-deactivate.html>`_
+* `Activate Insurance Product <docs/insurance_product/05-activate.html>`_
+
 Installation
 ============
 

@@ -16,6 +16,7 @@
     "depends": [
         "ssi_product",
         "ssi_master_data_mixin",
+        "web_tour",
     ],
     "data": [
         "security/res_groups/insurance_product_coverage.xml",
@@ -25,6 +26,7 @@
         "menu.xml",
         "views/insurance_product_coverage_views.xml",
         "views/insurance_product_views.xml",
+        "views/assets.xml",
     ],
     "demo": [],
 }
