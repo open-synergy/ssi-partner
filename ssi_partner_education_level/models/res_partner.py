@@ -6,6 +6,13 @@ from odoo import fields, models
 
 
 class ResPartner(models.Model):
+    """
+    Adds latest formal education information to the partner.
+    Stores the partner's latest formal education level, field of
+    study, education institution, GPA, and diploma, all visible on
+    the individual (non-company) partner form.
+    """
+
     _inherit = "res.partner"
 
     formal_education_level_id = fields.Many2one(

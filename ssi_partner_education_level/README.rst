@@ -19,6 +19,12 @@ To install this module, you need to:
 5.  Search For *Partner Education Level*
 6.  Install the module
 
+Work Instruction
+================
+
+* `Create Field of Study <docs/partner_field_of_study/index.html>`_
+* `Create Formal Education Level <docs/partner_formal_education_level/index.html>`_
+
 Bug Tracker
 ===========
 

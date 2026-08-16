@@ -13,11 +13,13 @@
     "depends": [
         "ssi_master_data_mixin",
         "ssi_partner",
+        "web_tour",
     ],
     "data": [
         "security/res_group_data.xml",
         "security/ir.model.access.csv",
         "menu.xml",
+        "views/assets.xml",
         "views/partner_field_of_study_views.xml",
         "views/partner_formal_education_level_views.xml",
         "views/res_partner_view.xml",
