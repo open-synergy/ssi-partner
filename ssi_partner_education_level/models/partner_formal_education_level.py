@@ -6,6 +6,12 @@ from odoo import fields, models
 
 
 class PartnerFormalEducationLevel(models.Model):
+    """
+    Represents a formal education level master data record (e.g. High
+    School, Bachelor, Master). Used to classify the highest formal
+    education attained by a partner, ordered by ``sequence``.
+    """
+
     _name = "partner.formal_education_level"
     _inherit = ["mixin.master_data"]
     _description = "Formal Education Level"

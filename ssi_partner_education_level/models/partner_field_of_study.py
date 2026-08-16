@@ -6,6 +6,12 @@ from odoo import fields, models
 
 
 class PartnerFieldOfStudy(models.Model):
+    """
+    Represents a field of study (academic major) master data record.
+    Used to classify the education background of a partner, and can be
+    organized hierarchically through ``parent_id``/``child_ids``.
+    """
+
     _name = "partner.field_of_study"
     _inherit = ["mixin.master_data"]
     _description = "Field of Study"
