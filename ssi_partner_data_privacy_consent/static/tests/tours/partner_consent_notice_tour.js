@@ -86,10 +86,14 @@ odoo.define("ssi_partner_data_privacy_consent.partner_consent_notice_tour", func
 
                 // ── Flow 4 — Open the Privacy Notice tab and fill in
                 // Version and Body (Effective Date keeps its default).
-                {
-                    content: "Open the Privacy Notice tab",
-                    trigger: 'a[href="#notice"]',
-                },
+                // "Privacy Notice" is the first page inserted into the
+                // master_data form notebook (xpath position="before" the
+                // "note" page), so it is already the active tab when the
+                // form opens -- no click needed. Odoo 14 also renders the
+                // tab's href as an auto-generated id (e.g. "#notebook_page_
+                // 774") rather than the page name, so a selector like
+                // `a[href="#notice"]` would never match even if a click
+                // were required.
                 {
                     content: "Fill in Version",
                     trigger: ".o_field_widget[name='version']",
