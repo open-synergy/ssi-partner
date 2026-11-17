@@ -30,7 +30,7 @@ msgstr "Aktif"
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__active_consent_purpose_ids
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_users__active_consent_purpose_ids
 msgid "Active Consent Purposes"
-msgstr "Tujuan Persetujuan Aktif"
+msgstr "Tujuan Izin Aktif"
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_ids
@@ -61,7 +61,7 @@ msgstr "Ikon Jenis Aktivitas"
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_users__consent_ids
 msgid "Append-only log of privacy consent events for this partner."
 msgstr ""
-"Log peristiwa persetujuan privasi untuk mitra ini yang hanya dapat ditambah."
+"Log peristiwa izin privasi untuk mitra ini yang hanya dapat ditambah."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_attachment_count
@@ -84,7 +84,7 @@ msgstr "Isi"
 msgid ""
 "Browser user agent recorded as technical evidence of the consent event."
 msgstr ""
-"User agent peramban yang dicatat sebagai bukti teknis peristiwa persetujuan."
+"User agent peramban yang dicatat sebagai bukti teknis peristiwa izin."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__channel
@@ -94,7 +94,7 @@ msgstr "Kanal"
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__channel
 msgid "Channel through which this consent event was captured."
-msgstr "Kanal tempat peristiwa persetujuan ini dicatat."
+msgstr "Kanal tempat peristiwa izin ini dicatat."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__code
@@ -105,23 +105,23 @@ msgstr "Kode"
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_date
 msgid "Consent Date"
-msgstr "Tanggal Persetujuan"
+msgstr "Tanggal Izin"
 
 #. module: ssi_partner_data_privacy_consent
 #: model_terms:ir.ui.view,arch_db:ssi_partner_data_privacy_consent.res_partner_view_form
 msgid "Consent Log"
-msgstr "Log Persetujuan"
+msgstr "Log Izin"
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.actions.act_window,name:ssi_partner_data_privacy_consent.partner_consent_purpose_action
 #: model:ir.ui.menu,name:ssi_partner_data_privacy_consent.partner_consent_purpose_menu
 msgid "Consent Purpose"
-msgstr "Tujuan Persetujuan"
+msgstr "Tujuan Izin"
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_type
 msgid "Consent Type"
-msgstr "Jenis Persetujuan"
+msgstr "Jenis Izin"
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model,name:ssi_partner_data_privacy_consent.model_res_partner
@@ -150,20 +150,20 @@ msgstr "Privasi Data"
 #. module: ssi_partner_data_privacy_consent
 #: model_terms:ir.ui.view,arch_db:ssi_partner_data_privacy_consent.res_partner_view_form
 msgid "Data Privacy Consent"
-msgstr "Persetujuan Privasi Data"
+msgstr "Izin Privasi Data"
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__consent_ids
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_users__consent_ids
 msgid "Data Privacy Consents"
-msgstr "Persetujuan Privasi Data"
+msgstr "Izin Privasi Data"
 
 #. module: ssi_partner_data_privacy_consent
 #: code:addons/ssi_partner_data_privacy_consent/models/res_partner_consent.py:0
 #, python-format
 msgid "Data privacy consent records are immutable and cannot be deleted."
 msgstr ""
-"Catatan persetujuan privasi data tidak dapat diubah dan tidak dapat dihapus."
+"Catatan izin privasi data tidak dapat diubah dan tidak dapat dihapus."
 
 #. module: ssi_partner_data_privacy_consent
 #: code:addons/ssi_partner_data_privacy_consent/models/res_partner_consent.py:0
@@ -172,12 +172,12 @@ msgid ""
 "Data privacy consent records are immutable and cannot be modified. To "
 "withdraw a consent, create a new record with consent type Withdrawn."
 msgstr ""
-"Catatan persetujuan privasi data tidak dapat diubah dan tidak dapat dimodifikasi. Untuk menarik persetujuan, buat catatan baru dengan jenis persetujuan Ditarik."
+"Catatan izin privasi data tidak dapat diubah dan tidak dapat dimodifikasi. Untuk mencabut izin, buat catatan baru dengan jenis izin Dicabut."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__partner_id
 msgid "Data subject whose consent this record captures."
-msgstr "Subjek data yang persetujuannya dicatat oleh catatan ini."
+msgstr "Subjek data yang izinnya dicatat oleh catatan ini."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__purpose_id
@@ -185,7 +185,7 @@ msgid ""
 "Data-processing purpose granted or withdrawn by this consent event. One "
 "purpose per record allows per-purpose granularity and withdrawal."
 msgstr ""
-"Tujuan pemrosesan data yang diberikan atau ditarik oleh peristiwa persetujuan ini. Satu tujuan per catatan memungkinkan perincian dan penarikan persetujuan per tujuan."
+"Tujuan pemrosesan data yang diberikan atau dicabut oleh peristiwa izin ini. Satu tujuan per catatan memungkinkan perincian dan pencabutan izin per tujuan."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__purpose_ids
@@ -195,7 +195,7 @@ msgstr "Tujuan pemrosesan data yang dicakup oleh pemberitahuan privasi ini."
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_date
 msgid "Date and time at which the consent event occurred."
-msgstr "Tanggal dan waktu terjadinya peristiwa persetujuan."
+msgstr "Tanggal dan waktu terjadinya peristiwa izin."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__date_effective
@@ -257,7 +257,7 @@ msgstr "Ikon Font Awesome, mis. fa-tasks"
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__note
 msgid "Free-text note about this consent event."
-msgstr "Catatan bebas tentang peristiwa persetujuan ini."
+msgstr "Catatan bebas tentang peristiwa izin ini."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__consent_type__grant
@@ -275,7 +275,7 @@ msgstr "ID"
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__evidence_ip
 msgid "IP address recorded as technical evidence of the consent event."
-msgstr "Alamat IP yang dicatat sebagai bukti teknis peristiwa persetujuan."
+msgstr "Alamat IP yang dicatat sebagai bukti teknis peristiwa izin."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_exception_icon
@@ -471,13 +471,13 @@ msgstr "Mitra"
 #: model:ir.model,name:ssi_partner_data_privacy_consent.model_partner_consent_notice
 #: model:res.groups,name:ssi_partner_data_privacy_consent.partner_consent_notice_group
 msgid "Partner Consent Privacy Notice"
-msgstr "Pemberitahuan Privasi Persetujuan Mitra"
+msgstr "Pemberitahuan Privasi Izin Mitra"
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model,name:ssi_partner_data_privacy_consent.model_partner_consent_purpose
 #: model:res.groups,name:ssi_partner_data_privacy_consent.partner_consent_purpose_group
 msgid "Partner Consent Purpose"
-msgstr "Tujuan Persetujuan Mitra"
+msgstr "Tujuan Izin Mitra"
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__channel__portal
@@ -498,7 +498,7 @@ msgid ""
 "Privacy notice version presented to and agreed by the data subject at the "
 "time of this consent event."
 msgstr ""
-"Versi pemberitahuan privasi yang disampaikan kepada dan disetujui oleh subjek data pada saat peristiwa persetujuan ini."
+"Versi pemberitahuan privasi yang disampaikan kepada dan disetujui oleh subjek data pada saat peristiwa izin ini."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__purpose_id
@@ -517,7 +517,7 @@ msgid ""
 "Purposes whose most recent consent event is a grant. Derived from the "
 "consent log, not stored."
 msgstr ""
-"Tujuan yang peristiwa persetujuan terbarunya adalah pemberian. Diturunkan dari log persetujuan, tidak disimpan."
+"Tujuan yang peristiwa izin terbarunya adalah pemberian. Diturunkan dari log izin, tidak disimpan."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_user_id
@@ -583,14 +583,14 @@ msgstr "Riwayat komunikasi situs web"
 #: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_type
 msgid "Whether this event grants or withdraws consent for the purpose."
 msgstr ""
-"Apakah peristiwa ini memberikan atau menarik persetujuan untuk tujuan tersebut."
+"Apakah peristiwa ini memberikan atau mencabut izin untuk tujuan tersebut."
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__consent_type__withdraw
 msgid "Withdrawn"
-msgstr "Ditarik"
+msgstr "Dicabut"
 
 #. module: ssi_partner_data_privacy_consent
 #: model:ir.model,name:ssi_partner_data_privacy_consent.model_res_partner_consent
 msgid "res.partner - Data Privacy Consent"
-msgstr "res.partner - Persetujuan Privasi Data"
+msgstr "res.partner - Izin Privasi Data"
