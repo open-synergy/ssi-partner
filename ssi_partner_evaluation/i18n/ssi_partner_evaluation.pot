@@ -571,6 +571,14 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: ssi_partner_evaluation
+#: model:ir.model.fields,help:ssi_partner_evaluation.field_partner_batch_evaluation__note
+#: model:ir.model.fields,help:ssi_partner_evaluation.field_partner_evaluation__note
+msgid ""
+"Free-form note attached to the document, used for any additional remarks or "
+"information related to the transaction."
+msgstr ""
+
+#. module: ssi_partner_evaluation
 #: model:ir.model.fields,field_description:ssi_partner_evaluation.field_evaluate_partner__id
 #: model:ir.model.fields,field_description:ssi_partner_evaluation.field_partner_batch_evaluation__id
 #: model:ir.model.fields,field_description:ssi_partner_evaluation.field_partner_evaluation__id
@@ -968,6 +976,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_partner_evaluation.field_res_partner_evaluation_result__partner_id
 #: model_terms:ir.ui.view,arch_db:ssi_partner_evaluation.partner_evaluation_view_search
 msgid "Partner"
+msgstr ""
+
+#. module: ssi_partner_evaluation
+#: model:ir.model.fields,help:ssi_partner_evaluation.field_partner_batch_evaluation__company_partner_id
+#: model:ir.model.fields,help:ssi_partner_evaluation.field_partner_evaluation__company_partner_id
+msgid ""
+"Partner (res.partner) linked to the document's company\n"
+"\n"
+"* Automatically follows 'company_id.partner_id'.\n"
+"* Used for reporting/printing documents that require the company-level\n"
+"  partner instead of the responsible user's partner."
 msgstr ""
 
 #. module: ssi_partner_evaluation
@@ -1466,6 +1485,17 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_partner_evaluation.field_partner_evaluation_value_item__website_message_ids
 #: model:ir.model.fields,help:ssi_partner_evaluation.field_partner_evaluation_value_set__website_message_ids
 msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_partner_evaluation
+#: model:ir.model.fields,help:ssi_partner_evaluation.field_partner_batch_evaluation__state
+#: model:ir.model.fields,help:ssi_partner_evaluation.field_partner_evaluation__state
+msgid ""
+"Workflow status of the document\n"
+"\n"
+"* 'draft' is the only base state provided by this mixin.\n"
+"* Other states (e.g. confirmed, done, cancel) are added by derivative mixin\n"
+"  modules (such as confirm/done/cancel mixins) via 'selection_add'."
 msgstr ""
 
 #. module: ssi_partner_evaluation
