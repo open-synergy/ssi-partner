@@ -1,0 +1,596 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_partner_data_privacy_consent
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_needaction
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_needaction
+msgid "Action Needed"
+msgstr "Perlu Tindakan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__active
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__active
+msgid "Active"
+msgstr "Aktif"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__active_consent_purpose_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_users__active_consent_purpose_ids
+msgid "Active Consent Purposes"
+msgstr "Tujuan Persetujuan Aktif"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_ids
+msgid "Activities"
+msgstr "Aktivitas"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Dekorasi Pengecualian Aktivitas"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_state
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_state
+msgid "Activity State"
+msgstr "Status Aktivitas"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ikon Jenis Aktivitas"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner__consent_ids
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_users__consent_ids
+msgid "Append-only log of privacy consent events for this partner."
+msgstr ""
+"Log peristiwa persetujuan privasi untuk mitra ini yang hanya dapat ditambah."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_attachment_count
+msgid "Attachment Count"
+msgstr "Jumlah Lampiran"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__channel__manual
+msgid "Back Office"
+msgstr "Back Office"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__body
+msgid "Body"
+msgstr "Isi"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__evidence_user_agent
+msgid ""
+"Browser user agent recorded as technical evidence of the consent event."
+msgstr ""
+"User agent peramban yang dicatat sebagai bukti teknis peristiwa persetujuan."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__channel
+msgid "Channel"
+msgstr "Kanal"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__channel
+msgid "Channel through which this consent event was captured."
+msgstr "Kanal tempat peristiwa persetujuan ini dicatat."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__code
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__code
+msgid "Code"
+msgstr "Kode"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_date
+msgid "Consent Date"
+msgstr "Tanggal Persetujuan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model_terms:ir.ui.view,arch_db:ssi_partner_data_privacy_consent.res_partner_view_form
+msgid "Consent Log"
+msgstr "Log Persetujuan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.actions.act_window,name:ssi_partner_data_privacy_consent.partner_consent_purpose_action
+#: model:ir.ui.menu,name:ssi_partner_data_privacy_consent.partner_consent_purpose_menu
+msgid "Consent Purpose"
+msgstr "Tujuan Persetujuan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_type
+msgid "Consent Type"
+msgstr "Jenis Persetujuan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model,name:ssi_partner_data_privacy_consent.model_res_partner
+msgid "Contact"
+msgstr "Kontak"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__create_uid
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__create_uid
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__create_uid
+msgid "Created by"
+msgstr "Dibuat oleh"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__create_date
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__create_date
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__create_date
+msgid "Created on"
+msgstr "Dibuat pada"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.ui.menu,name:ssi_partner_data_privacy_consent.menu_config_data_privacy
+msgid "Data Privacy"
+msgstr "Privasi Data"
+
+#. module: ssi_partner_data_privacy_consent
+#: model_terms:ir.ui.view,arch_db:ssi_partner_data_privacy_consent.res_partner_view_form
+msgid "Data Privacy Consent"
+msgstr "Persetujuan Privasi Data"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__consent_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_users__consent_ids
+msgid "Data Privacy Consents"
+msgstr "Persetujuan Privasi Data"
+
+#. module: ssi_partner_data_privacy_consent
+#: code:addons/ssi_partner_data_privacy_consent/models/res_partner_consent.py:0
+#, python-format
+msgid "Data privacy consent records are immutable and cannot be deleted."
+msgstr ""
+"Catatan persetujuan privasi data tidak dapat diubah dan tidak dapat dihapus."
+
+#. module: ssi_partner_data_privacy_consent
+#: code:addons/ssi_partner_data_privacy_consent/models/res_partner_consent.py:0
+#, python-format
+msgid ""
+"Data privacy consent records are immutable and cannot be modified. To "
+"withdraw a consent, create a new record with consent type Withdrawn."
+msgstr ""
+"Catatan persetujuan privasi data tidak dapat diubah dan tidak dapat dimodifikasi. Untuk menarik persetujuan, buat catatan baru dengan jenis persetujuan Ditarik."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__partner_id
+msgid "Data subject whose consent this record captures."
+msgstr "Subjek data yang persetujuannya dicatat oleh catatan ini."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__purpose_id
+msgid ""
+"Data-processing purpose granted or withdrawn by this consent event. One "
+"purpose per record allows per-purpose granularity and withdrawal."
+msgstr ""
+"Tujuan pemrosesan data yang diberikan atau ditarik oleh peristiwa persetujuan ini. Satu tujuan per catatan memungkinkan perincian dan penarikan persetujuan per tujuan."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__purpose_ids
+msgid "Data-processing purposes covered by this privacy notice."
+msgstr "Tujuan pemrosesan data yang dicakup oleh pemberitahuan privasi ini."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_date
+msgid "Date and time at which the consent event occurred."
+msgstr "Tanggal dan waktu terjadinya peristiwa persetujuan."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__date_effective
+msgid "Date from which this privacy notice version takes effect."
+msgstr "Tanggal mulai berlakunya versi pemberitahuan privasi ini."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__display_name
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__display_name
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__display_name
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__display_name
+msgid "Display Name"
+msgstr "Nama Tampilan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__date_effective
+msgid "Effective Date"
+msgstr "Tanggal Berlaku"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__evidence_ip
+msgid "Evidence IP"
+msgstr "IP Bukti"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__evidence_user_agent
+msgid "Evidence User Agent"
+msgstr "User Agent Bukti"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__body
+msgid "Exact text of the privacy notice agreed by the data subject."
+msgstr "Teks persis pemberitahuan privasi yang disetujui oleh subjek data."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_follower_ids
+msgid "Followers"
+msgstr "Pengikut"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Pengikut (Saluran)"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Pengikut (Mitra)"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_type_icon
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ikon Font Awesome, mis. fa-tasks"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__note
+msgid "Free-text note about this consent event."
+msgstr "Catatan bebas tentang peristiwa persetujuan ini."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__consent_type__grant
+msgid "Granted"
+msgstr "Diberikan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__id
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__id
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner__id
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__id
+msgid "ID"
+msgstr "ID"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__evidence_ip
+msgid "IP address recorded as technical evidence of the consent event."
+msgstr "Alamat IP yang dicatat sebagai bukti teknis peristiwa persetujuan."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_exception_icon
+msgid "Icon"
+msgstr "Ikon"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_exception_icon
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ikon untuk menandai aktivitas pengecualian."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_needaction
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_unread
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_needaction
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Jika dicentang, pesan baru memerlukan perhatian Anda."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_has_error
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Jika dicentang, beberapa pesan mengalami kesalahan pengiriman."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__channel__import
+msgid "Import"
+msgstr "Impor"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_is_follower
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_is_follower
+msgid "Is Follower"
+msgstr "Adalah Pengikut"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice____last_update
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose____last_update
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner____last_update
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent____last_update
+msgid "Last Modified on"
+msgstr "Terakhir Diubah pada"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__write_uid
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__write_uid
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__write_uid
+msgid "Last Updated by"
+msgstr "Terakhir Diperbarui oleh"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__write_date
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__write_date
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__write_date
+msgid "Last Updated on"
+msgstr "Terakhir Diperbarui pada"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Lampiran Utama"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__active
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__active
+msgid ""
+"Master data status\n"
+"\n"
+"* Inactive data can not be selected when creating new transaction\n"
+"* Transaction with inactive master data can still be viewed\n"
+"* Set master data as inactive if master data no longger needed,\n"
+"but master data already used on transaction"
+msgstr ""
+"Status data master\n"
+"\n"
+"* Data tidak aktif tidak dapat dipilih saat membuat transaksi baru\n"
+"* Transaksi dengan data master tidak aktif masih dapat dilihat\n"
+"* Setel data master menjadi tidak aktif jika data master tidak lagi diperlukan,\n"
+"tetapi data master sudah digunakan pada transaksi"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__code
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__code
+msgid ""
+"Master data unique identifier.\n"
+"\n"
+"* Fill with '/' if You do not need unique identifier\n"
+"* Click 'Generate Code' button to automatically assign code.\n"
+"  Sequence template mush be set to perform this action\n"
+"  Only master data with '/' code will be assign automatic code"
+msgstr ""
+"Pengidentifikasi unik data master.\n"
+"\n"
+"* Isi dengan '/' jika Anda tidak memerlukan pengidentifikasi unik\n"
+"* Klik tombol 'Buat Kode' untuk menetapkan kode secara otomatis.\n"
+"  Templat penomoran harus disetel untuk melakukan tindakan ini\n"
+"  Hanya data master dengan kode '/' yang akan diberi kode otomatis"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_has_error
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_has_error
+msgid "Message Delivery error"
+msgstr "Kesalahan Pengiriman Pesan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_ids
+msgid "Messages"
+msgstr "Pesan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Batas Waktu Aktivitas Saya"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__name
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__name
+msgid "Name"
+msgstr "Nama"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Batas Waktu Aktivitas Berikutnya"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_summary
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_summary
+msgid "Next Activity Summary"
+msgstr "Ringkasan Aktivitas Berikutnya"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_type_id
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_type_id
+msgid "Next Activity Type"
+msgstr "Jenis Aktivitas Berikutnya"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__note
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__note
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__note
+msgid "Note"
+msgstr "Catatan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model_terms:ir.ui.view,arch_db:ssi_partner_data_privacy_consent.partner_consent_notice_view_form
+msgid "Notice Body"
+msgstr "Isi Pemberitahuan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Jumlah Tindakan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_has_error_counter
+msgid "Number of errors"
+msgstr "Jumlah Kesalahan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_needaction_counter
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Jumlah pesan yang memerlukan tindakan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_has_error_counter
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Jumlah pesan dengan kesalahan pengiriman"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_unread_counter
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Jumlah pesan yang belum dibaca"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__partner_id
+msgid "Partner"
+msgstr "Mitra"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model,name:ssi_partner_data_privacy_consent.model_partner_consent_notice
+#: model:res.groups,name:ssi_partner_data_privacy_consent.partner_consent_notice_group
+msgid "Partner Consent Privacy Notice"
+msgstr "Pemberitahuan Privasi Persetujuan Mitra"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model,name:ssi_partner_data_privacy_consent.model_partner_consent_purpose
+#: model:res.groups,name:ssi_partner_data_privacy_consent.partner_consent_purpose_group
+msgid "Partner Consent Purpose"
+msgstr "Tujuan Persetujuan Mitra"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__channel__portal
+msgid "Portal"
+msgstr "Portal"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.actions.act_window,name:ssi_partner_data_privacy_consent.partner_consent_notice_action
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__notice_id
+#: model:ir.ui.menu,name:ssi_partner_data_privacy_consent.partner_consent_notice_menu
+#: model_terms:ir.ui.view,arch_db:ssi_partner_data_privacy_consent.partner_consent_notice_view_form
+msgid "Privacy Notice"
+msgstr "Pemberitahuan Privasi"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__notice_id
+msgid ""
+"Privacy notice version presented to and agreed by the data subject at the "
+"time of this consent event."
+msgstr ""
+"Versi pemberitahuan privasi yang disampaikan kepada dan disetujui oleh subjek data pada saat peristiwa persetujuan ini."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_res_partner_consent__purpose_id
+msgid "Purpose"
+msgstr "Tujuan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__purpose_ids
+msgid "Purposes"
+msgstr "Tujuan"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner__active_consent_purpose_ids
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_users__active_consent_purpose_ids
+msgid ""
+"Purposes whose most recent consent event is a grant. Derived from the "
+"consent log, not stored."
+msgstr ""
+"Tujuan yang peristiwa persetujuan terbarunya adalah pemberian. Diturunkan dari log persetujuan, tidak disimpan."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_user_id
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_user_id
+msgid "Responsible User"
+msgstr "Pengguna Penanggung Jawab"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_state
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status berdasarkan aktivitas\n"
+"Terlambat: Tanggal jatuh tempo sudah lewat\n"
+"Hari ini: Tanggal aktivitas adalah hari ini\n"
+"Terencana: Aktivitas mendatang."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Jenis aktivitas pengecualian pada catatan."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_unread
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_unread
+msgid "Unread Messages"
+msgstr "Pesan yang Belum Dibaca"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Penghitung Pesan yang Belum Dibaca"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__version
+msgid "Version"
+msgstr "Versi"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__version
+msgid "Version identifier of this privacy notice document."
+msgstr "Pengenal versi dokumen pemberitahuan privasi ini."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_notice__website_message_ids
+#: model:ir.model.fields,field_description:ssi_partner_data_privacy_consent.field_partner_consent_purpose__website_message_ids
+msgid "Website Messages"
+msgstr "Pesan Situs Web"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_notice__website_message_ids
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_partner_consent_purpose__website_message_ids
+msgid "Website communication history"
+msgstr "Riwayat komunikasi situs web"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields,help:ssi_partner_data_privacy_consent.field_res_partner_consent__consent_type
+msgid "Whether this event grants or withdraws consent for the purpose."
+msgstr ""
+"Apakah peristiwa ini memberikan atau menarik persetujuan untuk tujuan tersebut."
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model.fields.selection,name:ssi_partner_data_privacy_consent.selection__res_partner_consent__consent_type__withdraw
+msgid "Withdrawn"
+msgstr "Ditarik"
+
+#. module: ssi_partner_data_privacy_consent
+#: model:ir.model,name:ssi_partner_data_privacy_consent.model_res_partner_consent
+msgid "res.partner - Data Privacy Consent"
+msgstr "res.partner - Persetujuan Privasi Data"
